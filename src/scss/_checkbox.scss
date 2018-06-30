@@ -1,0 +1,277 @@
+
+//
+// Checkboxes
+// --------------------------------------------------
+
+
+$font-family-icon: 'FontAwesome' !default;
+$fa-var-check: "\f00c" !default;
+$check-icon: $fa-var-check !default;
+
+@mixin checkbox-variant($parent, $color) {
+  #{$parent} input[type="checkbox"]:checked + label,
+  #{$parent} input[type="radio"]:checked + label {
+    &::before {
+      background-color: $color;
+      border-color: $color;
+    }
+    &::after{
+      color: #fff;
+    }
+  }
+}
+
+@mixin checkbox-variant-indeterminate($parent, $color) {
+  #{$parent} input[type="checkbox"]:indeterminate + label,
+  #{$parent} input[type="radio"]:indeterminate + label {
+    &::before {
+      background-color: $color;
+      border-color: $color;
+    }
+    &::after{
+      background-color: #fff;
+    }
+  }
+}
+
+.checkbox{
+  cursor: default;
+  padding-left: 1.5em;
+
+  label{
+    cursor: pointer;
+    display: inline;
+    vertical-align: top;
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+
+    &::before{
+      cursor: pointer;
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      top: 0;
+      left: 0;
+      margin-left: -1.5em;
+      border: 1px solid $input-border-color;
+      border-radius: 3px;
+      background-color: #fff;
+      @include transition(border 0.15s ease-in-out, color 0.15s ease-in-out);
+    }
+
+    &::after{
+      cursor: pointer;
+      display: inline-block;
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      left: 0.1em;
+      top: 0.2em;
+      margin-left: -1.85em;
+      padding-left: 0;
+      padding-top: 0;
+      font-size: 0.8em;
+      color: $input-color;
+    }
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    position: absolute;
+    margin-left: 0;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 1;
+    left: 0;
+
+    &:focus + label::before{
+      outline: thin dotted;
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+
+    &:checked + label::after{
+      font-family: $font-family-icon;
+      content: $check-icon;
+    }
+
+    &:indeterminate + label::after{
+      display: block;
+      content: "";
+      width: 0.8em;
+      height: 3px;
+      background-color: #555555;
+      border-radius: 2px;
+      margin-left: -1.75em;
+      margin-top: 0.3em;
+    }
+
+    &:disabled + label{
+      opacity: 0.65;
+
+      &::before{
+        background-color: $input-disabled-bg;
+        cursor: not-allowed;
+      }
+
+      &::after{
+        cursor: not-allowed;
+      }
+    }
+
+  }
+
+  &.checkbox-circle label::before{
+    border-radius: 50%;
+  }
+
+  &.checkbox-flat label::before {
+    border-radius: 0;
+  }
+
+  &.checkbox-inline{
+    margin-top: 0;
+  }
+}
+
+@include checkbox-variant('.checkbox-primary', theme-color(primary));
+@include checkbox-variant('.checkbox-danger', theme-color(danger));
+@include checkbox-variant('.checkbox-info', theme-color(info));
+@include checkbox-variant('.checkbox-warning', theme-color(warning));
+@include checkbox-variant('.checkbox-success', theme-color(success));
+
+
+@include checkbox-variant-indeterminate('checkbox-primary', theme-color(primary));
+@include checkbox-variant-indeterminate('checkbox-danger', theme-color(danger));
+@include checkbox-variant-indeterminate('checkbox-info', theme-color(info));
+@include checkbox-variant-indeterminate('checkbox-warning', theme-color(warning));
+@include checkbox-variant-indeterminate('checkbox-success', theme-color(success));
+
+//
+// Radios
+// --------------------------------------------------
+
+@mixin radio-variant($parent, $color) {
+  #{$parent} input[type="radio"]{
+    + label{
+      &::after{
+        background-color: $color;
+      }
+    }
+    &:checked + label{
+      &::before {
+        border-color: $color;
+      }
+      &::after{
+        background-color: $color;
+      }
+    }
+  }
+}
+
+.radio{
+  cursor: default;
+  padding-left: 1.5em;
+
+  label{
+    cursor: pointer;
+    vertical-align: top;
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+
+    &::before{
+      cursor: pointer;
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      top: 0;
+      left: 0;
+      margin-left: -1.5em;
+      border: 1px solid $input-border-color;
+      border-radius: 50%;
+      background-color: #fff;
+      @include transition(border 0.15s ease-in-out);
+    }
+
+    &::after{
+      cursor: pointer;
+      display: inline-block;
+      position: absolute;
+      content: " ";
+      width: calc(1em - 6px);
+      height: calc(1em - 6px);
+      left: 3px;
+      top: 3px;
+      margin-left: -1.5em;
+      border-radius: 50%;
+      background-color: $input-color;
+      transform: scale(0, 0);
+
+      transition: transform .1s cubic-bezier(.8,-0.33,.2,1.33);
+      //curve - http://cubic-bezier.com/#.8,-0.33,.2,1.33
+    }
+  }
+
+  input[type="radio"]{
+    position: absolute;
+    left: 0;
+    margin-left: 0;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 1;
+
+    &:focus + label::before{
+      outline: thin dotted;
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+
+    &:checked + label::after{
+      transform: scale(1, 1);
+    }
+
+    &:disabled + label{
+      opacity: 0.65;
+
+      &::before{
+        cursor: not-allowed;
+      }
+
+      &::after{
+        cursor: not-allowed;
+      }
+    }
+
+  }
+
+  &.radio-inline{
+    margin-top: 0;
+  }
+}
+
+@include radio-variant('.radio-primary', theme-color(primary));
+@include radio-variant('.radio-danger', theme-color(danger));
+@include radio-variant('.radio-info', theme-color(info));
+@include radio-variant('.radio-warning', theme-color(warning));
+@include radio-variant('.radio-success', theme-color(success));
+
+
+// Validation states
+// TODO: keep in sync with bootstrap since strange comment 'redo check markup lol crap'
+.form-check-input {
+  .was-validated &:invalid,
+  &.is-invalid {
+    .checkbox,
+    .radio {
+      label &:before {
+        border-color: $form-feedback-invalid-color;
+      }
+    }
+  }
+}

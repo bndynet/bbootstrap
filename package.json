@@ -1,0 +1,29 @@
+{
+  "name": "bbootstrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-sass src/scss/bbootstrap.scss dist/bbootstrap.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bndynet/bbootstrap.git"
+  },
+  "keywords": [
+    "bootstrap"
+  ],
+  "author": "Bendy Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bndynet/bbootstrap/issues"
+  },
+  "homepage": "https://github.com/bndynet/bbootstrap#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "font-awesome": "^4.7.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0"
+  }
+}
