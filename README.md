@@ -28,23 +28,22 @@ Note: Do not include above components in your project. This project has included
 <script src="dist/js/bbootstrap.min.js"></script>
 ```
 
+## Changes
 
-## Extensions
+### v1.0.0
 
-**Checkbox**
+- Add pretty Checkbox and Radio [[Demo]](https://bndynet.github.io/bbootstrap/)
 
-```html
-<div class="form-check checkbox checkbox-primary">
-    <input class="form-check-input" id="checkbox1" type="checkbox">
-    <label class="form-check-label" for="checkbox1">Check me</label>
-</div>
-```
+    ```html
+    <!-- checkbox -->
+    <div class="form-check checkbox checkbox-primary">
+        <input class="form-check-input" id="checkbox1" type="checkbox">
+        <label class="form-check-label" for="checkbox1">Check me</label>
+    </div>
 
-**Radio**
-
-```html
-<div class="form-check radio radio-primary">
-    <input class="form-check-input" type="radio" name="radio1" id="radio1" value="option1" checked>
-    <label class="form-check-label" for="radio1">Option 1</label>
-</div>
-```
+    <!-- radio -->
+    <div class="form-check radio radio-primary">
+        <input class="form-check-input" type="radio" name="radio1" id="radio1" value="option1" checked>
+        <label class="form-check-label" for="radio1">Option 1</label>
+    </div>
+    ```
