@@ -1,18 +1,27 @@
-# bbootstrap
 
-A set whick includes some useful components.
+    ,-----.   ,--.  ,--. ,------. ,--.   ,--.     ,--.  ,--. ,------. ,--------. 
+    |  |) /_  |  ,'.|  | |  .-.  \ \  `.'  /      |  ,'.|  | |  .---' '--.  .--' 
+    |  .-.  \ |  |' '  | |  |  \  : '.    /       |  |' '  | |  `--,     |  |    
+    |  '--' / |  | `   | |  '--'  /   |  |   .--. |  | `   | |  `---.    |  |    
+    `------'  `--'  `--' `-------'    `--'   '--' `--'  `--' `------'    `--'    
+
+# BBootstrap 
+
+A set which includes some useful components. 
+[Demo](https://bndynet.github.io/bbootstrap/)
 
 ## Components
 
-- jQuery 3.3.1
-- popper.js 1.14.3
-- bootstrap 4.1.1
-- font-awesome 4.7.0
+- [jQuery](http://jquery.com/) 3.3.1
+- [popper.js](https://popper.js.org/) 1.14.3
+- [bootstrap](http://getbootstrap.com) 4.1.1
+- [font-awesome](https://fontawesome.com/) 4.7.0
+- [animate.css](https://daneden.github.io/animate.css/) 3.6.1
 
-Note: Do not include above components. This project has included them.
+Note: Do not include above components in your project. This project has included them.
 
 
-## Browser Usage
+## Quick start
 
 ```html
 <link rel="stylesheet" href="dist/css/bbootstrap.min.css">
