@@ -28,7 +28,7 @@ Note: Do not include above components in your project. This project has included
 <script src="dist/js/bbootstrap.min.js"></script>
 ```
 
-## Changes
+## Changelog
 
 ### v1.0.0
 
