@@ -1,0 +1,59 @@
+var gulp = require('gulp');
+var concat = require('gulp-concat');
+var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
+// var imagemin = require('gulp-imagemin');
+var cleanCSS = require('gulp-clean-css');
+var sourcemaps = require('gulp-sourcemaps');
+var browserify = require('gulp-browserify');
+var del = require('del');
+
+var paths = {
+    scripts: ['src/js/**/*.js', '!src/js/**/*.min.js'],
+    images: 'src/img/**/*',
+    styles: 'src/scss/*.scss',
+    fontFiles: ['node_modules/font-awesome/fonts/*'],
+};
+
+// Not all tasks need to use streams
+// A gulpfile is just another node program and you can use any package available on npm
+gulp.task('clean', function () {
+    // You can use multiple globbing patterns as you would with `gulp.src`
+    return del(['dist']);
+});
+
+gulp.task('static', function() {
+    return gulp.src(paths.fontFiles)
+        .pipe(gulp.dest('dist/fonts'));
+});
+
+gulp.task('scripts', function () {
+    // Minify and copy all JavaScript (except vendor scripts)
+    // with sourcemaps all the way down
+    return gulp.src(paths.scripts)
+        .pipe(browserify())
+        // .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat('bbootstrap.min.js'))
+        // .pipe(sourcemaps.write())
+        .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('styles', function () {
+    return gulp.src(paths.styles)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(cleanCSS({ compatibility: 'ie8', debug: true }, (details) => {
+            console.log(`${details.name}: ${details.stats.originalSize}`);
+            console.log(`${details.name}: ${details.stats.minifiedSize}`);
+        }))
+        .pipe(gulp.dest('dist/css'))
+});
+
+// Rerun the task when a file changes
+gulp.task('watch', function () {
+    gulp.watch(paths.scripts, ['scripts']);
+    gulp.watch(paths.styles, ['styles']);
+});
+
+// The default task (called when you run `gulp` from cli)
+gulp.task('default', ['clean', 'watch', 'static', 'scripts', 'styles']);
