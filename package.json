@@ -12,7 +12,14 @@
     "url": "git+https://github.com/bndynet/bbootstrap.git"
   },
   "keywords": [
-    "bootstrap"
+    "jQuery",
+    "bootstrap",
+    "bootstrap 4",
+    "popper.js",
+    "font-awesome",
+    "animate.css",
+    "checkbox",
+    "radio"
   ],
   "author": "Bendy Zhang",
   "license": "MIT",
