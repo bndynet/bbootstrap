@@ -16826,5 +16826,12 @@ return Popper;
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],4:[function(require,module,exports){
+/*!
+ * BBootstrap v1.0
+ * Copyright (c) 2018 BNDY-NET
+ * Created by Bendy Zhang
+ * http://bndy.net
+ * zb@bndy.net
+ */
 require('bootstrap/dist/js/bootstrap');
 },{"bootstrap/dist/js/bootstrap":1}]},{},[4])

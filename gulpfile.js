@@ -24,7 +24,8 @@ gulp.task('clean', function () {
 
 gulp.task('static', ['clean'], function() {
     return gulp.src(paths.fontFiles)
-        .pipe(gulp.dest('dist/fonts'));
+        .pipe(gulp.dest('dist/fonts'))
+        .pipe(gulp.dest('docs/fonts'));
 });
 
 gulp.task('scripts', ['clean'], function () {
@@ -38,7 +39,8 @@ gulp.task('scripts', ['clean'], function () {
         .pipe(uglify())
         .pipe(concat('bbootstrap.min.js'))
         // .pipe(sourcemaps.write())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('dist/js'))
+        .pipe(gulp.dest('docs/js'));
 });
 
 gulp.task('styles', ['clean'], function () {
@@ -52,6 +54,12 @@ gulp.task('styles', ['clean'], function () {
         }))
         .pipe(concat('bbootstrap.min.css'))
         .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest('docs/css'));
+});
+
+gulp.task('demo', function() {
+    return gulp.src('dist/*/**')
+        .pipe(gulp.dest('docs'));
 });
 
 // Rerun the task when a file changes
