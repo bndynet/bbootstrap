@@ -88,8 +88,7 @@ $check-icon: $fa-var-check !default;
     left: 0;
 
     &:focus + label::before{
-      outline: thin dotted;
-      outline: 5px auto -webkit-focus-ring-color;
+      outline: none;
       outline-offset: -2px;
     }
 
@@ -232,8 +231,7 @@ $check-icon: $fa-var-check !default;
     z-index: 1;
 
     &:focus + label::before{
-      outline: thin dotted;
-      outline: 5px auto -webkit-focus-ring-color;
+      outline: none;
       outline-offset: -2px;
     }
 
