@@ -22,35 +22,41 @@ gulp.task('clean', function () {
     return del(['dist']);
 });
 
-gulp.task('static', function() {
+gulp.task('static', ['clean'], function() {
     return gulp.src(paths.fontFiles)
         .pipe(gulp.dest('dist/fonts'));
 });
 
-gulp.task('scripts', function () {
+gulp.task('scripts', ['clean'], function () {
     // Minify and copy all JavaScript (except vendor scripts)
     // with sourcemaps all the way down
     return gulp.src(paths.scripts)
         .pipe(browserify())
         // .pipe(sourcemaps.init())
+        .pipe(concat('bbootstrap.js'))
+        .pipe(gulp.dest('dist/js'))
         .pipe(uglify())
         .pipe(concat('bbootstrap.min.js'))
         // .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('styles', function () {
+gulp.task('styles', ['clean'], function () {
     return gulp.src(paths.styles)
         .pipe(sass().on('error', sass.logError))
+        .pipe(concat('bbootstrap.css'))
+        .pipe(gulp.dest('dist/css'))
         .pipe(cleanCSS({ compatibility: 'ie8', debug: true }, (details) => {
             console.log(`${details.name}: ${details.stats.originalSize}`);
             console.log(`${details.name}: ${details.stats.minifiedSize}`);
         }))
+        .pipe(concat('bbootstrap.min.css'))
         .pipe(gulp.dest('dist/css'))
 });
 
 // Rerun the task when a file changes
 gulp.task('watch', function () {
+    gulp.watch(paths.fontFiles, ['static']);
     gulp.watch(paths.scripts, ['scripts']);
     gulp.watch(paths.styles, ['styles']);
 });
