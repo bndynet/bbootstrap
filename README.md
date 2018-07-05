@@ -30,9 +30,15 @@ Note: Do not include above components in your project. This project has included
 
 ## Changelog
 
+### v1.0.1
+
+- Add text block styles
+- Add input with feedback styles
+- Enhancement: Show selected file for file input of bootstrap
+
 ### v1.0.0
 
-- Add pretty Checkbox and Radio [[Demo]](https://bndynet.github.io/bbootstrap/)
+- Add pretty Checkbox and Radio
 
     ```html
     <!-- checkbox -->

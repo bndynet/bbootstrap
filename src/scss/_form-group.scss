@@ -1,0 +1,27 @@
+.form-group {
+    position: relative;
+
+    .form-control {
+        & + .form-control-feedback {
+            position: absolute;
+            right: 0;
+            margin-right: 0.75rem;
+            margin-top: -1.5rem;
+        }
+
+        &.form-control-lg + .form-control-feedback {
+            margin-top: -1.8rem;
+        }
+        &.form-control-sm + .form-control-feedback {
+            margin-top: -1.35rem;
+        }
+
+        &.is-valid + .form-control-feedback {
+            color: $form-feedback-valid-color;
+        }
+
+        &.is-invalid + .form-control-feedback {
+            color: $form-feedback-invalid-color;
+        }
+    }
+}

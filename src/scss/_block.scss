@@ -1,0 +1,15 @@
+.block {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin: 0.5rem 0;
+
+    &.block-inline {
+        display: inline-block;
+    }
+    &.block-sm {
+        padding: 0.25rem 0.5rem;
+    }
+    &.block-lg {
+        padding: 0.75rem 1.5rem;
+    }
+}
