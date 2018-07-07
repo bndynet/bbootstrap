@@ -7,6 +7,10 @@ $font-size-base: 0.9rem;
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/font-awesome/scss/font-awesome";
 
+@import "visual";
+@import "status";
 @import "block";
+@import "loading";
+@import "link";
 @import "checkbox";
 @import "form-group";

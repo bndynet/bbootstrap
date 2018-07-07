@@ -1,0 +1,50 @@
+.status {
+    position: relative;
+    &::before,
+    &::after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-family: FontAwesome;
+    }
+    &::before {
+        height: 100%;
+        background-color: rgba($color: #ffffff, $alpha: 0.9);
+    }
+    &::after {
+        top: calc(50% - 1em);
+    }
+    &.status-2x {
+        &::after {
+            font-size: 2em;
+            top: calc(50% - 0.75em);
+        }
+    }
+    &.status-3x {
+        &::after {
+            font-size: 3em;
+            top: calc(50% - 0.75em);
+        }
+    }
+    &.status-loading {
+        &::after {
+            content: $fa-var-spinner;
+            animation: fa-spin 2s infinite linear;
+        }
+    }
+    &.status-ok {
+        &::after {
+            content: $fa-var-check-circle-o;
+            color: $success;
+        }
+    }
+    &.status-error {
+        &::after {
+            content: $fa-var-warning;
+            color: $danger;
+        }
+    }
+}

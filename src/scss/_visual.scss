@@ -1,0 +1,33 @@
+.overflow {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &.overflow-fade {
+        position: relative;
+
+        &::after {
+            content: " ";
+            position: absolute;
+            right: 0;
+            background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+            height: 100%;
+            width: 10em;
+        }
+    }
+
+    &.overflow-fade-v {
+        white-space: normal;
+        position: relative;
+
+        &::after {
+            content: " ";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+            height: 10em;
+            width: 100%;
+        }
+    }
+}

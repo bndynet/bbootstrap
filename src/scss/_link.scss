@@ -1,0 +1,45 @@
+.list-link {
+    & > a {
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 3px;
+    }
+
+    & > a.link-btn {
+        margin: -3px;
+        margin-right: 0;
+    }
+}
+
+.link-btn {
+    display: inline-block;
+    padding: 2px 5px 3px 5px;
+    border-radius: $border-radius;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+@mixin link-variant($theme) {
+    .link-btn-#{$theme} {
+        &:hover,
+        &:not([href]):not([tabindex]):focus, 
+        &:not([href]):not([tabindex]):hover {
+            background-color: theme-color($theme);
+            @if $theme == 'light' {
+                color: #333333;
+            } @else {
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+@include link-variant(primary);
+@include link-variant(danger);
+@include link-variant(info);
+@include link-variant(warning);
+@include link-variant(success);
+@include link-variant(secondary);
+@include link-variant(light);
+@include link-variant(dark);

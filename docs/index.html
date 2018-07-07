@@ -3,7 +3,7 @@
 
 <head lang="en">
     <meta charset="UTF-8">
-    <title>BBootstrap - checkbox demo</title>
+    <title>BBootstrap</title>
     <link rel="stylesheet" href="css/bbootstrap.min.css" />
     <script src="js/bbootstrap.min.js"></script>
     <style>
@@ -36,25 +36,75 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bd-navbar">
+    <header class="navbar navbar-dark bg-dark bd-navbar">
         <a class="navbar-brand" href="#">
             <img src="http://static.bndy.net/images/apple-icon-precomposed.png" width="30" height="30" class="d-inline-block align-top"
                 alt=""> BBootstrap
         </a>
-    </nav>
+        <ul class="navbar-nav ml-md-auto">
+            <li class="nav-item">
+                <a class="nav-link p-2" href="https://github.com/bndynet/bbootstrap" target="_blank" rel="noopener" aria-label="GitHub">
+                    <i class="fa fa-github fa-2x"></i>
+                </a>
+            </li>
+        </ul>
+    </header>
     <div>
         <nav id="side-navs" class="list-group list-group-flush position-fixed">
             <a class="list-group-item">
                 <b>COMPONENTS</b>
             </a>
-            <a class="list-group-item list-group-item-action" href="#checkbox">Checkbox</a>
-            <a class="list-group-item list-group-item-action" href="#radio">Radio</a>
-            <a class="list-group-item list-group-item-action" href="#block">Block</a>
-            <a class="list-group-item list-group-item-action" href="#input-with-feedback">Input with feedback</a>
-            <a class="list-group-item list-group-item-action" href="#file-input">File input</a>
+            <a class="list-group-item list-group-item-action" href="#block">
+                <i class="fa fa-css3 fa-fw"></i>
+                Block
+            </a>
+            <a class="list-group-item list-group-item-action" href="#checkbox">
+                <i class="fa fa-css3 fa-fw"></i>
+                Checkbox
+            </a>
+            <a class="list-group-item list-group-item-action" href="#file-input">
+                <i class="fa fa-css3 fa-fw"></i>
+                File input
+            </a>
+            <a class="list-group-item list-group-item-action" href="#input-with-feedback">
+                <i class="fa fa-css3 fa-fw"></i>
+                Input with feedback</a>
+            <a class="list-group-item list-group-item-action" href="#links">
+                <i class="fa fa-css3 fa-fw"></i>
+                Links</a>
+            <a class="list-group-item list-group-item-action" href="#loading">
+                <i class="fa fa-jsfiddle fa-fw"></i>
+                Loading</a>
+            <a class="list-group-item list-group-item-action" href="#overflow">
+                <i class="fa fa-css3 fa-fw"></i>
+                Overflow</a>
+            <a class="list-group-item list-group-item-action" href="#radio">
+                <i class="fa fa-css3 fa-fw"></i>
+                Radio</a>
+            <a class="list-group-item list-group-item-action" href="#status">
+                <i class="fa fa-css3 fa-fw"></i>
+                Status</a>
+            <a class="list-group-item list-group-item-action" href="#tooltip">
+                <i class="fa fa-jsfiddle fa-fw"></i>
+                Tooltip</a>
         </nav>
 
-        <main class="border-left" data-spy="scroll" data-target="#side-navs" data-offset="0">
+        <main class="border-left" data-spy="scroll" data-target="#side-navs" data-offset="100">
+            <section id="block">
+                <style>
+                    #block .block {
+                        background: #dedede;
+                    }
+                </style>
+                <h2>Block</h2>
+                <div>
+                    <span class="block block-sm block-inline">.block.block-inline.block-sm</span>
+                    <span class="block block-inline">.block.block-inline</span>
+                    <span class="block block-lg block-inline">.block.block-inline.block-lg</span>
+                    <span class="block block-lg">.block.block-lg</span>
+                </div>
+            </section>
+
             <section id="checkbox">
                 <h2>Checkbox</h2>
                 <div>
@@ -282,6 +332,142 @@
                 </div>
             </section>
 
+            <section id="file-input">
+                <h2>File input</h2>
+                <div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </div>
+            </section>
+
+            <section id="input-with-feedback">
+                <h2>Input with feedback</h2>
+                <div>
+                    <div class="form-group">
+                        <input type="text" class="form-control">
+                        <i class="fa fa-spin fa-spinner form-control-feedback"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control is-valid">
+                        <i class="fa fa-check form-control-feedback"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control is-invalid">
+                        <i class="fa fa-times form-control-feedback"></i>
+                    </div>
+                </div>
+            </section>
+
+            <section id="links">
+                <h2>Links</h2>
+                <div>
+                    <div class="list-link">
+                        <a class="text-primary">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <a class="text-info">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a class="text-danger">
+                            <i class="fa fa-remove"></i>
+                        </a>
+                    </div>
+                    <div class="list-link">
+                        <a class="link-btn link-btn-primary">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <a class="link-btn link-btn-info">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a class="link-btn link-btn-danger">
+                            <i class="fa fa-remove"></i>
+                        </a>
+                    </div>
+                    <div class="list-link">
+                        <a class="link-btn link-btn-primary">
+                            <i class="fa fa-plus"></i> Add
+                        </a>
+                        <a class="link-btn link-btn-info">Edit</a>
+                        <a class="link-btn link-btn-danger">Delete</a>
+                        <a class="link-btn link-btn-light">Light</a>
+                        <a class="link-btn link-btn-dark">Dark</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="loading">
+                <h2>Loading</h2>
+                <div>
+                    <button class="btn btn-block btn-primary">Load Data/Cancel</button>
+                    <br />
+                    <div class="row">
+                        <div class="col">
+                            Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                            and get ready to launch your own project.
+                        </div>
+                        <div class="col">
+                            Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                            and get ready to launch your own project.
+                        </div>
+                        <div class="col">
+                            Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                            and get ready to launch your own project.
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $(function () {
+                        var loadingLoadData = false;
+                        $('#loading').on('click', '.btn', function () {
+                            loadingLoadData = !loadingLoadData;
+                            if (loadingLoadData) {
+                                $($('#loading .col')[0]).loading();
+                                $($('#loading .col')[1]).loading('bounce-rectangle', 'primary');
+                                $($('#loading .col')[2]).loading('circle', 'info');
+                            } else {
+                                $($('#loading .col')[0]).loading(false);
+                                $($('#loading .col')[1]).loading(false);
+                                $($('#loading .col')[2]).loading(false);
+                            }
+                        });
+                    });
+                </script>
+            </section>
+
+            <section id="overflow">
+                <h2>Overflow</h2>
+                <div>
+                    <div class="overflow">
+                        <code>class="overflow"</code>
+                        Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                        and get ready to launch your own project.
+                    </div>
+                    <div class="overflow overflow-fade">
+                        <code>class="overflow overflow-fade"</code>
+                        Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                        and get ready to launch your own project.
+                    </div>
+                    <hr />
+                    <div style="height: 150px;" class="overflow overflow-fade-v">
+                        <code>class="overflow overflow-fade-v"</code>
+                        Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                        and get ready to launch your own project. Learn more about the world of open source and get ready
+                        to launch your own project. Learn more about the world of open source and get ready to launch your
+                        own project. Learn more about the world of open source and get ready to launch your own project.
+                        Learn more about the world of open source and get ready to launch your own project. Learn more about
+                        the world of open source and get ready to launch your own project. Learn more about the world of
+                        open source and get ready to launch your own project. Learn more about the world of open source and
+                        get ready to launch your own project. Learn more about the world of open source and get ready to
+                        launch your own project. Learn more about the world of open source and get ready to launch your own
+                        project. Learn more about the world of open source and get ready to launch your own project. Learn
+                        more about the world of open source and get ready to launch your own project. Learn more about the
+                        world of open source and get ready to launch your own project.
+                    </div>
+                </div>
+            </section>
+
             <section id="radio">
                 <h2>Radio</h2>
                 <div>
@@ -389,48 +575,48 @@
                 </div>
             </section>
 
-            <section id="block">
-                <style>
-                    #block .block {
-                        background: #dedede;
-                    }
-                </style>
-                <h2>Block</h2>
+            <section id="status">
+                <h2>Status</h2>
                 <div>
-                    <span class="block block-sm block-inline">.block.block-inline.block-sm</span>
-                    <span class="block block-inline">.block.block-inline</span>
-                    <span class="block block-lg block-inline">.block.block-inline.block-lg</span>
-                    <span class="block block-lg">.block.block-lg</span>
-                </div>
-            </section>
-
-            <section id="input-with-feedback">
-                <h2>Input with feedback</h2>
-                <div>
-                    <div class="form-group">
-                        <input type="text" class="form-control">
-                        <i class="fa fa-spin fa-spinner form-control-feedback"></i>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control is-valid">
-                        <i class="fa fa-check form-control-feedback"></i>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control is-invalid">
-                        <i class="fa fa-times form-control-feedback"></i>
+                    <div class="row">
+                        <div class="col status status-loading status-3x">
+                            Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                            and get ready to launch your own project.
+                        </div>
+                        <div class="col status status-ok status-2x">
+                            Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                            and get ready to launch your own project.
+                        </div>
+                        <div class="col status status-error">
+                            Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                            and get ready to launch your own project.
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section id="file-input">
-                <h2>File input</h2>
-                <div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
+            <section id="tooltip">
+                <h2>Tooltip</h2>
+                <div class="text-center">
+                    <button class="btn btn-primary" data-tooltip-placement="left">Tooltip Left</button>
+                    <button class="btn btn-primary" data-tooltip-placement="top">Tooltip Top</button>
+                    <button class="btn btn-primary" data-tooltip-placement="bottom">Tooltip Bottom</button>
+                    <button class="btn btn-primary" data-tooltip-placement="right">Tooltip Right</button>
                 </div>
+                <script>
+                    $('#tooltip').on('click', '.btn', function () {
+                        var tooltipShow = $(this).data('tooltip-show') || false;
+                        tooltipShow = !tooltipShow;
+                        $(this).data('tooltip-show', tooltipShow);
+                        if (tooltipShow) {
+                            $(this).btooltip('This is a tooltip', $(this).data('tooltip-placement'));
+                        } else {
+                            $(this).btooltip(false);
+                        }
+                    });
+                </script>
             </section>
+
         </main>
     </div>
     <script type="text/javascript">

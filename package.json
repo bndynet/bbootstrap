@@ -1,6 +1,6 @@
 {
   "name": "@bndynet/bbootstrap",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/bndynet/bbootstrap#readme",
   "dependencies": {
+    "@bndynet/jslib": "^1.0.55",
     "animate.css": "^3.6.1",
     "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",
@@ -35,7 +36,6 @@
     "popper.js": "^1.14.3"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-banner": "^0.1.3",
