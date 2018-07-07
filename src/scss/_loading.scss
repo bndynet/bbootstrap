@@ -176,3 +176,11 @@
 @include loading-variant(secondary);
 @include loading-variant(light);
 @include loading-variant(dark);
+
+.loading-wrapper {
+    background-color: rgba($white, 0.8);
+}
+
+body > .loading-wrapper {
+    background-color: rgba($white, 0.5);
+}

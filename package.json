@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/bndynet/bbootstrap#readme",
   "dependencies": {
-    "@bndynet/jslib": "^1.0.55",
+    "@bndynet/jslib": "^2.0.0",
     "animate.css": "^3.6.1",
     "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",

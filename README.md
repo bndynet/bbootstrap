@@ -17,7 +17,7 @@ A set which includes some useful components.
 - [bootstrap](http://getbootstrap.com) 4.1.1
 - [font-awesome](https://fontawesome.com/) 4.7.0
 - [animate.css](https://daneden.github.io/animate.css/) 3.6.1
-- [jslib](https://github.com/bndynet/jslib) v1.0.55
+- [jslib](https://github.com/bndynet/jslib) v2.0.0
 
 Note: Do not include above components in your project. This project has included them.
 
@@ -36,6 +36,15 @@ Note: Do not include above components in your project. This project has included
 
 - Add styles about overflow
 - Add styles about status and loading
+    ```js
+    // loading for full screen
+    $.bloading();
+    $.bloading(false);
+    // loading for specific element
+    $('#id').bloading('bounce-rectangle', 'primary');
+    $('#id').bloading('circle', 'info');
+    $('#id').bloading(false);
+    ```
 - Add styles about link and link list
 - Add tooltip via JavaScript
     ```js

@@ -78,6 +78,9 @@
             <a class="list-group-item list-group-item-action" href="#overflow">
                 <i class="fa fa-css3 fa-fw"></i>
                 Overflow</a>
+            <a class="list-group-item list-group-item-action" href="#overlay">
+                <i class="fa fa-jsfiddle fa-fw"></i>
+                Overlay</a>
             <a class="list-group-item list-group-item-action" href="#radio">
                 <i class="fa fa-css3 fa-fw"></i>
                 Radio</a>
@@ -400,7 +403,8 @@
             <section id="loading">
                 <h2>Loading</h2>
                 <div>
-                    <button class="btn btn-block btn-primary">Load Data/Cancel</button>
+                    <button class="btn1 btn btn-block btn-primary">Page Loading</button>
+                    <button class="btn2 btn btn-block btn-secondary">Load Data/Cancel</button>
                     <br />
                     <div class="row">
                         <div class="col">
@@ -419,17 +423,20 @@
                 </div>
                 <script>
                     $(function () {
+                        $('#loading').on('click', '.btn1', function () { 
+                            $.bloading();
+                        });
                         var loadingLoadData = false;
-                        $('#loading').on('click', '.btn', function () {
+                        $('#loading').on('click', '.btn2', function () {
                             loadingLoadData = !loadingLoadData;
                             if (loadingLoadData) {
-                                $($('#loading .col')[0]).loading();
-                                $($('#loading .col')[1]).loading('bounce-rectangle', 'primary');
-                                $($('#loading .col')[2]).loading('circle', 'info');
+                                $($('#loading .col')[0]).bloading();
+                                $($('#loading .col')[1]).bloading('bounce-rectangle', 'primary');
+                                $($('#loading .col')[2]).bloading('circle', 'info');
                             } else {
-                                $($('#loading .col')[0]).loading(false);
-                                $($('#loading .col')[1]).loading(false);
-                                $($('#loading .col')[2]).loading(false);
+                                $($('#loading .col')[0]).bloading(false);
+                                $($('#loading .col')[1]).bloading(false);
+                                $($('#loading .col')[2]).bloading(false);
                             }
                         });
                     });
@@ -466,6 +473,30 @@
                         world of open source and get ready to launch your own project.
                     </div>
                 </div>
+            </section>
+
+            <section id="overlay">
+                <h2>Overlay</h2>
+                <div>
+                    <div class="btn btn-primary d-block">Toggle Overlay</div>
+                </div>
+                <script>
+                    $(function(){
+                        var overlayShow = false;
+                        $('#overlay').on('click', '.btn', function() {
+                            overlayShow = !overlayShow;
+                            if (overlayShow) {
+                                $.boverlay();
+                            }  else {
+                                $.boverlay(false);
+                            }
+                        });
+                        $('body').on('click', '.overlay', function() {
+                            overlayShow = !overlayShow;
+                            $.boverlay(false);
+                        })
+                    });
+                </script>
             </section>
 
             <section id="radio">

@@ -3,8 +3,26 @@
 //=require bootstrap/dist/js/bootstrap.js
 //=require @bndynet/jslib/dist/jslib.min.js
 
+$.extend({
+    boverlay: function(destory) {
+        if (destory === false) {
+            $('body').removeClass('has-overlay').find('> .overlay').remove();
+            return;
+        }
+        var eleOverlay = '<div class="overlay"></div>';
+        $('body').addClass('has-overlay').append(eleOverlay);
+    },
+    bloading: function(destory) {
+        if (destory === false) {
+            $('body').removeClass('has-overlay').find('> .overlay').remove();
+            return;
+        }
+        $('body').addClass('has-overlay').bloading();
+    },
+});
+
 $.fn.extend({
-    loading: function(destoryOrloadingStyle, theme) {
+    bloading: function(destoryOrloadingStyle, theme) {
         if (destoryOrloadingStyle === false) {
             $(this).cover(false);
             return;
@@ -61,6 +79,7 @@ $.fn.extend({
         });
         $(this).tooltip('show');
     },
+
 });
 
 
