@@ -33,13 +33,23 @@
             overflow: scroll;
         }
     </style>
+    <script>
+        $(function(){
+            bbootstrap.setup({
+                pace: {
+                    color: '#00ff00',
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
     <header class="navbar navbar-dark bg-dark bd-navbar">
         <a class="navbar-brand" href="#">
             <img src="http://static.bndy.net/images/apple-icon-precomposed.png" width="30" height="30" class="d-inline-block align-top"
-                alt=""> BBootstrap
+                alt="">
+            BBootstrap
         </a>
         <ul class="navbar-nav ml-md-auto">
             <li class="nav-item">
@@ -103,9 +113,10 @@
                     <button id="btnAlert" class="btn btn-light">Alert</button>
                     <button id="btnConfirm" class="btn btn-light">Confirm</button>
                     <button id="btnPrompt" class="btn btn-light">Prompt</button>
+                    <br /><br />
                     <button id="btnNotification" class="btn btn-light">Notify</button>
-                    <button id="btnSuccessNotification" class="btn btn-light">Success Notification</button>
-                    <button id="btnErrorNotification" class="btn btn-light">Error Notification</button>
+                    <button id="btnSuccessNotification" class="btn btn-success">Success Notification</button>
+                    <button id="btnErrorNotification" class="btn btn-danger">Error Notification</button>
                     <button id="btnPositionNotification" class="btn btn-light">Change Notification Position</button>
                     <button id="btnFixedNotification" class="btn btn-light">Fixed Notification</button>
                 </div>
@@ -466,6 +477,7 @@
             <section id="loading">
                 <h2>Loading</h2>
                 <div>
+                    <button class="btn0 btn btn-block btn-primary">Ajax Request</button>
                     <button class="btn1 btn btn-block btn-primary">Page Loading</button>
                     <button class="btn2 btn btn-block btn-secondary">Load Data/Cancel</button>
                     <br />
@@ -486,6 +498,9 @@
                 </div>
                 <script>
                     $(function () {
+                        $('#loading').on('click', '.btn0', function () { 
+                            $.get('?' + generateRandomAlphaNum(10));
+                        });
                         $('#loading').on('click', '.btn1', function () { 
                             $.bloading();
                         });

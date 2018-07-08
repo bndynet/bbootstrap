@@ -18,6 +18,7 @@ A set which includes some useful components.
 - [font-awesome](https://fontawesome.com/) 4.7.0
 - [animate.css](https://daneden.github.io/animate.css/) 3.6.1
 - [jslib](https://github.com/bndynet/jslib) v2.0.0
+- [pace.js](https://github.com/HubSpot/pace) v1.0.2
 
 Note: Do not include above components in your project. This project has included them.
 
@@ -27,6 +28,26 @@ Note: Do not include above components in your project. This project has included
 ```html
 <link rel="stylesheet" href="dist/css/bbootstrap.min.css">
 <script src="dist/js/bbootstrap.min.js"></script>
+<script>
+    // Optional, Global Settings
+    bbootstrap.set({
+        alertify: {
+            okLabel: 'Ok',
+            cancelLabel: 'Cancel',
+            maxNotifications: 2,
+            promptValue: '',
+            promptPlaceholder: '',
+            promptLabel: '',
+            closeNotificationOnClick: false,
+            delay: 5000,
+            customeClass: '',
+            notificationPosition: "bottom right",
+        },
+        pace: {
+            color:  '#ff0000',
+        },
+    });
+</script>
 ```
 
 ## Changelog
@@ -38,23 +59,10 @@ Note: Do not include above components in your project. This project has included
     alertify.alert('message');
     alertify.confirm('message', fnOK [,fnCancel]);
     alertify.notify|success|error('message' [, fnCallback]);
-    // options
-    alertify.set({
-        okLabel: 'Ok',
-        cancelLabel: 'Cancel',
-        maxNotifications: 2,
-        promptValue: '',
-        promptPlaceholder: '',
-        promptLabel: '',
-        closeNotificationOnClick: false,
-        delay: 5000,
-        customeClass: '',
-        notificationPosition: "bottom right",
-        onOkay: $.noop,
-        onCancel: $.noop,
-    });
     ```
-- TODO: progress bar on page
+- Add automatic page load progress bar for ajax request, document loading and so on
+- Add method `bbootstrap.set({})` for configurating global settings
+
 
 ### v1.0.2
 

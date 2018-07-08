@@ -84,11 +84,6 @@ gulp.task('styles', ['clean'], function () {
         .pipe(gulp.dest('docs/css'));
 });
 
-gulp.task('demo', function () {
-    return gulp.src('dist/*/**')
-        .pipe(gulp.dest('docs'));
-});
-
 gulp.task('watch', function () {
     gulp.watch(paths.fontFiles, ['static']);
     gulp.watch(paths.scripts, ['scripts']);

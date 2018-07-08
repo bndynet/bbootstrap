@@ -1,6 +1,6 @@
 {
   "name": "@bndynet/bbootstrap",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.",
   "main": "index.js",
   "scripts": {
@@ -18,8 +18,13 @@
     "popper.js",
     "font-awesome",
     "animate.css",
+    "jslib",
+    "pace.js",
     "checkbox",
-    "radio"
+    "radio",
+    "alertify",
+    "notification",
+    "progress bar"
   ],
   "author": "Bendy Zhang",
   "license": "MIT",
@@ -33,6 +38,7 @@
     "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
+    "pace-js": "^1.0.2",
     "popper.js": "^1.14.3"
   },
   "devDependencies": {
@@ -42,6 +48,7 @@
     "gulp-clean-css": "^3.9.4",
     "gulp-concat": "^2.6.1",
     "gulp-include": "^2.3.1",
+    "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
