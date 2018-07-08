@@ -14,7 +14,7 @@
             defaultOptions: {
                 okLabel: 'Ok',
                 cancelLabel: 'Cancel',
-                maxLogItems: 2,
+                maxNotifications: 2,
                 promptValue: '',
                 promptPlaceholder: '',
                 promptLabel: '',
@@ -140,7 +140,7 @@
                 options = self.getOptions(options);
                 var existing = $('.' + NOTIFICATIONS_CONTAINER_CLASS + ' > div');
                 if (existing) {
-                    var diff = existing.length - options.maxNotificationItems;
+                    var diff = existing.length - options.maxNotifications;
                     if (diff >= 0) {
                         for (var i = 0, _i = diff + 1; i < _i; i++) {
                             this.closeNotification(existing[i], -1);

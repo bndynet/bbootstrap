@@ -31,6 +31,30 @@ Note: Do not include above components in your project. This project has included
 
 ## Changelog
 
+### v1.0.3
+
+- Add alertify component
+    ```js
+    alertify.alert('message');
+    alertify.confirm('message', fnOK [,fnCancel]);
+    alertify.notify|success|error('message' [, fnCallback]);
+    // options
+    alertify.set({
+        okLabel: 'Ok',
+        cancelLabel: 'Cancel',
+        maxNotifications: 2,
+        promptValue: '',
+        promptPlaceholder: '',
+        promptLabel: '',
+        closeNotificationOnClick: false,
+        delay: 5000,
+        customeClass: '',
+        notificationPosition: "bottom right",
+        onOkay: $.noop,
+        onCancel: $.noop,
+    });
+    ```
+- TODO: progress bar on page
 
 ### v1.0.2
 
