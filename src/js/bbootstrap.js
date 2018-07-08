@@ -2,6 +2,7 @@
 //=require popper.js/dist/umd/popper.js
 //=require bootstrap/dist/js/bootstrap.js
 //=require @bndynet/jslib/dist/jslib.min.js
+//=require _alertify.js
 
 $.extend({
     boverlay: function(destory) {
