@@ -8,6 +8,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var include = require('gulp-include');
 var banner = require('gulp-banner');
 var del = require('del');
+var replace = require('gulp-replace');
 
 var paths = {
     scripts: 'src/js/**/*.js',
@@ -38,6 +39,7 @@ gulp.task('static', ['clean'], function () {
 
 gulp.task('scripts', ['clean'], function () {
     return gulp.src('src/js/bbootstrap.js')
+        .pipe(replace('{{bbootstrap-version}}', pkg.version))
         .pipe(banner(comment, {
             pkg: pkg
         }))

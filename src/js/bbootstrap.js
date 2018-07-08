@@ -8,7 +8,7 @@
 
 // setup
 bbootstrap = {
-    version: '{{version}}',
+    version: '{{bbootstrap-version}}',
     setup: function(options) {
 
         // alertify
