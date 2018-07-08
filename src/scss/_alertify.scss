@@ -1,0 +1,130 @@
+$box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
+$space-base: $spacer;
+$border-radius: $border-radius;
+
+.alertify-dialog {
+    position: fixed;
+    background-color: rgba(0, 0, 0, .3);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    box-sizing: border-box;
+    * {
+        box-sizing: border-box;
+    }
+    &.hide {
+        opacity: 0;
+        pointer-events: none;
+    }
+    &.show {
+        transition: all .33s cubic-bezier(.25, .8, .25, 1);
+    }
+    .dialog {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 15px;
+        width: 400px;
+        max-width: 95%;
+        margin: 0 auto;
+        padding: $space-base;
+        border-radius: $border-radius;
+        background: #fff;
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .14), 0 4px 5px 0 rgba(0, 0, 0, .098), 0 1px 10px 0 rgba(0, 0, 0, .084);
+        .dialog-text {
+            margin-bottom: $space-base;
+            text-align: left;
+        }
+        .dialog-input {
+            margin-bottom: $space-base;
+        }
+        nav {
+            text-align: right;
+            button.btn {
+                margin-left: $space-base / 2;
+            }
+        }
+    }
+}
+
+.alertify-notifications {
+    position: fixed;
+    z-index: 99999;
+    &.bottom,
+    &:not(.top) {
+        bottom: $space-base;
+    }
+    &.left,
+    &:not(.right) {
+        left: $space-base;
+        &>* {
+            float: left;
+            transform: translate3d(0, 0, 0);
+            height: auto;
+            &.show {
+                left: 0;
+            }
+            &,
+            &.hide {
+                left: -110%;
+            }
+        }
+    }
+    &.right {
+        right: $space-base;
+        &>* {
+            float: right;
+            transform: translate3d(0, 0, 0);
+            &.show {
+                right: 0;
+                opacity: 1;
+            }
+            &,
+            &.hide {
+                right: -110%;
+                opacity: 0;
+            }
+        }
+    }
+    &.top {
+        top: 0;
+    }
+    &>* {
+        padding: $space-base;
+        color: #fff;
+        box-shadow: $box-shadow;
+        border-radius: $border-radius;
+        display: block !important;
+        box-sizing: border-box;
+        transition: all .4s cubic-bezier(.25, .8, .25, 1);
+        position: relative;
+        clear: both;
+        backface-visibility: hidden;
+        perspective: 1000;
+        max-height: 0;
+        min-width: 160px;
+        margin: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        &.show {
+            margin-top: $space-base;
+            opacity: 1;
+            max-height: 1000px;
+            pointer-events: auto;
+        }
+        &.default {
+            background: rgba($dark, 0.9);
+        }
+        &.error {
+            background: rgba($danger, 0.9);
+        }
+        &.success {
+            background: rgba($success, 0.9);
+        }
+    }
+}

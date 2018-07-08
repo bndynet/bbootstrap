@@ -6,6 +6,7 @@
     <title>BBootstrap</title>
     <link rel="stylesheet" href="css/bbootstrap.min.css" />
     <script src="js/bbootstrap.min.js"></script>
+    <script src="../src/js/alertify.js"></script>
     <style>
         section {
             padding: 30px 0 15px 0;
@@ -54,6 +55,10 @@
             <a class="list-group-item">
                 <b>COMPONENTS</b>
             </a>
+            <a class="list-group-item list-group-item-action" href="#alertify">
+                <i class="fa fa-jsfiddle fa-fw"></i>
+                Alertify
+            </a>
             <a class="list-group-item list-group-item-action" href="#block">
                 <i class="fa fa-css3 fa-fw"></i>
                 Block
@@ -93,6 +98,65 @@
         </nav>
 
         <main class="border-left" data-spy="scroll" data-target="#side-navs" data-offset="100">
+            <section id="alertify">
+                <h2>Alertify</h2>
+                <div>
+                    <button id="btnAlert" class="btn btn-light">Alert</button>
+                    <button id="btnConfirm" class="btn btn-light">Confirm</button>
+                    <button id="btnPrompt" class="btn btn-light">Prompt</button>
+                    <button id="btnNotification" class="btn btn-light">Notify</button>
+                    <button id="btnSuccessNotification" class="btn btn-light">Success Notification</button>
+                    <button id="btnErrorNotification" class="btn btn-light">Error Notification</button>
+                    <button id="btnPositionNotification" class="btn btn-light">Change Notification Position</button>
+                    <button id="btnFixedNotification" class="btn btn-light">Fixed Notification</button>
+                </div>
+                <script>
+                    $(function(){
+                        $('#alertify #btnAlert').click(function() {
+                            alertify.alert('Alert', function() {
+                                alertify.success('Ok');
+                            });
+                        });
+                        $('#alertify #btnConfirm').click(function() {
+                            alertify.confirm('Confirm', function() {
+                                alertify.success('Ok');
+                            }, function() {
+                                alertify.notify('Cancel');
+                            });
+                        });
+                        $('#alertify #btnPrompt').click(function() {
+                            alertify.prompt('Prompt', function(val) {
+                                alertify.success(val);
+                            });
+                        });
+                        $('#alertify #btnNotification').click(function() {
+                            var msg = "<img src='https://placehold.it/256x128'>" +
+                                "<h3>This is HTML</h3>" +
+                                "<p>It's great, right?</p>";
+                            alertify.notify(msg, 30000);
+                        });
+                        $('#alertify #btnSuccessNotification').click(function() {
+                            alertify.success('Success');
+                        });
+                        $('#alertify #btnErrorNotification').click(function() {
+                            alertify.error('<i class="fa fa-warning"></i> Error');
+                        });
+                        $('#alertify #btnPositionNotification').click(function() {
+                            alertify.set({
+                                notificationPosition: 'bottom left',
+                            });
+                            alertify.success('Position Changed');
+                        });
+                        $('#alertify #btnFixedNotification').click(function() {
+                            alertify.set({
+                                delay: 0,
+                            });
+                            alertify.notify('Fixed Notification');
+                        });
+                    });
+                </script>
+            </section>
+
             <section id="block">
                 <style>
                     #block .block {
