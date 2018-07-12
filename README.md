@@ -5,7 +5,9 @@
     |  '--' / |  | `   | |  '--'  /   |  |   .--. |  | `   | |  `---.    |  |    
     `------'  `--'  `--' `-------'    `--'   '--' `--'  `--' `------'    `--'    
 
-# BBootstrap 
+# Bbootstrap
+
+![](https://img.shields.io/npm/v/@bndynet/bbootstrap.svg)
 
 A set which includes some useful components. 
 [Demo](https://bndynet.github.io/bbootstrap/)
@@ -52,7 +54,7 @@ Note: Do not include above components in your project. This project has included
 
 ## Changelog
 
-### v1.0.3
+### v1.1.0
 
 - Add alertify component
     ```js

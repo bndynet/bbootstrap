@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.0.3
+ * @bndynet/bbootstrap v1.1.0
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -17204,7 +17204,7 @@ $.fn.extend({
 
 // setup
 bbootstrap = {
-    version: '1.0.3',
+    version: '1.1.0',
     setup: function(options) {
 
         // alertify
