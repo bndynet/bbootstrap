@@ -10,20 +10,37 @@
         section {
             padding: 30px 0 15px 0;
         }
-
-        section h2+div {
-            border: solid #f8f9fa .2rem;
-            border-radius: 5px;
-            padding: 1rem;
-        }
-
         section:last-child {
             border-bottom: none;
         }
 
+        section h2 {
+            margin-bottom: 1rem; 
+        }
+        section h2+div {
+            position: relative;
+            border: solid #f8f9fa .2rem;
+            border-radius: 5px;
+            padding: 2rem;
+        }
+        section h2+div .print {
+            position: absolute;
+            top: -.2rem;
+            right: -.2rem;
+            display: inline-block;
+            padding: 3px 8px;
+            background: #f8f9fa;
+            font-size: 0.8em;
+            cursor: pointer;
+            border-radius: 0 5px 0 5px;
+        }
+        .print:hover {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
         #side-navs {
             width: 260px;
-            margin-top: 15px;
         }
 
         main {
@@ -40,6 +57,13 @@
                 pace: {
                     color: '#00ff00',
                 }
+            });
+
+            $('section').each(function(){
+                $(this).find('> div').prepend('<div class="print">Print Code to Console</div>')
+            });
+            $('section').on('click', '.print', function(){
+                console.log($(this).closest('section').html());
             });
         });
     </script>
