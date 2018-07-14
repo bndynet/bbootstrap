@@ -236,29 +236,43 @@
                     onCancel: onCancel
                 }) || this;
             },
-            notify: function (message, click) {
+            notify: function (message, click, type) {
                 _alertify.notify({
                     message: message,
-                    type: 'default',
+                    type: type || 'default',
                     notificationClick: click,
                 });
                 return this;
             },
             success: function (message, click) {
-                _alertify.notify({
-                    message: message,
-                    type: 'success',
-                    notificationClick: click
-                });
-                return this;
+                return this.notify(message, click, 'success');
             },
             error: function (message, click) {
-                _alertify.notify({
-                    message: message,
-                    type: 'error',
-                    notificationClick: click
-                });
-                return this;
+                return this.notify(message, click, 'error');
+            },
+            primary: function(message, click) {
+                return this.notify(message, click, 'primary');
+            },
+            secondary: function(message, click) {
+                return this.notify(message, click, 'secondary');
+            },
+            info: function(message, click) {
+                return this.notify(message, click, 'info');
+            },
+            warning: function(message, click) {
+                return this.notify(message, click, 'warning');
+            },
+            warn: function (message, click) {
+                return this.notify(message, click, 'warn');
+            },
+            danger: function(message, click) {
+                return this.notify(message, click, 'danger');
+            },
+            dark: function(message, click) {
+                return this.notify(message, click, 'dark');
+            },
+            light: function(message, click) {
+                return this.notify(message, click, 'light');
             },
         };
     }

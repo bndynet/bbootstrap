@@ -7,7 +7,8 @@
 
 # Bbootstrap
 
-![](https://img.shields.io/npm/v/@bndynet/bbootstrap.svg)
+![npm](https://img.shields.io/npm/v/@bndynet/bbootstrap.svg)
+![npm](https://img.shields.io/npm/dt/@bndynet/bbootstrap.svg)
 
 A set which includes some useful components. 
 [Demo](https://bndynet.github.io/bbootstrap/)
@@ -31,7 +32,7 @@ Note: Do not include above components in your project. This project has included
 <link rel="stylesheet" href="dist/css/bbootstrap.min.css">
 <script src="dist/js/bbootstrap.min.js"></script>
 <script>
-    // Optional, Global Settings
+    // Optional, you can be selective to override items.
     bbootstrap.set({
         alertify: {
             okLabel: 'Ok',
@@ -46,13 +47,19 @@ Note: Do not include above components in your project. This project has included
             notificationPosition: "bottom right",
         },
         pace: {
-            color:  '#ff0000',
+            theme: 'primary|secondary|success|info|warning|danger|dark|light',  // theme in bootstrap, or
+            color:  '#ff0000',  
         },
     });
 </script>
 ```
 
 ## Changelog
+
+### v1.1.1
+
+- Add themes support for pace via `bbootstrap.set({pace: {theme: 'theme in bootstrap'}}}`
+- The page loading progress will not be displayed by default, unless you set `color` or `theme` of `pace`
 
 ### v1.1.0
 
