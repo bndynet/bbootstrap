@@ -1,5 +1,5 @@
 // `pace-theme-flash` styles for pace.js
-$pace-color: $info;
+$pace-color: transparent; 
 .pace {
     -webkit-pointer-events: none;
     pointer-events: none;
@@ -106,4 +106,19 @@ $pace-color: $info;
         transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+
+@mixin pace-variant($theme, $color) {
+    .pace.pace-#{$theme} {
+        .pace-progress {
+            background: $color;
+        }
+        .pace-activity {
+            border-top-color: $color;
+            border-left-color: $color;
+        }
+    }
+}
+@each $theme, $color in $theme-colors {
+    @include pace-variant($theme, $color);
 }

@@ -55,7 +55,7 @@
             $('.version').html('v' + bbootstrap.version);
             bbootstrap.setup({
                 pace: {
-                    color: '#00ff00',
+                    theme: 'light',
                 }
             });
 
@@ -139,12 +139,23 @@
                     <button id="btnAlert" class="btn btn-light">Alert</button>
                     <button id="btnConfirm" class="btn btn-light">Confirm</button>
                     <button id="btnPrompt" class="btn btn-light">Prompt</button>
-                    <br /><br />
+                    <br />
+                    <br />
                     <button id="btnNotification" class="btn btn-light">Notify</button>
-                    <button id="btnSuccessNotification" class="btn btn-success">Success Notification</button>
-                    <button id="btnErrorNotification" class="btn btn-danger">Error Notification</button>
-                    <button id="btnPositionNotification" class="btn btn-light">Change Notification Position</button>
-                    <button id="btnFixedNotification" class="btn btn-light">Fixed Notification</button>
+                    <button id="btnSuccessNotification" class="btn btn-success">Success</button>
+                    <button id="btnErrorNotification" class="btn btn-danger">Error</button>
+                    <button id="btnPositionNotification" class="btn btn-light">Change Position</button>
+                    <button id="btnFixedNotification" class="btn btn-light">Fixed</button>
+                    <br />
+                    <br />
+                    <button class="for-theme btn btn-primary">Primary</button>
+                    <button class="for-theme btn btn-secondary">Secondary</button>
+                    <button class="for-theme btn btn-success">Success</button>
+                    <button class="for-theme btn btn-info">Info</button>
+                    <button class="for-theme btn btn-warning">Warning</button>
+                    <button class="for-theme btn btn-danger">Danger</button>
+                    <button class="for-theme btn btn-dark">Dark</button>
+                    <button class="for-theme btn btn-light">Light</button>
                 </div>
                 <script>
                     $(function(){
@@ -188,6 +199,10 @@
                                 delay: 0,
                             });
                             alertify.notify('Fixed Notification');
+                        });
+                        $('#alertify .for-theme').click(function() {
+                            var s = $(this).text().toLowerCase();
+                            eval('alertify.' + s + '("alertify.' + s + '(your-message)");');
                         });
                     });
                 </script>
@@ -525,7 +540,7 @@
                 <script>
                     $(function () {
                         $('#loading').on('click', '.btn0', function () { 
-                            $.get('?' + generateRandomAlphaNum(10));
+                            $.get('https://api.github.com/users/bndynet/events?' + generateRandomAlphaNum(10));
                         });
                         $('#loading').on('click', '.btn1', function () { 
                             $.bloading();

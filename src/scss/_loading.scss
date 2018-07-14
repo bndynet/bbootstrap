@@ -72,26 +72,6 @@
     }
 }
 
-@mixin loading-variant($theme) {
-    .loading { 
-        &.loading-#{$theme} {
-            &.loading-bounce,
-            &.loading-bounce-rectangle {
-                & > div {
-                    background-color: theme-color($theme);
-                }
-            }
-            &.loading-circle {
-                .loading-circle-child {
-                    &::before {
-                        background-color: theme-color($theme);
-                    }
-                }
-            }
-        }
-    }
-}
-
 .loading {
     margin: 0 auto;
     text-align: center;
@@ -167,20 +147,33 @@
         }
     }
 }
-
-@include loading-variant(primary);
-@include loading-variant(danger);
-@include loading-variant(info);
-@include loading-variant(warning);
-@include loading-variant(success);
-@include loading-variant(secondary);
-@include loading-variant(light);
-@include loading-variant(dark);
-
 .loading-wrapper {
     background-color: rgba($white, 0.8);
 }
 
 body > .loading-wrapper {
     background-color: rgba($white, 0.5);
+}
+
+@mixin loading-variant($theme, $color) {
+    .loading { 
+        &.loading-#{$theme} {
+            &.loading-bounce,
+            &.loading-bounce-rectangle {
+                & > div {
+                    background-color: $color;
+                }
+            }
+            &.loading-circle {
+                .loading-circle-child {
+                    &::before {
+                        background-color: $color;
+                    }
+                }
+            }
+        }
+    }
+}
+@each $theme, $color in $theme-colors {
+    @include loading-variant($theme, $color);
 }

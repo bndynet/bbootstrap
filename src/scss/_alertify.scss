@@ -95,7 +95,6 @@ $border-radius: $border-radius;
     }
     &>* {
         padding: $space-base;
-        color: #fff;
         box-shadow: $box-shadow;
         border-radius: $border-radius;
         display: block !important;
@@ -119,12 +118,27 @@ $border-radius: $border-radius;
         }
         &.default {
             background: rgba($dark, 0.9);
+            color: #fff;
         }
         &.error {
             background: rgba($danger, 0.9);
+            color: #fff;
         }
         &.success {
             background: rgba($success, 0.9);
+            color: #fff;
         }
     }
+}
+
+@mixin alertify-variant($theme, $color) {
+    .alertify-notifications {
+        & > .#{$theme} {
+            background: rgba($color, 0.9);
+            color: color-yiq($color);
+        }
+    }
+}
+@each $theme, $color in $theme-colors {
+    @include alertify-variant($theme, $color);
 }

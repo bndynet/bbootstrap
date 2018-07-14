@@ -20,26 +20,16 @@
     }
 }
 
-@mixin link-variant($theme) {
+@mixin link-variant($theme, $color) {
     .link-btn-#{$theme} {
         &:hover,
         &:not([href]):not([tabindex]):focus, 
         &:not([href]):not([tabindex]):hover {
-            background-color: theme-color($theme);
-            @if $theme == 'light' {
-                color: #333333;
-            } @else {
-                color: #ffffff;
-            }
+            background-color: $color;
+            color: color-yiq($color);
         }
     }
 }
-
-@include link-variant(primary);
-@include link-variant(danger);
-@include link-variant(info);
-@include link-variant(warning);
-@include link-variant(success);
-@include link-variant(secondary);
-@include link-variant(light);
-@include link-variant(dark);
+@each $theme, $color in $theme-colors {
+    @include link-variant($theme, $color);
+}

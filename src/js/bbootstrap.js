@@ -2,9 +2,9 @@
 //=require popper.js/dist/umd/popper.js
 //=require bootstrap/dist/js/bootstrap.js
 //=require @bndynet/jslib/dist/jslib.min.js
-//=require pace-js/pace.min.js
 //=require _alertify.js
 //=require _jQuery.js
+//=require _pace.js
 
 // setup
 bbootstrap = {
@@ -18,15 +18,18 @@ bbootstrap = {
 
         // pace.js
         if (options.pace) {
-            if (options.pace.color) {
-                $(function() {
+            $(function() {
+                if (options.pace.color) {
                     $('.pace-progress').css('background-color', options.pace.color);
                     $('.pace-activity').css({
                         'border-top-color': options.pace.color,
                         'border-left-color': options.pace.color,
                     });
-                })
-            }
+                }
+                if (options.pace.theme) {
+                    $('.pace').addClass('pace-' + options.pace.theme);
+                }
+            });
         }
     },
 };
