@@ -33,7 +33,7 @@ Note: Do not include above components in your project. This project has included
 <script src="dist/js/bbootstrap.min.js"></script>
 <script>
     // Optional, you can be selective to override items.
-    bbootstrap.set({
+    bbootstrap.setup({
         alertify: {
             okLabel: 'Ok',
             cancelLabel: 'Cancel',
@@ -56,9 +56,13 @@ Note: Do not include above components in your project. This project has included
 
 ## Changelog
 
+### v1.1.2
+
+- Fix README typo
+
 ### v1.1.1
 
-- Add themes support for pace via `bbootstrap.set({pace: {theme: 'theme in bootstrap'}}}`
+- Add themes support for pace via `bbootstrap.setup({pace: {theme: 'theme in bootstrap'}}}`
 - The page loading progress will not be displayed by default, unless you set `color` or `theme` of `pace`
 
 ### v1.1.0
@@ -70,7 +74,7 @@ Note: Do not include above components in your project. This project has included
     alertify.notify|success|error('message' [, fnCallback]);
     ```
 - Add automatic page load progress bar for ajax request, document loading and so on
-- Add method `bbootstrap.set({})` for configurating global settings
+- Add method `bbootstrap.setup({})` for configurating global settings
 
 
 ### v1.0.2
