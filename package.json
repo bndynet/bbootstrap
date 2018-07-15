@@ -23,7 +23,9 @@
     "radio",
     "alertify",
     "notification",
-    "progress bar"
+    "progress bar",
+    "pretty select",
+    "loading"
   ],
   "author": "Bendy Zhang",
   "license": "MIT",

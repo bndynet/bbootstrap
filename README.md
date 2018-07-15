@@ -24,7 +24,7 @@ A set which includes some useful components.
 - [jslib](https://github.com/bndynet/jslib) v2.0.0
 - [pace.js](https://github.com/HubSpot/pace) v1.0.2
 
-Note: Do not include above components in your project. This project has included them.
+Note: You can use the above components in your project directly. So don't need include them.
 
 
 ## Quick start
@@ -35,7 +35,11 @@ Note: Do not include above components in your project. This project has included
 <script>
     // Or bbootstrap.setup() to use default options
     bbootstrap.setup({
-        locale: 'zh-CN',
+        locale: 'en-US',
+        // Moment.js format used
+        datetimeFormat: 'YYYY-MM-DD H:mm',
+        timeFormat: 'H:mm',
+        dateFormat: 'YYYY-MM-DD'
         alertify: {
             okLabel: 'Ok',
             cancelLabel: 'Cancel',
