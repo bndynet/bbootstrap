@@ -131,6 +131,9 @@
             <a class="list-group-item list-group-item-action" href="#radio">
                 <i class="fa fa-css3 fa-fw"></i>
                 Radio</a>
+            <a class="list-group-item list-group-item-action" href="#select">
+                <i class="fa fa-jsfiddle fa-fw"></i>
+                Select</a>
             <a class="list-group-item list-group-item-action" href="#status">
                 <i class="fa fa-css3 fa-fw"></i>
                 Status</a>
@@ -463,7 +466,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                            <input type="text" class="form-control" data-toggle="datetimepicker">
+                            <input type="text" class="form-control" data-toggle="datetimepicker" placeholder="With Icon">
                             <i class="fa fa-calendar form-control-feedback"></i>
                             </div>
                         </div>
@@ -475,6 +478,9 @@
                         </div>
                         <div class="col">
                             <input class="form-control" data-toggle="timepicker" data-options="{format: 'h:mm a'}" type="text" placeholder="Time Picker">
+                        </div>
+                        <div class="col">
+                            <input class="form-control" data-toggle="datetimepicker" data-options="{theme: 'dark'}" type="text" placeholder="Dark Theme">
                         </div>
                     </div>
                 </div>
@@ -751,6 +757,19 @@
                                 </div>
                             </fieldset>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="select">
+                <h2>Select</h2>
+                <div>
+                    <div class="row">
+                        <select id="select-select1" data-toggle="select">
+                            <option>Option 1</option>
+                            <option selected>Option 2</option>
+                            <option disabled>Option 3</option>
+                        </select>
                     </div>
                 </div>
             </section>

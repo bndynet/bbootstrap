@@ -7,6 +7,7 @@
 //=require _alertify.js
 //=require _jQuery.js
 //=require _pace.js
+//=require _select.js
 
 // setup
 bbootstrap = {
@@ -82,6 +83,11 @@ bbootstrap = {
                         format: format,
                     }, $this._getElementDataOptions($(this)))
                 );
+            });
+
+            // select
+            $('select[data-toggle="select"]').each(function() {
+                $(this).bselect();
             });
 
             // file input
