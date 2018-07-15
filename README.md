@@ -61,7 +61,8 @@ Note: Do not include above components in your project. This project has included
 ### v1.2.0
 
 - Add momentjs library
-- Add Datatime Picker component
+- Add datatime picker component
+- Add pretty select component
 - Mark method `bbootstrap.setup()` is required for enabling some js components
 
 ### v1.1.2

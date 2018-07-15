@@ -31614,12 +31614,12 @@ if (window) {
             if (method == 'update') {
                 this.each(function () {
                     var $select = $(this);
-                    var $dropdown = $(this).next('.nice-select');
+                    var $dropdown = $(this).next('.b-select');
                     var open = $dropdown.hasClass('open');
 
                     if ($dropdown.length) {
                         $dropdown.remove();
-                        create_nice_select($select);
+                        create_bselect($select);
 
                         if (open) {
                             $select.next().trigger('click');
@@ -31629,15 +31629,15 @@ if (window) {
             } else if (method == 'destroy') {
                 this.each(function () {
                     var $select = $(this);
-                    var $dropdown = $(this).next('.nice-select');
+                    var $dropdown = $(this).next('.b-select');
 
                     if ($dropdown.length) {
                         $dropdown.remove();
                         $select.css('display', '');
                     }
                 });
-                if ($('.nice-select').length == 0) {
-                    $(document).off('.nice_select');
+                if ($('.b-select').length == 0) {
+                    $(document).off('.b-select');
                 }
             } else {
                 console.log('Method "' + method + '" does not exist.')
@@ -31652,14 +31652,14 @@ if (window) {
         this.each(function () {
             var $select = $(this);
 
-            if (!$select.next().hasClass('nice-select')) {
-                create_nice_select($select);
+            if (!$select.next().hasClass('b-select')) {
+                create_bselect($select);
             }
         });
 
-        function create_nice_select($select) {
+        function create_bselect($select) {
             $select.after($('<div></div>')
-                .addClass('nice-select')
+                .addClass('b-select form-control')
                 .addClass($select.attr('class') || '')
                 .addClass($select.attr('disabled') ? 'disabled' : '')
                 .attr('tabindex', $select.attr('disabled') ? null : '0')
@@ -31690,13 +31690,13 @@ if (window) {
         /* Event listeners */
 
         // Unbind existing events in case that the plugin has been initialized before
-        $(document).off('.nice_select');
+        $(document).off('.b-select');
 
         // Open/close
-        $(document).on('click.nice_select', '.nice-select', function (event) {
+        $(document).on('click.b-select', '.b-select', function (event) {
             var $dropdown = $(this);
 
-            $('.nice-select').not($dropdown).removeClass('open');
+            $('.b-select').not($dropdown).removeClass('open');
             $dropdown.toggleClass('open');
 
             if ($dropdown.hasClass('open')) {
@@ -31709,16 +31709,16 @@ if (window) {
         });
 
         // Close when clicking outside
-        $(document).on('click.nice_select', function (event) {
-            if ($(event.target).closest('.nice-select').length === 0) {
-                $('.nice-select').removeClass('open').find('.option');
+        $(document).on('click.b-select', function (event) {
+            if ($(event.target).closest('.b-select').length === 0) {
+                $('.b-select').removeClass('open').find('.option');
             }
         });
 
         // Option click
-        $(document).on('click.nice_select', '.nice-select .option:not(.disabled)', function (event) {
+        $(document).on('click.b-select', '.b-select .option:not(.disabled)', function (event) {
             var $option = $(this);
-            var $dropdown = $option.closest('.nice-select');
+            var $dropdown = $option.closest('.b-select');
 
             $dropdown.find('.selected').removeClass('selected');
             $option.addClass('selected');
@@ -31730,7 +31730,7 @@ if (window) {
         });
 
         // Keyboard events
-        $(document).on('keydown.nice_select', '.nice-select', function (event) {
+        $(document).on('keydown.b-select', '.b-select', function (event) {
             var $dropdown = $(this);
             var $focused_option = $($dropdown.find('.focus') || $dropdown.find('.list .option.selected'));
 
