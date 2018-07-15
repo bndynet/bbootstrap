@@ -18,6 +18,7 @@ A set which includes some useful components.
 - [jQuery](http://jquery.com/) 3.3.1
 - [popper.js](https://popper.js.org/) 1.14.3
 - [bootstrap](http://getbootstrap.com) 4.1.1
+- [momentjs](https://momentjs.com) 2.22.2
 - [font-awesome](https://fontawesome.com/) 4.7.0
 - [animate.css](https://daneden.github.io/animate.css/) 3.6.1
 - [jslib](https://github.com/bndynet/jslib) v2.0.0
@@ -32,8 +33,9 @@ Note: Do not include above components in your project. This project has included
 <link rel="stylesheet" href="dist/css/bbootstrap.min.css">
 <script src="dist/js/bbootstrap.min.js"></script>
 <script>
-    // Optional, you can be selective to override items.
+    // Or bbootstrap.setup() to use default options
     bbootstrap.setup({
+        locale: 'zh-CN',
         alertify: {
             okLabel: 'Ok',
             cancelLabel: 'Cancel',
@@ -55,6 +57,12 @@ Note: Do not include above components in your project. This project has included
 ```
 
 ## Changelog
+
+### v1.2.0
+
+- Add momentjs library
+- Add Datatime Picker component
+- Mark method `bbootstrap.setup()` is required for enabling some js components
 
 ### v1.1.2
 

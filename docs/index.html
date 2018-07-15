@@ -17,13 +17,13 @@
         section h2 {
             margin-bottom: 1rem; 
         }
-        section h2+div {
+        section h2 + div {
             position: relative;
             border: solid #f8f9fa .2rem;
             border-radius: 5px;
             padding: 2rem;
         }
-        section h2+div .print {
+        section .print {
             position: absolute;
             top: -.2rem;
             right: -.2rem;
@@ -33,6 +33,7 @@
             font-size: 0.8em;
             cursor: pointer;
             border-radius: 0 5px 0 5px;
+            color: #888888;
         }
         .print:hover {
             background-color: #007bff;
@@ -54,16 +55,18 @@
         $(function(){
             $('.version').html('v' + bbootstrap.version);
             bbootstrap.setup({
+                locale: 'zh-CN',
                 pace: {
                     theme: 'light',
                 }
             });
 
             $('section').each(function(){
-                $(this).find('> div').prepend('<div class="print">Print Code to Console</div>')
+                $(this).find('h2 + div').prepend('<div class="print">Print Code to Console</div>')
             });
             $('section').on('click', '.print', function(){
-                console.log($(this).closest('section').html());
+                var elSection = $(this).closest('section');
+                console.log(elSection.html());
             });
         });
     </script>
@@ -101,6 +104,10 @@
             <a class="list-group-item list-group-item-action" href="#checkbox">
                 <i class="fa fa-css3 fa-fw"></i>
                 Checkbox
+            </a>
+            <a class="list-group-item list-group-item-action" href="#datetimepicker">
+                <i class="fa fa-jsfiddle fa-fw"></i>
+                DateTime Picker
             </a>
             <a class="list-group-item list-group-item-action" href="#file-input">
                 <i class="fa fa-css3 fa-fw"></i>
@@ -445,6 +452,29 @@
                                     <label class="form-check-label" for="inlineCheckbox3"> Three </label>
                                 </div>
                             </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="datetimepicker">
+                <h2>DateTime Picker</h2>
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                            <input type="text" class="form-control" data-toggle="datetimepicker">
+                            <i class="fa fa-calendar form-control-feedback"></i>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <input class="form-control" data-toggle="datetimepicker" type="text" placeholder="Datetime Picker">
+                        </div>
+                        <div class="col">
+                            <input class="form-control" data-toggle="datepicker" data-format="MM/DD/YYYY h:mm a" type="text" placeholder="Date Picker">
+                        </div>
+                        <div class="col">
+                            <input class="form-control" data-toggle="timepicker" data-options="{format: 'h:mm a'}" type="text" placeholder="Time Picker">
                         </div>
                     </div>
                 </div>

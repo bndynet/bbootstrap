@@ -1,6 +1,6 @@
 {
   "name": "@bndynet/bbootstrap",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.",
   "main": "index.js",
   "scripts": {
@@ -37,6 +37,8 @@
     "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
+    "jquery-datetimepicker": "^2.5.20",
+    "moment": "^2.22.2",
     "pace-js": "^1.0.2",
     "popper.js": "^1.14.3"
   },
