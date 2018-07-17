@@ -1,15 +1,9 @@
 // Default variables
-$gray_dark: #444 !default;
-$gray: #999 !default;
-$gray_light: #e8e8e8 !default;
-$gray_lighter: #f6f6f6 !default;
-$primary_light: $gray !default;
-$arrow_color: $gray !default;
 .b-select {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: #fff;
-    border-radius: $input_border_radius;
-    border: solid 1px $gray_light;
+    border-radius: $input-border-radius;
+    border: solid 1px $input-border-color;
     box-sizing: border-box;
     clear: both;
     cursor: pointer;
@@ -23,16 +17,13 @@ $arrow_color: $gray !default;
     user-select: none;
     white-space: nowrap;
     width: auto;
-    &:hover {
-        border-color: darken($gray_light, 5%);
-    }
     &:active,
     &:focus {
-        border-color: $primary_light;
+        border-color: $input-focus-border-color;
     } // Arrow
     &:after {
-        border-bottom: 2px solid $arrow_color;
-        border-right: 2px solid $arrow_color;
+        border-bottom: 2px solid $input-border-color;
+        border-right: 2px solid $input-border-color;
         content: '';
         display: block;
         height: 5px;
@@ -58,11 +49,10 @@ $arrow_color: $gray !default;
         }
     }
     &.disabled {
-        border-color: lighten($gray_light, 2%);
-        color: $gray;
+        background-color: $input-disabled-bg;
         pointer-events: none;
         &:after {
-            border-color: lighten($arrow_color, 20%);
+            border-color: $input-border-color;
         }
     } // Modifiers
     &.wide {
@@ -84,16 +74,47 @@ $arrow_color: $gray !default;
             height: 4px;
             width: 4px;
         }
-        .option {
-        }
-    } 
+        .option {}
+    }
     .current {
-       padding: $input-padding-y 0;
+        display: block;
+    }
+    &.multiple {
+        .current {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            span {
+                &.item {
+                    display: inline-block;
+                    color: $input-color;
+                    background-color: $gray-100;
+                    padding: 0 5px;
+                    margin-right: 5px;
+                    border-radius: $border-radius;
+                }
+                &.placeholder {
+                    color: $input-placeholder-color;
+                }
+            }
+        }
+        .option {
+            &:before {
+                font-family: FontAwesome;
+                content: $fa-var-square-o;
+                display: inline-block;
+                width: 1.3em;
+            }
+            &.selected {
+                &:before {
+                    content: $fa-var-check-square-o;
+                }
+            }
+        }
     }
     .list {
         background-color: #fff;
-        border-radius: $input_border_radius;
-        box-shadow: 0 0 0 1px rgba($gray_dark, .11);
+        border-radius: $input-border-radius;
+        box-shadow: $dropdown-box-shadow;
         box-sizing: border-box;
         margin-top: 4px;
         opacity: 0;
@@ -104,7 +125,7 @@ $arrow_color: $gray !default;
         top: 100%;
         left: 0;
         transform-origin: 50% 0;
-        transform: scale(.75) translateY(- $input_height / 2);
+        transform: scale(.75) translateY(-10px);
         transition: all .2s cubic-bezier(0.5, 0, 0, 1.25), opacity .15s ease-out;
         z-index: 9;
         &:hover .option:not(:hover) {
@@ -113,24 +134,24 @@ $arrow_color: $gray !default;
     }
     .option {
         cursor: pointer;
-        font-weight: 400;
-        line-height: $input_height - 2;
         list-style: none;
-        min-height: $input_height - 2;
         outline: none;
         text-align: left;
         transition: all 0.2s;
         &:hover,
         &.focus,
         &.selected.focus {
-            background-color: $gray_lighter;
+            background-color: $dropdown-link-hover-bg;
+            color: $dropdown-link-hover-color;
+            
         }
         &.selected {
-            font-weight: bold;
+            color: $dropdown-link-active-color;
+            background-color: $dropdown-link-active-bg;
         }
         &.disabled {
             background-color: transparent;
-            color: $gray;
+            color: $gray-400;
             cursor: default;
         }
     }
