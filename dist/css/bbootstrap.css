@@ -12696,12 +12696,13 @@ label .was-validated .form-check-input:invalid .checkbox:before, label
     box-sizing: border-box;
     margin-top: 4px;
     opacity: 0;
-    overflow: hidden;
     padding: 0;
     pointer-events: none;
     position: absolute;
     top: 100%;
     left: 0;
+    max-height: 50vh;
+    overflow: auto;
     transform-origin: 50% 0;
     transform: scale(0.75) translateY(-10px);
     transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
@@ -12725,7 +12726,7 @@ label .was-validated .form-check-input:invalid .checkbox:before, label
       color: #ced4da;
       cursor: default; }
   .b-select.form-control .option {
-    padding: 0.375rem 0.75rem; }
+    padding: 0.375rem calc(0.75rem + 0.5em) 0.375rem 0.75rem; }
 
 .no-csspointerevents .b-select .list {
   display: none; }
