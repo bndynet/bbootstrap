@@ -54,6 +54,10 @@
     <script>
         $(function(){
             $('.version').html('v' + bbootstrap.version);
+            bbootstrap.defineLang('zh-CN', {
+                ok: '确定',
+                cancel: '取消',
+            });
             bbootstrap.setup({
                 locale: 'zh-CN',
                 pace: {
@@ -199,13 +203,13 @@
                             alertify.error('<i class="fa fa-warning"></i> Error');
                         });
                         $('#alertify #btnPositionNotification').click(function() {
-                            alertify.set({
+                            alertify.setup({
                                 notificationPosition: 'bottom left',
                             });
                             alertify.success('Position Changed');
                         });
                         $('#alertify #btnFixedNotification').click(function() {
-                            alertify.set({
+                            alertify.setup({
                                 delay: 0,
                             });
                             alertify.notify('Fixed Notification');

@@ -18,6 +18,7 @@ A set which includes some useful components.
 - [jQuery](http://jquery.com/) 3.3.1
 - [popper.js](https://popper.js.org/) 1.14.3
 - [bootstrap](http://getbootstrap.com) 4.1.1
+- [Lodash](https://lodash.com/) 4.17.10
 - [momentjs](https://momentjs.com) 2.22.2
 - [font-awesome](https://fontawesome.com/) 4.7.0
 - [animate.css](https://daneden.github.io/animate.css/) 3.6.1
@@ -33,20 +34,20 @@ Note: You can use the above components in your project directly. So don't need i
 <link rel="stylesheet" href="dist/css/bbootstrap.min.css">
 <script src="dist/js/bbootstrap.min.js"></script>
 <script>
+    // Define your languages, MUST be before `setup` method
+    bbootstrap.defineLang('zh-CN', {
+        ok: '确定',
+        cancel: '取消',
+    });
     // Or bbootstrap.setup() to use default options
     bbootstrap.setup({
-        locale: 'en-US',
+        locale: 'zh-CN',
         // Moment.js format used
         datetimeFormat: 'YYYY-MM-DD H:mm',
         timeFormat: 'H:mm',
         dateFormat: 'YYYY-MM-DD'
         alertify: {
-            okLabel: 'Ok',
-            cancelLabel: 'Cancel',
             maxNotifications: 2,
-            promptValue: '',
-            promptPlaceholder: '',
-            promptLabel: '',
             closeNotificationOnClick: false,
             delay: 5000,
             customeClass: '',

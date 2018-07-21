@@ -1,6 +1,7 @@
 //=require jquery/dist/jquery.js
 //=require popper.js/dist/umd/popper.js
 //=require bootstrap/dist/js/bootstrap.js
+//=require lodash/lodash.js
 //=require moment/min/moment-with-locales.js
 //=require jquery-datetimepicker/build/jquery.datetimepicker.full.min.js
 //=require @bndynet/jslib/dist/jslib.min.js
@@ -18,12 +19,59 @@ bbootstrap = {
         timeFormat: 'H:mm',
         dateFormat: 'YYYY-MM-DD'
     },
+    langs: {
+        default: {
+            ok: 'Ok',
+            cancel: 'Cancel',
+            yes: 'Yes',
+            no: 'No',
+        },
+        get: function(locale) {
+            var $this = this;
+            if (!$this[locale]) {
+                $this[locale] = $this.getDefault();
+            }
+            return $this[locale];
+        },
+        getDefault: function() {
+            var $this = this;
+            _.forEach($this['default'], function(value, key) {
+                $this['default'][key + 'Label'] = value;
+            });
+            return $this['default'];
+        },
+        getValue: function(locale, path) {
+            var $this = this;
+            return  _.get($this.get(locale), path);
+        },
+        define: function(locale, value) {
+            var $this = this;
+            $this[locale] = _.assignIn({}, $this['default'], value);
+            _.forEach($this[locale], function(value, key) {
+                $this[locale][key + 'Label'] = value;
+            });
+            return $this[locale];
+        },
+        defineFrom: function(originLocale, locale, value) {
+            var $this = this;
+            $this[locale] = _.assignIn({}, $this.get(originLocale), value);
+            return $this[locale];
+        }
+    },
+    defineLang: function(locale, value) {
+        var $this = this;
+        $this.langs.define(locale, value);
+    },
     setup: function (options) {
         var $this = this;
+        var lang = $this.langs.getDefault();
+        $this.langs.define('en');
+        $this.langs.define('en-US');
         $this.options = $.extend({}, $this.options, options);
 
         // locale
         if ($this.options.locale) {
+            lang = $this.langs.get($this.options.locale);
             moment.locale($this.options.locale);
             if ($this.options.locale.indexOf('-') > 0) {
                 var l = $this.options.locale.substring(0, $this.options.locale.indexOf('-'));
@@ -34,9 +82,11 @@ bbootstrap = {
         }
 
         // alertify
+        var alertifyOptions = $.extend({}, lang);
         if ($this.options.alertify) {
-            alertify.set($this.options.alertify);
+            alertifyOptions = $.extend({}, alertifyOptions, $this.options.alertify);
         }
+        alertify.setup(alertifyOptions);
 
         // pace.js
         if ($this.options.pace) {
