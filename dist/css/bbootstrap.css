@@ -6,7 +6,7 @@
  * Copyright (c) 2018, Bendy Zhang
  * Released under the MIT license.
  * http://bndy.net
-*/
+ */
 
 @charset "UTF-8";
 /*!
@@ -12733,3 +12733,9 @@ label .was-validated .form-check-input:invalid .checkbox:before, label
 
 .no-csspointerevents .b-select.open .list {
   display: block; }
+
+.b-dialog .modal-footer .status-bar {
+  flex: 1; }
+
+.b-dialog .modal-footer .action-bar {
+  flex: 1; }

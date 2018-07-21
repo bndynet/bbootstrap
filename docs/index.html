@@ -113,6 +113,10 @@
                 <i class="fa fa-jsfiddle fa-fw"></i>
                 DateTime Picker
             </a>
+            <a class="list-group-item list-group-item-action" href="#dialog">
+                <i class="fa fa-jsfiddle fa-fw"></i>
+                Dialog
+            </a>
             <a class="list-group-item list-group-item-action" href="#file-input">
                 <i class="fa fa-css3 fa-fw"></i>
                 File input
@@ -488,6 +492,57 @@
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <section id="dialog">
+                <h2>Dialog</h2>
+                <div>
+                    <button id="btn1" class="btn btn-primary">Open Dialog</button>
+                    <button id="btn2" class="btn btn-primary">Open Dialog without Title</button>
+                    <button id="btn3" class="btn btn-primary">Open Dialog with ID</button>
+                    <button id="btn4" class="btn btn-primary">Open Dialog with Buttons</button>
+
+                    <div id="dialogContent" class="hidden">
+                        <div class="text-center">
+                            <i class="fa fa-spin fa-spinner"></i>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $(function() {
+                        $('#dialog').on('click', '#btn1', function() {
+                            dialog.open({title:'Title', content:'This is a dialog'});
+                        });
+                        $('#dialog').on('click', '#btn2', function() {
+                            dialog.open({content:'This is a dialog'});
+                        });
+                        $('#dialog').on('click', '#btn3', function() {
+                            dialog.small({content: '#dialogContent'});
+                        });
+                        $('#dialog').on('click', '#btn4', function() {
+                            dialog.small({content: 'Dialog with Buttons', 
+                                statusBar: '<span>Status</span>',
+                                buttons: [
+                                    {
+                                        text: 'Cancel',
+                                        cls: 'btn btn-default',
+                                        fnClick: function(d) {
+                                            // d.close();
+                                        }
+                                    },
+                                    {
+                                        text: 'OK',
+                                        cls: 'btn btn-primary',
+                                        fnClick: function(d) {
+                                            alertify.notify('You clicked OK');
+                                            this.close();
+                                            // d.close();
+                                        }
+                                    },
+                            ]});
+                        });
+                    })
+                </script>
             </section>
 
             <section id="file-input">
