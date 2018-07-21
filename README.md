@@ -66,8 +66,10 @@ Note: You can use the above components in your project directly. So don't need i
 ### v1.2.0
 
 - Add momentjs library
+- Add Lodash library
 - Add datatime picker component
 - Add pretty select component
+- Add language customization support
 - Mark method `bbootstrap.setup()` is required for enabling some js components
 
 ### v1.1.2
