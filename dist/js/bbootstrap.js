@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.2.2
+ * @bndynet/bbootstrap v1.3.0
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -49104,7 +49104,7 @@ if (window) {
 
 // setup
 bbootstrap = {
-    version: '1.2.2',
+    version: '1.3.0',
     options: {
         locale: 'en-US',
         datetimeFormat: 'YYYY-MM-DD H:mm',
@@ -49181,7 +49181,8 @@ bbootstrap = {
         alertify.setup(alertifyOptions);
 
         // pace.js
-        if ($this.options.pace) {
+        if ($this.options.pace || $this.options.progressBar) {
+            $this.options.pace = $.extend({}, $this.options.pace, $this.options.progressBar);
             $(function () {
                 if (window) {
                     window.paceOptions = $this.options.pace;

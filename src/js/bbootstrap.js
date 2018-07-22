@@ -90,7 +90,8 @@ bbootstrap = {
         alertify.setup(alertifyOptions);
 
         // pace.js
-        if ($this.options.pace) {
+        if ($this.options.pace || $this.options.progressBar) {
+            $this.options.pace = $.extend({}, $this.options.pace, $this.options.progressBar);
             $(function () {
                 if (window) {
                     window.paceOptions = $this.options.pace;

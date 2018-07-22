@@ -7,8 +7,8 @@
 
 # Bbootstrap
 
-![npm](https://img.shields.io/npm/v/@bndynet/bbootstrap.svg)
-![npm](https://img.shields.io/npm/dt/@bndynet/bbootstrap.svg)
+[![npm](https://img.shields.io/npm/v/@bndynet/bbootstrap.svg)](https://www.npmjs.com/package/@bndynet/bbootstrap)
+[![npm](https://img.shields.io/npm/dt/@bndynet/bbootstrap.svg)](https://www.npmjs.com/package/@bndynet/bbootstrap)
 
 A set which includes some useful components. 
 [Demo](https://bndynet.github.io/bbootstrap/)
@@ -39,7 +39,7 @@ Note: You can use the above components in your project directly. So don't need i
         ok: '确定',
         cancel: '取消',
     });
-    // Or bbootstrap.setup() to use default options
+    // Or bbootstrap.setup() to use default options as below.
     bbootstrap.setup({
         locale: 'zh-CN',
         // Moment.js format used
@@ -53,8 +53,9 @@ Note: You can use the above components in your project directly. So don't need i
             customeClass: '',
             notificationPosition: "bottom right",
         },
-        // Below is for enabling page loading progress bar
-        pace: {
+        // Below is for enabling page loading progress bar for ajax, document and all events
+        progressBar: {
+            // `theme` or `color` will enable this component
             theme: 'primary|secondary|success|info|warning|danger|dark|light',  // theme in bootstrap, or
             color:  '#ff0000',  
         },
@@ -64,11 +65,11 @@ Note: You can use the above components in your project directly. So don't need i
 
 ## Changelog
 
-### v1.2.2
+### v1.3.0
 
 - Styles: Add some layout styles
-- Component(pace.js): Fix pace.js can not be disabled completely
-- Component(pace.js): By default the pace.js is disabled unless set `pace.theme` or `pace.color`
+- Component(progressBar): By default the page progress bar is disabled unless set `progressBar.theme` or `progressBar.color`
+- Component(progressBar): rename option `pace` to `progressBar`
 - Component(alertify): `closeNotificationOnClick` is `true` by default
 
 ### v1.2.1
