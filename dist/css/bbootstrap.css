@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.2.0
+ * @bndynet/bbootstrap v1.2.2
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -11646,6 +11646,41 @@ a.text-dark:hover, a.text-dark:focus {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f8fa', endColorstr='#FFF',GradientType=0 );
   /* IE6-9 */ }
 
+html {
+  height: 100%; }
+
+body {
+  height: 100%; }
+  body.layout-one {
+    display: grid; }
+    body.layout-one > .main {
+      margin: auto; }
+  body.layout-two > .left {
+    width: 260px;
+    height: 100%;
+    overflow: auto; }
+  body.layout-two > .main {
+    position: absolute;
+    top: 0;
+    margin-left: 260px;
+    width: 100%;
+    height: 100%;
+    overflow: auto; }
+  body.layout-admin > header,
+  body.layout-admin > .header {
+    height: 50px; }
+  body.layout-admin > .left {
+    width: 260px;
+    height: calc(100vh - 50px);
+    overflow: auto; }
+  body.layout-admin > .main {
+    position: absolute;
+    top: 50px;
+    margin-left: 260px;
+    width: 100%;
+    height: calc(100vh - 50px);
+    overflow: auto; }
+
 .list-link > a {
   cursor: pointer;
   display: inline-block;
@@ -12466,6 +12501,7 @@ label .was-validated .form-check-input:invalid .checkbox:before, label
   color: #fff; }
 
 .pace {
+  position: absolute;
   -webkit-pointer-events: none;
   pointer-events: none;
   -webkit-user-select: none;

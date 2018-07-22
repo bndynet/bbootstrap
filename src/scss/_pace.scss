@@ -1,6 +1,7 @@
 // `pace-theme-flash` styles for pace.js
 $pace-color: transparent; 
 .pace {
+    position: absolute;
     -webkit-pointer-events: none;
     pointer-events: none;
     -webkit-user-select: none;

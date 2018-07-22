@@ -92,6 +92,11 @@ bbootstrap = {
         // pace.js
         if ($this.options.pace) {
             $(function () {
+                if (window) {
+                    window.paceOptions = $this.options.pace;
+                    window.paceOptions.restartOnRequestAfter = true;
+                }
+                Pace.start();
                 if ($this.options.pace.color) {
                     $('.pace-progress').css('background-color', $this.options.pace.color);
                     $('.pace-activity').css({

@@ -53,6 +53,7 @@ Note: You can use the above components in your project directly. So don't need i
             customeClass: '',
             notificationPosition: "bottom right",
         },
+        // Below is for enabling page loading progress bar
         pace: {
             theme: 'primary|secondary|success|info|warning|danger|dark|light',  // theme in bootstrap, or
             color:  '#ff0000',  
@@ -62,6 +63,16 @@ Note: You can use the above components in your project directly. So don't need i
 ```
 
 ## Changelog
+
+### v1.2.2
+
+- Fix pace.js can not be disabled completely
+- Add some layout styles
+- By default, the pace.js is disabled unless set `pace.theme` or `pace.color`
+
+### v1.2.1
+
+No changes
 
 ### v1.2.0
 
