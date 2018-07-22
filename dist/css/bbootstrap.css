@@ -12737,5 +12737,5 @@ label .was-validated .form-check-input:invalid .checkbox:before, label
 .b-dialog .modal-footer .status-bar {
   flex: 1; }
 
-.b-dialog .modal-footer .action-bar {
-  flex: 1; }
+.b-dialog .modal-footer .action-bar > * {
+  margin-left: 0.5rem; }

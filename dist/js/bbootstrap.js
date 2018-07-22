@@ -48755,14 +48755,14 @@ $.fn.extend({
                     var buttonContainer = $('<div class="action-bar"></div>')
                     for (var i = 0; i < options.buttons.length; i++) {
                         var button = options.buttons[i];
-                        var btnId = '__btn' + i;
+                        var btnId = 'dialog__btn' + i;
                         var btn = $('<button type="button"></button>')
                             .attr('id', btnId)
                             .html(button.text)
                             .addClass(button.cls);
 
-                        if (typeof button.fnClick === 'function') {
-                            btnEvents[btnId] = button.fnClick;
+                        if (typeof button.onClick === 'function') {
+                            btnEvents[btnId] = button.onClick;
                         }
                         buttonContainer.append(btn);
                     }
@@ -48778,11 +48778,18 @@ $.fn.extend({
             show: function () {
                 var $this = this;
                 build();
-                elDialog.modal('show');
+                elDialog.modal({
+                    backdrop: 'static',
+                    show: true,
+                });
+                elDialog.on('hidden.bs.modal', function (e) {
+                    elDialog.remove();
+                });
                 for (var id in btnEvents) {
                     if (btnEvents.hasOwnProperty(id)) {
-                        elDialog.on('click', '#' + id, function() {
-                            btnEvents[id].call($this);
+                        elDialog.on('click', '#' + id, function(event) {
+                            var btnId = $(this).attr('id');
+                            btnEvents[btnId].call($this, event);
                         })
                     }
                 }
@@ -48812,20 +48819,28 @@ $.fn.extend({
                 }
 
                 if (typeof options.content === 'string' && options.content.indexOf('#') === 0) {
-                    options.content = $(options.content).show();
+                    var elConent = $(options.content).clone()
+                        .removeClass('d-none')
+                        .removeClass('invisible')
+                        .css('display', 'inherit');
+                    options.content = elConent;
                 }
 
                 this.__dialog = new Dialog(options);
                 this.__dialog.show();
+
+                return this;
             },
             small: function (options) {
                 options = $.extend({}, options, {
                     size: 'sm'
                 });
                 this.open(options);
+                return this;
             },
             close: function () {
                 this.__dialog.close();
+                return this;
             }
         }
     }

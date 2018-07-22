@@ -502,7 +502,7 @@
                     <button id="btn3" class="btn btn-primary">Open Dialog with ID</button>
                     <button id="btn4" class="btn btn-primary">Open Dialog with Buttons</button>
 
-                    <div id="dialogContent" class="hidden">
+                    <div id="dialogContent" class="d-none">
                         <div class="text-center">
                             <i class="fa fa-spin fa-spinner"></i>
                         </div>
@@ -510,33 +510,46 @@
                 </div>
                 <script>
                     $(function() {
+                        var d_dialog;
+                        function delayCloseDialog() {
+                            setTimeout(function() {
+                                if (d_dialog) {
+                                    d_dialog.close();
+                                }
+                            }, 3000);
+                        }
                         $('#dialog').on('click', '#btn1', function() {
-                            dialog.open({title:'Title', content:'This is a dialog'});
+                            d_dialog = dialog.open({title:'Title', content:'This is a dialog'});
+                            delayCloseDialog();
                         });
                         $('#dialog').on('click', '#btn2', function() {
-                            dialog.open({content:'This is a dialog'});
+                            d_dialog = dialog.open({content:'This is a dialog'});
+                            delayCloseDialog();
                         });
                         $('#dialog').on('click', '#btn3', function() {
-                            dialog.small({content: '#dialogContent'});
+                            d_dialog = dialog.small({content: '#dialogContent'});
+                            delayCloseDialog();
                         });
                         $('#dialog').on('click', '#btn4', function() {
-                            dialog.small({content: 'Dialog with Buttons', 
+                            d_dialog = dialog.open({
+                                title: '<i class="fa fa-info"></i> Dialog',
+                                content: 'Dialog with Buttons', 
                                 statusBar: '<span>Status</span>',
                                 buttons: [
                                     {
                                         text: 'Cancel',
-                                        cls: 'btn btn-default',
-                                        fnClick: function(d) {
-                                            // d.close();
+                                        cls: 'btn btn-secondary',
+                                        onClick: function(event) {
+                                            alertify.error('You clicked Cancel');
+                                            this.close();
                                         }
                                     },
                                     {
                                         text: 'OK',
                                         cls: 'btn btn-primary',
-                                        fnClick: function(d) {
+                                        onClick: function(event) {
                                             alertify.notify('You clicked OK');
                                             this.close();
-                                            // d.close();
                                         }
                                     },
                             ]});
