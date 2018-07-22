@@ -18,12 +18,14 @@ A set which includes some useful components.
 - [jQuery](http://jquery.com/) 3.3.1
 - [popper.js](https://popper.js.org/) 1.14.3
 - [bootstrap](http://getbootstrap.com) 4.1.1
+- [Lodash](https://lodash.com/) 4.17.10
+- [momentjs](https://momentjs.com) 2.22.2
 - [font-awesome](https://fontawesome.com/) 4.7.0
 - [animate.css](https://daneden.github.io/animate.css/) 3.6.1
 - [jslib](https://github.com/bndynet/jslib) v2.0.0
 - [pace.js](https://github.com/HubSpot/pace) v1.0.2
 
-Note: Do not include above components in your project. This project has included them.
+Note: You can use the above components in your project directly. So don't need include them.
 
 
 ## Quick start
@@ -32,15 +34,20 @@ Note: Do not include above components in your project. This project has included
 <link rel="stylesheet" href="dist/css/bbootstrap.min.css">
 <script src="dist/js/bbootstrap.min.js"></script>
 <script>
-    // Optional, you can be selective to override items.
+    // Define your languages, MUST be before `setup` method
+    bbootstrap.defineLang('zh-CN', {
+        ok: '确定',
+        cancel: '取消',
+    });
+    // Or bbootstrap.setup() to use default options
     bbootstrap.setup({
+        locale: 'zh-CN',
+        // Moment.js format used
+        datetimeFormat: 'YYYY-MM-DD H:mm',
+        timeFormat: 'H:mm',
+        dateFormat: 'YYYY-MM-DD'
         alertify: {
-            okLabel: 'Ok',
-            cancelLabel: 'Cancel',
             maxNotifications: 2,
-            promptValue: '',
-            promptPlaceholder: '',
-            promptLabel: '',
             closeNotificationOnClick: false,
             delay: 5000,
             customeClass: '',
@@ -55,6 +62,16 @@ Note: Do not include above components in your project. This project has included
 ```
 
 ## Changelog
+
+### v1.2.0
+
+- Add momentjs library
+- Add Lodash library
+- Add datatime picker component
+- Add pretty select component
+- Add dialog component
+- Add language customization support
+- Mark method `bbootstrap.setup()` is required for enabling some js components
 
 ### v1.1.2
 

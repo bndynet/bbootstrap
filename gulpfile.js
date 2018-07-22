@@ -7,6 +7,7 @@ var cleanCSS = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
 var include = require('gulp-include');
 var banner = require('gulp-banner');
+var babel = require('gulp-babel');
 var del = require('del');
 var replace = require('gulp-replace');
 
@@ -25,7 +26,7 @@ var comment = '/*\n' +
     ' * Copyright (c) 2018, <%= pkg.author %>\n' +
     ' * Released under the <%= pkg.license %> license.\n' +
     ' * http://bndy.net\n' +
-    '*/\n\n';
+    ' */\n\n';
 
 gulp.task('clean', function () {
     return del(['dist']);
@@ -40,6 +41,9 @@ gulp.task('static', ['clean'], function () {
 gulp.task('scripts', ['clean'], function () {
     return gulp.src('src/js/bbootstrap.js')
         .pipe(replace('{{bbootstrap-version}}', pkg.version))
+        // .pipe(babel({
+        //     presets: ['es2015']
+        // }))
         .pipe(banner(comment, {
             pkg: pkg
         }))

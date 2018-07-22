@@ -28,7 +28,7 @@
 
             globalOptions: {},
 
-            set: function(options) {
+            setup: function(options) {
                 this.globalOptions = $.extend({}, this.globalOptions, options);
             },
 
@@ -209,8 +209,8 @@
 
         return {
             __alertify: _alertify,
-            set: function(options) {
-                _alertify.set(options);
+            setup: function(options) {
+                _alertify.setup(options);
             },
             alert: function (message, onOkay, onCancel) {
                 return _alertify.dialog({

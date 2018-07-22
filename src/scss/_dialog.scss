@@ -1,0 +1,12 @@
+.b-dialog {
+    .modal-footer {
+        .status-bar {
+            flex: 1;
+        }
+        .action-bar {
+            & > * {
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}

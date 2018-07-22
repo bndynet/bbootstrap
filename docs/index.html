@@ -17,13 +17,13 @@
         section h2 {
             margin-bottom: 1rem; 
         }
-        section h2+div {
+        section h2 + div {
             position: relative;
             border: solid #f8f9fa .2rem;
             border-radius: 5px;
             padding: 2rem;
         }
-        section h2+div .print {
+        section .print {
             position: absolute;
             top: -.2rem;
             right: -.2rem;
@@ -33,6 +33,7 @@
             font-size: 0.8em;
             cursor: pointer;
             border-radius: 0 5px 0 5px;
+            color: #888888;
         }
         .print:hover {
             background-color: #007bff;
@@ -53,17 +54,23 @@
     <script>
         $(function(){
             $('.version').html('v' + bbootstrap.version);
+            bbootstrap.defineLang('zh-CN', {
+                ok: '确定',
+                cancel: '取消',
+            });
             bbootstrap.setup({
+                locale: 'zh-CN',
                 pace: {
                     theme: 'light',
                 }
             });
 
             $('section').each(function(){
-                $(this).find('> div').prepend('<div class="print">Print Code to Console</div>')
+                $(this).find('h2 + div').prepend('<div class="print">Print Code to Console</div>')
             });
             $('section').on('click', '.print', function(){
-                console.log($(this).closest('section').html());
+                var elSection = $(this).closest('section');
+                console.log(elSection.html());
             });
         });
     </script>
@@ -102,6 +109,14 @@
                 <i class="fa fa-css3 fa-fw"></i>
                 Checkbox
             </a>
+            <a class="list-group-item list-group-item-action" href="#datetimepicker">
+                <i class="fa fa-jsfiddle fa-fw"></i>
+                DateTime Picker
+            </a>
+            <a class="list-group-item list-group-item-action" href="#dialog">
+                <i class="fa fa-jsfiddle fa-fw"></i>
+                Dialog
+            </a>
             <a class="list-group-item list-group-item-action" href="#file-input">
                 <i class="fa fa-css3 fa-fw"></i>
                 File input
@@ -124,6 +139,9 @@
             <a class="list-group-item list-group-item-action" href="#radio">
                 <i class="fa fa-css3 fa-fw"></i>
                 Radio</a>
+            <a class="list-group-item list-group-item-action" href="#select">
+                <i class="fa fa-jsfiddle fa-fw"></i>
+                Select</a>
             <a class="list-group-item list-group-item-action" href="#status">
                 <i class="fa fa-css3 fa-fw"></i>
                 Status</a>
@@ -189,13 +207,13 @@
                             alertify.error('<i class="fa fa-warning"></i> Error');
                         });
                         $('#alertify #btnPositionNotification').click(function() {
-                            alertify.set({
+                            alertify.setup({
                                 notificationPosition: 'bottom left',
                             });
                             alertify.success('Position Changed');
                         });
                         $('#alertify #btnFixedNotification').click(function() {
-                            alertify.set({
+                            alertify.setup({
                                 delay: 0,
                             });
                             alertify.notify('Fixed Notification');
@@ -448,6 +466,96 @@
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <section id="datetimepicker">
+                <h2>DateTime Picker</h2>
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                            <input type="text" class="form-control" data-toggle="datetimepicker" placeholder="With Icon">
+                            <i class="fa fa-calendar form-control-feedback"></i>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <input class="form-control" data-toggle="datetimepicker" type="text" placeholder="Datetime Picker">
+                        </div>
+                        <div class="col">
+                            <input class="form-control" data-toggle="datepicker" data-format="MM/DD/YYYY h:mm a" type="text" placeholder="Date Picker">
+                        </div>
+                        <div class="col">
+                            <input class="form-control" data-toggle="timepicker" data-options="{format: 'h:mm a'}" type="text" placeholder="Time Picker">
+                        </div>
+                        <div class="col">
+                            <input class="form-control" data-toggle="datetimepicker" data-options="{theme: 'dark'}" type="text" placeholder="Dark Theme">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="dialog">
+                <h2>Dialog</h2>
+                <div>
+                    <button id="btn1" class="btn btn-primary">Open Dialog</button>
+                    <button id="btn2" class="btn btn-primary">Open Dialog without Title</button>
+                    <button id="btn3" class="btn btn-primary">Open Dialog with ID</button>
+                    <button id="btn4" class="btn btn-primary">Open Dialog with Buttons</button>
+
+                    <div id="dialogContent" class="d-none">
+                        <div class="text-center">
+                            <i class="fa fa-spin fa-spinner"></i>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $(function() {
+                        var d_dialog;
+                        function delayCloseDialog() {
+                            setTimeout(function() {
+                                if (d_dialog) {
+                                    d_dialog.close();
+                                }
+                            }, 3000);
+                        }
+                        $('#dialog').on('click', '#btn1', function() {
+                            d_dialog = dialog.open({title:'Title', content:'This is a dialog'});
+                            delayCloseDialog();
+                        });
+                        $('#dialog').on('click', '#btn2', function() {
+                            d_dialog = dialog.open({content:'This is a dialog'});
+                            delayCloseDialog();
+                        });
+                        $('#dialog').on('click', '#btn3', function() {
+                            d_dialog = dialog.small({content: '#dialogContent'});
+                            delayCloseDialog();
+                        });
+                        $('#dialog').on('click', '#btn4', function() {
+                            d_dialog = dialog.open({
+                                title: '<i class="fa fa-info"></i> Dialog',
+                                content: 'Dialog with Buttons', 
+                                statusBar: '<span>Status</span>',
+                                buttons: [
+                                    {
+                                        text: 'Cancel',
+                                        cls: 'btn btn-secondary',
+                                        onClick: function(event) {
+                                            alertify.error('You clicked Cancel');
+                                            this.close();
+                                        }
+                                    },
+                                    {
+                                        text: 'OK',
+                                        cls: 'btn btn-primary',
+                                        onClick: function(event) {
+                                            alertify.notify('You clicked OK');
+                                            this.close();
+                                        }
+                                    },
+                            ]});
+                        });
+                    })
+                </script>
             </section>
 
             <section id="file-input">
@@ -720,6 +828,59 @@
                                     </label>
                                 </div>
                             </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="select">
+                <h2>Select</h2>
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <select id="select-select1" data-toggle="select">
+                                <option>Option 1</option>
+                                <option selected>Option 2</option>
+                                <option disabled>Option 3</option>
+                                <option>Option Option Option Option</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select id="select-select2" class="form-control form-control-sm" data-toggle="select">
+                                <option>Option 1</option>
+                                <option selected>Option 2</option>
+                                <option disabled>Option 3</option>
+                                <option>Option Option Option Option</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select id="select-select3" class="right" data-toggle="select">
+                                <option>Option 1</option>
+                                <option selected>Option 2</option>
+                                <option disabled>Option 3</option>
+                                <option>Option Option Option Option</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select id="select-select4" class="wide" data-toggle="select">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option disabled>Option 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <select id="select-select5" data-toggle="select" multiple="multiple" style="width: 200px;" placeholder="This is a placeholder">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option disabled>Option 3</option>
+                                <option>Option 4</option>
+                                <option>Option 5</option>
+                                <option>Option 6</option>
+                                <option>Option 7</option>
+                                <option>Option 8</option>
+                            </select>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,174 @@
+// Default variables
+.b-select {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: #fff;
+    border-radius: $input-border-radius;
+    border: solid 1px $input-border-color;
+    box-sizing: border-box;
+    clear: both;
+    cursor: pointer;
+    display: block;
+    float: left;
+    outline: none;
+    padding-right: calc(#{$input-padding-x} + 12px);
+    position: relative;
+    text-align: left !important;
+    transition: all 0.2s ease-in-out;
+    user-select: none;
+    white-space: nowrap;
+    width: auto;
+    &:active,
+    &:focus {
+        border-color: $input-focus-border-color;
+    } // Arrow
+    &:after {
+        border-bottom: 2px solid $input-border-color;
+        border-right: 2px solid $input-border-color;
+        content: '';
+        display: block;
+        height: 5px;
+        margin-top: -4px;
+        pointer-events: none;
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform-origin: 66% 66%;
+        transform: rotate(45deg);
+        transition: all 0.15s ease-in-out;
+        width: 5px;
+    }
+    &.open {
+        @extend :active;
+        &:after {
+            transform: rotate(-135deg);
+        }
+        .list {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1) translateY(0);
+        }
+    }
+    &.disabled {
+        background-color: $input-disabled-bg;
+        pointer-events: none;
+        &:after {
+            border-color: $input-border-color;
+        }
+    } // Modifiers
+    &.wide {
+        width: 100%;
+        .list {
+            left: 0 !important;
+            right: 0 !important;
+        }
+    }
+    &.right {
+        float: right;
+        .list {
+            left: auto;
+            right: 0;
+        }
+    }
+    &.small {
+        &:after {
+            height: 4px;
+            width: 4px;
+        }
+        .option {}
+    }
+    .current {
+        display: block;
+    }
+    &.multiple {
+        .current {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            span {
+                &.item {
+                    display: inline-block;
+                    color: $input-color;
+                    background-color: $gray-100;
+                    padding: 0 5px;
+                    margin-right: 5px;
+                    border-radius: $border-radius;
+                }
+                &.placeholder {
+                    color: $input-placeholder-color;
+                }
+            }
+        }
+        .option {
+            &:before {
+                font-family: FontAwesome;
+                content: $fa-var-square-o;
+                display: inline-block;
+                width: 1.3em;
+            }
+            &.selected {
+                &:before {
+                    content: $fa-var-check-square-o;
+                }
+            }
+        }
+    }
+    .list {
+        background-color: #fff;
+        border-radius: $input-border-radius;
+        box-shadow: $dropdown-box-shadow;
+        box-sizing: border-box;
+        margin-top: 4px;
+        opacity: 0;
+        padding: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        max-height: 50vh;
+        overflow: auto;
+        transform-origin: 50% 0;
+        transform: scale(.75) translateY(-10px);
+        transition: all .2s cubic-bezier(0.5, 0, 0, 1.25), opacity .15s ease-out;
+        z-index: 9;
+        &:hover .option:not(:hover) {
+            background-color: transparent !important;
+        }
+    }
+    .option {
+        cursor: pointer;
+        list-style: none;
+        outline: none;
+        text-align: left;
+        transition: all 0.2s;
+        &:hover,
+        &.focus,
+        &.selected.focus {
+            background-color: $dropdown-link-hover-bg;
+            color: $dropdown-link-hover-color;
+            
+        }
+        &.selected {
+            color: $dropdown-link-active-color;
+            background-color: $dropdown-link-active-bg;
+        }
+        &.disabled {
+            background-color: transparent;
+            color: $gray-400;
+            cursor: default;
+        }
+    }
+    &.form-control {
+        .option {
+            padding: $input-padding-y calc(#{$input-padding-x} + 0.5em) $input-padding-y $input-padding-x;
+        }
+    }
+} // Use display instead of opacity for IE <= 10
+.no-csspointerevents .b-select {
+    .list {
+        display: none;
+    }
+    &.open {
+        .list {
+            display: block;
+        }
+    }
+}
