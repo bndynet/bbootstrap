@@ -1,52 +1,101 @@
-html {
+html,
+body {
     height: 100%;
 }
 
-body {
-    height: 100%;
+.layout-one {
+    display: grid;
+    & > main,
+    & > .main {
+        margin: auto;
+    }
+}
 
-    &.layout-one {
-        display: grid;
-        & > .main {
-            margin: auto;
+.layout-two {
+    & > .side-left {
+        width: 260px;
+        height: 100%;
+        overflow: auto;
+    }
+    & > main,
+    & > .main {
+        position: absolute;
+        top: 0;
+        margin-left: 260px;
+        width: calc(100% - 260px);
+        height: 100%;
+        overflow: auto;
+    }
+}
+
+.layout-admin {
+    position: relative;
+
+    & > header,
+    & > .header {
+        height: 50px;
+    }
+
+    & > .side-left {
+        position: absolute;
+        width: 260px;
+        height: calc(100% - 50px);
+        overflow: auto;
+        transition: all 0.5s ease 0s;
+
+        .list-group-item {
+            white-space: nowrap;
+        }
+
+        .show-mini {
+            display: none;
+            transition: all 0.5s ease 0s;
+        }
+
+        &.mini {
+            width: 2.5rem;
+            .list-group-item {
+                padding: 0.5rem 0.75rem;
+            }
+            
+            .hidden-mini {
+                display: none;
+                white-space: nowrap;
+                transition: all 0.5s ease 0s;
+            } 
+            .show-mini {
+                display: inherit;
+            }
+
+            & + main,
+            & + .main {
+                margin-left: 2.5rem;
+                width: calc(100% - 2.5rem);
+            }
         }
     }
 
-    &.layout-two {
-        & > .left{
-            width: 260px;
-            height: 100%;
-            overflow: auto;
-        }
-        & > .main {
-            position: absolute;
-            top: 0;
-            margin-left: 260px;
-            width: calc(100vw - 260px);
-            height: 100%;
-            overflow: auto;
+    & > .side-right {
+        width: 260px;
+        height: calc(100% - 50px);
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transition: all 0.5s ease 0s;
+
+        &.hidden {
+            right: -280px;
         }
     }
 
-    &.layout-admin {
-        & > header,
-        & > .header {
-            height: 50px;
-        }
-
-        & > .left {
-            width: 260px;
-            height: calc(100vh - 50px);
-            overflow: auto;
-        }
-
-        & > .main {
-            position: absolute;
-            top: 50px;
-            margin-left: 260px;
-            width: calc(100vw - 260px);
-            height: calc(100vh - 50px);
-            overflow: auto;
-        }
+    & > main,
+    & > .main {
+        position: absolute;
+        top: 50px;
+        margin-left: 260px;
+        width: calc(100% - 260px);
+        height: calc(100% - 50px);
+        overflow: auto;
+        transition: all 0.5s ease 0s;
     }
 }

@@ -11646,40 +11646,78 @@ a.text-dark:hover, a.text-dark:focus {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f8fa', endColorstr='#FFF',GradientType=0 );
   /* IE6-9 */ }
 
-html {
-  height: 100%; }
-
+html,
 body {
   height: 100%; }
-  body.layout-one {
-    display: grid; }
-    body.layout-one > .main {
-      margin: auto; }
-  body.layout-two > .left {
-    width: 260px;
-    height: 100%;
-    overflow: auto; }
-  body.layout-two > .main {
-    position: absolute;
-    top: 0;
-    margin-left: 260px;
-    width: calc(100vw - 260px);
-    height: 100%;
-    overflow: auto; }
-  body.layout-admin > header,
-  body.layout-admin > .header {
+
+.layout-one {
+  display: grid; }
+  .layout-one > main,
+  .layout-one > .main {
+    margin: auto; }
+
+.layout-two > .side-left {
+  width: 260px;
+  height: 100%;
+  overflow: auto; }
+
+.layout-two > main,
+.layout-two > .main {
+  position: absolute;
+  top: 0;
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  height: 100%;
+  overflow: auto; }
+
+.layout-admin {
+  position: relative; }
+  .layout-admin > header,
+  .layout-admin > .header {
     height: 50px; }
-  body.layout-admin > .left {
+  .layout-admin > .side-left {
+    position: absolute;
     width: 260px;
-    height: calc(100vh - 50px);
-    overflow: auto; }
-  body.layout-admin > .main {
+    height: calc(100% - 50px);
+    overflow: auto;
+    transition: all 0.5s ease 0s; }
+    .layout-admin > .side-left .list-group-item {
+      white-space: nowrap; }
+    .layout-admin > .side-left .show-mini {
+      display: none;
+      transition: all 0.5s ease 0s; }
+    .layout-admin > .side-left.mini {
+      width: 2.5rem; }
+      .layout-admin > .side-left.mini .list-group-item {
+        padding: 0.5rem 0.75rem; }
+      .layout-admin > .side-left.mini .hidden-mini {
+        display: none;
+        white-space: nowrap;
+        transition: all 0.5s ease 0s; }
+      .layout-admin > .side-left.mini .show-mini {
+        display: inherit; }
+      .layout-admin > .side-left.mini + main,
+      .layout-admin > .side-left.mini + .main {
+        margin-left: 2.5rem;
+        width: calc(100% - 2.5rem); }
+  .layout-admin > .side-right {
+    width: 260px;
+    height: calc(100% - 50px);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transition: all 0.5s ease 0s; }
+    .layout-admin > .side-right.hidden {
+      right: -280px; }
+  .layout-admin > main,
+  .layout-admin > .main {
     position: absolute;
     top: 50px;
     margin-left: 260px;
-    width: calc(100vw - 260px);
-    height: calc(100vh - 50px);
-    overflow: auto; }
+    width: calc(100% - 260px);
+    height: calc(100% - 50px);
+    overflow: auto;
+    transition: all 0.5s ease 0s; }
 
 .list-link > a {
   cursor: pointer;

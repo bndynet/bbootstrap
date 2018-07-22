@@ -49154,6 +49154,12 @@ bbootstrap = {
         var $this = this;
         $this.langs.define(locale, value);
     },
+    toggleLeftSide: function() {
+        $('.layout-admin > .side-left').toggleClass('mini');
+    },
+    toggleRightSide: function() {
+        $('.layout-admin > .side-right').toggleClass('hidden');
+    },
     setup: function (options) {
         var $this = this;
         var lang = $this.langs.getDefault();
