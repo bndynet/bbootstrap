@@ -48,7 +48,7 @@ Note: You can use the above components in your project directly. So don't need i
         dateFormat: 'YYYY-MM-DD'
         alertify: {
             maxNotifications: 2,
-            closeNotificationOnClick: false,
+            closeNotificationOnClick: true,
             delay: 5000,
             customeClass: '',
             notificationPosition: "bottom right",
@@ -66,9 +66,10 @@ Note: You can use the above components in your project directly. So don't need i
 
 ### v1.2.2
 
-- Fix pace.js can not be disabled completely
-- Add some layout styles
-- By default, the pace.js is disabled unless set `pace.theme` or `pace.color`
+- Styles: Add some layout styles
+- Component(pace.js): Fix pace.js can not be disabled completely
+- Component(pace.js): By default the pace.js is disabled unless set `pace.theme` or `pace.color`
+- Component(alertify): `closeNotificationOnClick` is `true` by default
 
 ### v1.2.1
 

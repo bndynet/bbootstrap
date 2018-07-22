@@ -48346,7 +48346,7 @@ var DateFormatter;!function(){"use strict";var e,t,a,r,n,o,i;o=864e5,i=3600,e=fu
                 promptValue: '',
                 promptPlaceholder: '',
                 promptLabel: '',
-                closeNotificationOnClick: false,
+                closeNotificationOnClick: true,
                 delay: 5000,
                 customeClass: '',
                 notificationPosition: "bottom right",

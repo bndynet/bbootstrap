@@ -11663,7 +11663,7 @@ body {
     position: absolute;
     top: 0;
     margin-left: 260px;
-    width: 100%;
+    width: calc(100vw - 260px);
     height: 100%;
     overflow: auto; }
   body.layout-admin > header,
@@ -11677,7 +11677,7 @@ body {
     position: absolute;
     top: 50px;
     margin-left: 260px;
-    width: 100%;
+    width: calc(100vw - 260px);
     height: calc(100vh - 50px);
     overflow: auto; }
 
