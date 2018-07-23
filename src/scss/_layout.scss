@@ -1,6 +1,17 @@
+@import "common";
+
+$side-width: 260px !default;
+$side-width-mini: 3.5rem !default;
+$header-height: 50px !default;
+$transition-duration: 0.5s !default;
+
 html,
 body {
     height: 100%;
+}
+
+a {
+    cursor: pointer;
 }
 
 .layout-one {
@@ -13,16 +24,17 @@ body {
 
 .layout-two {
     & > .side-left {
-        width: 260px;
+        width: $side-width;
         height: 100%;
         overflow: auto;
     }
     & > main,
     & > .main {
         position: absolute;
+        z-index: 1000;
         top: 0;
-        margin-left: 260px;
-        width: calc(100% - 260px);
+        margin-left: $side-width;
+        width: calc(100% - #{$side-width});
         height: 100%;
         overflow: auto;
     }
@@ -33,15 +45,16 @@ body {
 
     & > header,
     & > .header {
-        height: 50px;
+        height: $header-height;
     }
 
     & > .side-left {
         position: absolute;
-        width: 260px;
-        height: calc(100% - 50px);
+        z-index: 1000;
+        width: $side-width;
+        height: calc(100% - #{$header-height});
         overflow: auto;
-        transition: all 0.5s ease 0s;
+        transition: all $transition-duration ease 0s;
 
         .list-group-item {
             white-space: nowrap;
@@ -49,19 +62,19 @@ body {
 
         .show-mini {
             display: none;
-            transition: all 0.5s ease 0s;
+            @include animate(fadeIn, $transition-duration);
+        }
+
+        .hidden-mini { 
+            @include animate(fadeIn, $transition-duration);
         }
 
         &.mini {
-            width: 2.5rem;
-            .list-group-item {
-                padding: 0.5rem 0.75rem;
-            }
+            width: $side-width-mini;
             
             .hidden-mini {
                 display: none;
                 white-space: nowrap;
-                transition: all 0.5s ease 0s;
             } 
             .show-mini {
                 display: inherit;
@@ -69,33 +82,35 @@ body {
 
             & + main,
             & + .main {
-                margin-left: 2.5rem;
-                width: calc(100% - 2.5rem);
+                margin-left: $side-width-mini;
+                width: calc(100% - #{$side-width-mini});
             }
         }
     }
 
     & > .side-right {
-        width: 260px;
-        height: calc(100% - 50px);
+        width: $side-width;
+        height: calc(100% - #{$header-height});
         position: absolute;
+        z-index: 1000;
         right: 0;
         bottom: 0;
         transition: all 0.5s ease 0s;
 
         &.hidden {
-            right: -280px;
+            right: -20 - $side-width;
         }
     }
 
     & > main,
     & > .main {
         position: absolute;
-        top: 50px;
-        margin-left: 260px;
-        width: calc(100% - 260px);
-        height: calc(100% - 50px);
+        z-index: 1000;
+        top: $header-height;
+        margin-left: $side-width;
+        width: calc(100% - #{$side-width});
+        height: calc(100% - #{$header-height});
         overflow: auto;
-        transition: all 0.5s ease 0s;
+        transition: all $transition-duration ease 0s;
     }
 }

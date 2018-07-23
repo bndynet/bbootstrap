@@ -44,6 +44,16 @@
             background-color: #007bff;
             color: #ffffff;
         }
+
+        .side-right {
+            color: #bbbbbb;
+            background: #343a40;
+            box-shadow: -3px 0 3px 1px rgba(0, 0, 0, 0.2)
+        }
+        .side-right a {
+            color: #ffffff;
+        }
+        
     </style>
     <script>
         $(function () {
@@ -72,10 +82,22 @@
                 alt=""> Bbootstrap
             <small class="version"></small>
         </a>
-        <ul class="navbar-nav ml-md-auto">
+        <ul class="navbar-nav flex-row">
             <li class="nav-item">
-                <a class="nav-link p-2" href="https://github.com/bndynet/bbootstrap" target="_blank" rel="noopener" aria-label="GitHub">
+                <a class="nav-link p-2" onclick="bbootstrap.toggleLeftSide()">
+                    <i class="fa fa-2x fa-bars fa-fw"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-md-auto flex-row d-md-flex">
+            <li class="nav-item">
+                <a class="nav-link p-2" href="https://github.com/bndynet/bbootstrap" target="_blank">
                     <i class="fa fa-github fa-2x"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2" onclick="bbootstrap.toggleRightSide()"  rel="noopener" aria-label="Menu">
+                    <i class="fa fa-ellipsis-v fa-2x"></i>
                 </a>
             </li>
         </ul>
@@ -83,59 +105,99 @@
     <div class="side-left">
         <nav id="side-navs" class="list-group list-group-flush">
             <a class="list-group-item">
-                <b>COMPONENTS</b>
+                <b class="show-mini">
+                    <i class="fa fa-home fa-fw"></i>
+                </b>
+                <b class="hidden-mini">COMPONENTS</b>
             </a>
             <a class="list-group-item list-group-item-action" href="#alertify">
                 <i class="fa fa-jsfiddle fa-fw"></i>
-                Alertify
+                <span class="hidden-mini">
+                    Alertify
+                </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#block">
                 <i class="fa fa-css3 fa-fw"></i>
+                <span class="hidden-mini">
                 Block
+                </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#checkbox">
                 <i class="fa fa-css3 fa-fw"></i>
+                <span class="hidden-mini">
                 Checkbox
+                </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#datetimepicker">
                 <i class="fa fa-jsfiddle fa-fw"></i>
+                <span class="hidden-mini">
                 DateTime Picker
+                </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#dialog">
                 <i class="fa fa-jsfiddle fa-fw"></i>
+                <span class="hidden-mini">
                 Dialog
+                </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#file-input">
                 <i class="fa fa-css3 fa-fw"></i>
+                <span class="hidden-mini">
                 File input
+                </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#input-with-feedback">
                 <i class="fa fa-css3 fa-fw"></i>
-                Input with feedback</a>
+                <span class="hidden-mini">
+                Input with feedback
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#links">
                 <i class="fa fa-css3 fa-fw"></i>
-                Links</a>
+                <span class="hidden-mini">
+                Links
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#loading">
                 <i class="fa fa-jsfiddle fa-fw"></i>
+                <span class="hidden-mini">
                 Loading</a>
             <a class="list-group-item list-group-item-action" href="#overflow">
                 <i class="fa fa-css3 fa-fw"></i>
-                Overflow</a>
+                <span class="hidden-mini">
+                Overflow
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#overlay">
                 <i class="fa fa-jsfiddle fa-fw"></i>
-                Overlay</a>
+                <span class="hidden-mini">
+                Overlay
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#radio">
                 <i class="fa fa-css3 fa-fw"></i>
-                Radio</a>
+                <span class="hidden-mini">
+                Radio
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#select">
                 <i class="fa fa-jsfiddle fa-fw"></i>
-                Select</a>
+                <span class="hidden-mini">
+                Select
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#status">
                 <i class="fa fa-css3 fa-fw"></i>
-                Status</a>
+                <span class="hidden-mini">
+                Status
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#tooltip">
                 <i class="fa fa-jsfiddle fa-fw"></i>
-                Tooltip</a>
+                <span class="hidden-mini">
+                Tooltip
+                </span>
+            </a>
         </nav>
     </div>
 
@@ -925,7 +987,48 @@
                 });
             </script>
         </section>
+
     </div>
+
+    <div class="side-right hidden">
+        <br />
+        <br />
+        <div class="block block-sm">
+            <div class="row">
+                <span class="col">Author</span>
+                <span class="col text-right">Bendy Zhang</span>
+            </div>
+        </div>
+        <div class="block block-sm">
+            <div class="row">
+                <span class="col">Homepage</span>
+                <span class="col text-right">http://bndy.net</span>
+            </div>
+        </div>
+        <div class="block block-sm">
+            <div class="row">
+                <span class="col">Email</span>
+                <span class="col text-right">zb@bndy.net</span>
+            </div>
+        </div>
+        <div class="block block-sm">
+            Links:
+            <br />
+            <ul>
+                <li>
+                    <a href="https://github.com/bndynet/bbootstrap" target="_blank" >
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.npmjs.com/package/@bndynet/bbootstrap" target="_blank">
+                        NPM Package
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <script type="text/javascript">
         function changeState(el) {
             if (el.readOnly) el.checked = el.readOnly = false;

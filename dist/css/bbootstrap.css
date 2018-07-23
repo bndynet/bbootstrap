@@ -11650,6 +11650,9 @@ html,
 body {
   height: 100%; }
 
+a {
+  cursor: pointer; }
+
 .layout-one {
   display: grid; }
   .layout-one > main,
@@ -11664,6 +11667,7 @@ body {
 .layout-two > main,
 .layout-two > .main {
   position: absolute;
+  z-index: 1000;
   top: 0;
   margin-left: 260px;
   width: calc(100% - 260px);
@@ -11677,6 +11681,7 @@ body {
     height: 50px; }
   .layout-admin > .side-left {
     position: absolute;
+    z-index: 1000;
     width: 260px;
     height: calc(100% - 50px);
     overflow: auto;
@@ -11685,25 +11690,29 @@ body {
       white-space: nowrap; }
     .layout-admin > .side-left .show-mini {
       display: none;
-      transition: all 0.5s ease 0s; }
+      animation-name: fadeIn;
+      animation-duration: 0.5s;
+      animation-fill-mode: both; }
+    .layout-admin > .side-left .hidden-mini {
+      animation-name: fadeIn;
+      animation-duration: 0.5s;
+      animation-fill-mode: both; }
     .layout-admin > .side-left.mini {
-      width: 2.5rem; }
-      .layout-admin > .side-left.mini .list-group-item {
-        padding: 0.5rem 0.75rem; }
+      width: 3.5rem; }
       .layout-admin > .side-left.mini .hidden-mini {
         display: none;
-        white-space: nowrap;
-        transition: all 0.5s ease 0s; }
+        white-space: nowrap; }
       .layout-admin > .side-left.mini .show-mini {
         display: inherit; }
       .layout-admin > .side-left.mini + main,
       .layout-admin > .side-left.mini + .main {
-        margin-left: 2.5rem;
-        width: calc(100% - 2.5rem); }
+        margin-left: 3.5rem;
+        width: calc(100% - 3.5rem); }
   .layout-admin > .side-right {
     width: 260px;
     height: calc(100% - 50px);
     position: absolute;
+    z-index: 1000;
     right: 0;
     bottom: 0;
     transition: all 0.5s ease 0s; }
@@ -11712,6 +11721,7 @@ body {
   .layout-admin > main,
   .layout-admin > .main {
     position: absolute;
+    z-index: 1000;
     top: 50px;
     margin-left: 260px;
     width: calc(100% - 260px);
