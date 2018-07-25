@@ -1,0 +1,116 @@
+@import "common";
+
+$side-width: 260px !default;
+$side-width-mini: 3.5rem !default;
+$header-height: 50px !default;
+$transition-duration: 0.5s !default;
+
+html,
+body {
+    height: 100%;
+}
+
+a {
+    cursor: pointer;
+}
+
+.layout-one {
+    display: grid;
+    & > main,
+    & > .main {
+        margin: auto;
+    }
+}
+
+.layout-two {
+    & > .side-left {
+        width: $side-width;
+        height: 100%;
+        overflow: auto;
+    }
+    & > main,
+    & > .main {
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        margin-left: $side-width;
+        width: calc(100% - #{$side-width});
+        height: 100%;
+        overflow: auto;
+    }
+}
+
+.layout-admin {
+    position: relative;
+
+    & > header,
+    & > .header {
+        height: $header-height;
+    }
+
+    & > .side-left {
+        position: absolute;
+        z-index: 1000;
+        width: $side-width;
+        height: calc(100% - #{$header-height});
+        overflow: auto;
+        transition: all $transition-duration ease 0s;
+
+        .list-group-item {
+            white-space: nowrap;
+        }
+
+        .show-mini {
+            display: none;
+            @include animate(fadeIn, $transition-duration);
+        }
+
+        .hidden-mini { 
+            @include animate(fadeIn, $transition-duration);
+        }
+
+        &.mini {
+            width: $side-width-mini;
+            
+            .hidden-mini {
+                display: none;
+                white-space: nowrap;
+            } 
+            .show-mini {
+                display: inherit;
+            }
+
+            & + main,
+            & + .main {
+                margin-left: $side-width-mini;
+                width: calc(100% - #{$side-width-mini});
+            }
+        }
+    }
+
+    & > .side-right {
+        width: $side-width;
+        height: calc(100% - #{$header-height});
+        position: absolute;
+        z-index: 1000;
+        right: 0;
+        bottom: 0;
+        transition: all 0.5s ease 0s;
+
+        &.hidden {
+            right: -20 - $side-width;
+        }
+    }
+
+    & > main,
+    & > .main {
+        position: absolute;
+        z-index: 1000;
+        top: $header-height;
+        margin-left: $side-width;
+        width: calc(100% - #{$side-width});
+        height: calc(100% - #{$header-height});
+        overflow: auto;
+        transition: all $transition-duration ease 0s;
+    }
+}

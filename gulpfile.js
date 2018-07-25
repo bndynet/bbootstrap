@@ -28,17 +28,27 @@ var comment = '/*\n' +
     ' * http://bndy.net\n' +
     ' */\n\n';
 
-gulp.task('clean', function () {
+gulp.task('clean', ['cleanStatic', 'cleanStyles', 'cleanScripts'], function () {
     return del(['dist']);
 });
+gulp.task('cleanStatic', function() {
+    return del(['dist/fonts', 'docs/fonts']);
+});
+gulp.task('cleanStyles', function() {
+    return del(['dist/css', 'docs/css']);
+});
+gulp.task('cleanScripts', function() {
+    return del(['dist/js', 'docs/js']);
+});
 
-gulp.task('static', ['clean'], function () {
+
+gulp.task('static', ['cleanStatic'], function () {
     return gulp.src(paths.fontFiles)
         .pipe(gulp.dest('dist/fonts'))
         .pipe(gulp.dest('docs/fonts'));
 });
 
-gulp.task('scripts', ['clean'], function () {
+gulp.task('scripts', ['cleanScripts'], function () {
     return gulp.src('src/js/bbootstrap.js')
         .pipe(replace('{{bbootstrap-version}}', pkg.version))
         // .pipe(babel({
@@ -67,7 +77,7 @@ gulp.task('scripts', ['clean'], function () {
         .pipe(gulp.dest('docs/js'));
 });
 
-gulp.task('styles', ['clean'], function () {
+gulp.task('styles', ['cleanStyles'], function () {
     return gulp.src(paths.styles)
         .pipe(sass().on('error', sass.logError))
         .pipe(concat('bbootstrap.css'))
@@ -97,3 +107,4 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['clean', 'watch', 'static', 'scripts', 'styles']);
+gulp.task('build', ['clean', 'static', 'scripts', 'styles']);

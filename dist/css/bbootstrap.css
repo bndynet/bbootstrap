@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.2.1
+ * @bndynet/bbootstrap v1.3.0
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -11646,6 +11646,89 @@ a.text-dark:hover, a.text-dark:focus {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f8fa', endColorstr='#FFF',GradientType=0 );
   /* IE6-9 */ }
 
+html,
+body {
+  height: 100%; }
+
+a {
+  cursor: pointer; }
+
+.layout-one {
+  display: grid; }
+  .layout-one > main,
+  .layout-one > .main {
+    margin: auto; }
+
+.layout-two > .side-left {
+  width: 260px;
+  height: 100%;
+  overflow: auto; }
+
+.layout-two > main,
+.layout-two > .main {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  height: 100%;
+  overflow: auto; }
+
+.layout-admin {
+  position: relative; }
+  .layout-admin > header,
+  .layout-admin > .header {
+    height: 50px; }
+  .layout-admin > .side-left {
+    position: absolute;
+    z-index: 1000;
+    width: 260px;
+    height: calc(100% - 50px);
+    overflow: auto;
+    transition: all 0.5s ease 0s; }
+    .layout-admin > .side-left .list-group-item {
+      white-space: nowrap; }
+    .layout-admin > .side-left .show-mini {
+      display: none;
+      animation-name: fadeIn;
+      animation-duration: 0.5s;
+      animation-fill-mode: both; }
+    .layout-admin > .side-left .hidden-mini {
+      animation-name: fadeIn;
+      animation-duration: 0.5s;
+      animation-fill-mode: both; }
+    .layout-admin > .side-left.mini {
+      width: 3.5rem; }
+      .layout-admin > .side-left.mini .hidden-mini {
+        display: none;
+        white-space: nowrap; }
+      .layout-admin > .side-left.mini .show-mini {
+        display: inherit; }
+      .layout-admin > .side-left.mini + main,
+      .layout-admin > .side-left.mini + .main {
+        margin-left: 3.5rem;
+        width: calc(100% - 3.5rem); }
+  .layout-admin > .side-right {
+    width: 260px;
+    height: calc(100% - 50px);
+    position: absolute;
+    z-index: 1000;
+    right: 0;
+    bottom: 0;
+    transition: all 0.5s ease 0s; }
+    .layout-admin > .side-right.hidden {
+      right: -280px; }
+  .layout-admin > main,
+  .layout-admin > .main {
+    position: absolute;
+    z-index: 1000;
+    top: 50px;
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    height: calc(100% - 50px);
+    overflow: auto;
+    transition: all 0.5s ease 0s; }
+
 .list-link > a {
   cursor: pointer;
   display: inline-block;
@@ -12466,6 +12549,7 @@ label .was-validated .form-check-input:invalid .checkbox:before, label
   color: #fff; }
 
 .pace {
+  position: absolute;
   -webkit-pointer-events: none;
   pointer-events: none;
   -webkit-user-select: none;

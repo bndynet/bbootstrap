@@ -18,7 +18,7 @@
                 promptValue: '',
                 promptPlaceholder: '',
                 promptLabel: '',
-                closeNotificationOnClick: false,
+                closeNotificationOnClick: true,
                 delay: 5000,
                 customeClass: '',
                 notificationPosition: "bottom right",

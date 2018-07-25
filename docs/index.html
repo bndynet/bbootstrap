@@ -9,20 +9,24 @@
     <style>
         section {
             padding: 30px 0 15px 0;
+            margin: 0 2rem;
         }
+
         section:last-child {
             border-bottom: none;
         }
 
         section h2 {
-            margin-bottom: 1rem; 
+            margin-bottom: 1rem;
         }
-        section h2 + div {
+
+        section h2+div {
             position: relative;
             border: solid #f8f9fa .2rem;
             border-radius: 5px;
             padding: 2rem;
         }
+
         section .print {
             position: absolute;
             top: -.2rem;
@@ -35,901 +39,996 @@
             border-radius: 0 5px 0 5px;
             color: #888888;
         }
+
         .print:hover {
             background-color: #007bff;
             color: #ffffff;
         }
 
-        #side-navs {
-            width: 260px;
+        .side-right {
+            color: #bbbbbb;
+            background: #343a40;
+            box-shadow: -3px 0 3px 1px rgba(0, 0, 0, 0.2)
         }
-
-        main {
-            margin-left: 260px;
-            padding: 1rem 2rem;
-            height: calc(100vh - 60px);
-            overflow: scroll;
+        .side-right a {
+            color: #ffffff;
         }
+        
     </style>
     <script>
-        $(function(){
+        $(function () {
             $('.version').html('v' + bbootstrap.version);
-            bbootstrap.defineLang('zh-CN', {
-                ok: '确定',
-                cancel: '取消',
-            });
             bbootstrap.setup({
-                locale: 'zh-CN',
-                pace: {
+                progressBar: {
                     theme: 'light',
-                }
+                },
             });
 
-            $('section').each(function(){
+            $('section').each(function () {
                 $(this).find('h2 + div').prepend('<div class="print">Print Code to Console</div>')
             });
-            $('section').on('click', '.print', function(){
+            $('section').on('click', '.print', function () {
                 var elSection = $(this).closest('section');
-                console.log(elSection.html());
+                console.info(elSection.html());
             });
         });
     </script>
 </head>
 
-<body>
+<body class="layout-admin">
     <header class="navbar navbar-dark bg-dark bd-navbar">
         <a class="navbar-brand" href="#">
             <img src="http://static.bndy.net/images/apple-icon-precomposed.png" width="30" height="30" class="d-inline-block align-top"
-                alt="">
-            Bbootstrap
+                alt=""> Bbootstrap
             <small class="version"></small>
         </a>
-        <ul class="navbar-nav ml-md-auto">
+        <ul class="navbar-nav flex-row">
             <li class="nav-item">
-                <a class="nav-link p-2" href="https://github.com/bndynet/bbootstrap" target="_blank" rel="noopener" aria-label="GitHub">
+                <a class="nav-link p-2" onclick="bbootstrap.toggleLeftSide()">
+                    <i class="fa fa-2x fa-bars fa-fw"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-md-auto flex-row d-md-flex">
+            <li class="nav-item">
+                <a class="nav-link p-2" href="https://github.com/bndynet/bbootstrap" target="_blank">
                     <i class="fa fa-github fa-2x"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2" onclick="bbootstrap.toggleRightSide()"  rel="noopener" aria-label="Menu">
+                    <i class="fa fa-ellipsis-v fa-2x"></i>
                 </a>
             </li>
         </ul>
     </header>
-    <div>
-        <nav id="side-navs" class="list-group list-group-flush position-fixed">
+    <div class="side-left">
+        <nav id="side-navs" class="list-group list-group-flush">
             <a class="list-group-item">
-                <b>COMPONENTS</b>
+                <b class="show-mini">
+                    <i class="fa fa-home fa-fw"></i>
+                </b>
+                <b class="hidden-mini">COMPONENTS</b>
             </a>
             <a class="list-group-item list-group-item-action" href="#alertify">
                 <i class="fa fa-jsfiddle fa-fw"></i>
-                Alertify
+                <span class="hidden-mini">
+                    Alertify
+                </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#block">
                 <i class="fa fa-css3 fa-fw"></i>
+                <span class="hidden-mini">
                 Block
+                </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#checkbox">
                 <i class="fa fa-css3 fa-fw"></i>
+                <span class="hidden-mini">
                 Checkbox
+                </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#datetimepicker">
                 <i class="fa fa-jsfiddle fa-fw"></i>
+                <span class="hidden-mini">
                 DateTime Picker
+                </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#dialog">
                 <i class="fa fa-jsfiddle fa-fw"></i>
+                <span class="hidden-mini">
                 Dialog
+                </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#file-input">
                 <i class="fa fa-css3 fa-fw"></i>
+                <span class="hidden-mini">
                 File input
+                </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#input-with-feedback">
                 <i class="fa fa-css3 fa-fw"></i>
-                Input with feedback</a>
+                <span class="hidden-mini">
+                Input with feedback
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#links">
                 <i class="fa fa-css3 fa-fw"></i>
-                Links</a>
+                <span class="hidden-mini">
+                Links
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#loading">
                 <i class="fa fa-jsfiddle fa-fw"></i>
+                <span class="hidden-mini">
                 Loading</a>
             <a class="list-group-item list-group-item-action" href="#overflow">
                 <i class="fa fa-css3 fa-fw"></i>
-                Overflow</a>
+                <span class="hidden-mini">
+                Overflow
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#overlay">
                 <i class="fa fa-jsfiddle fa-fw"></i>
-                Overlay</a>
+                <span class="hidden-mini">
+                Overlay
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#radio">
                 <i class="fa fa-css3 fa-fw"></i>
-                Radio</a>
+                <span class="hidden-mini">
+                Radio
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#select">
                 <i class="fa fa-jsfiddle fa-fw"></i>
-                Select</a>
+                <span class="hidden-mini">
+                Select
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#status">
                 <i class="fa fa-css3 fa-fw"></i>
-                Status</a>
+                <span class="hidden-mini">
+                Status
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#tooltip">
                 <i class="fa fa-jsfiddle fa-fw"></i>
-                Tooltip</a>
+                <span class="hidden-mini">
+                Tooltip
+                </span>
+            </a>
         </nav>
+    </div>
 
-        <main class="border-left" data-spy="scroll" data-target="#side-navs" data-offset="100">
-            <section id="alertify">
-                <h2>Alertify</h2>
-                <div>
-                    <button id="btnAlert" class="btn btn-light">Alert</button>
-                    <button id="btnConfirm" class="btn btn-light">Confirm</button>
-                    <button id="btnPrompt" class="btn btn-light">Prompt</button>
-                    <br />
-                    <br />
-                    <button id="btnNotification" class="btn btn-light">Notify</button>
-                    <button id="btnSuccessNotification" class="btn btn-success">Success</button>
-                    <button id="btnErrorNotification" class="btn btn-danger">Error</button>
-                    <button id="btnPositionNotification" class="btn btn-light">Change Position</button>
-                    <button id="btnFixedNotification" class="btn btn-light">Fixed</button>
-                    <br />
-                    <br />
-                    <button class="for-theme btn btn-primary">Primary</button>
-                    <button class="for-theme btn btn-secondary">Secondary</button>
-                    <button class="for-theme btn btn-success">Success</button>
-                    <button class="for-theme btn btn-info">Info</button>
-                    <button class="for-theme btn btn-warning">Warning</button>
-                    <button class="for-theme btn btn-danger">Danger</button>
-                    <button class="for-theme btn btn-dark">Dark</button>
-                    <button class="for-theme btn btn-light">Light</button>
-                </div>
-                <script>
-                    $(function(){
-                        $('#alertify #btnAlert').click(function() {
-                            alertify.alert('Alert', function() {
-                                alertify.success('Ok');
-                            });
-                        });
-                        $('#alertify #btnConfirm').click(function() {
-                            alertify.confirm('Confirm', function() {
-                                alertify.success('Ok');
-                            }, function() {
-                                alertify.notify('Cancel');
-                            });
-                        });
-                        $('#alertify #btnPrompt').click(function() {
-                            alertify.prompt('Prompt', function(val) {
-                                alertify.success(val);
-                            });
-                        });
-                        $('#alertify #btnNotification').click(function() {
-                            var msg = "<img src='https://placehold.it/256x128'>" +
-                                "<h3>This is HTML</h3>" +
-                                "<p>It's great, right?</p>";
-                            alertify.notify(msg, 30000);
-                        });
-                        $('#alertify #btnSuccessNotification').click(function() {
-                            alertify.success('Success');
-                        });
-                        $('#alertify #btnErrorNotification').click(function() {
-                            alertify.error('<i class="fa fa-warning"></i> Error');
-                        });
-                        $('#alertify #btnPositionNotification').click(function() {
-                            alertify.setup({
-                                notificationPosition: 'bottom left',
-                            });
-                            alertify.success('Position Changed');
-                        });
-                        $('#alertify #btnFixedNotification').click(function() {
-                            alertify.setup({
-                                delay: 0,
-                            });
-                            alertify.notify('Fixed Notification');
-                        });
-                        $('#alertify .for-theme').click(function() {
-                            var s = $(this).text().toLowerCase();
-                            eval('alertify.' + s + '("alertify.' + s + '(your-message)");');
+    <div class="main border-left" data-spy="scroll" data-target="#side-navs" data-offset="100">
+        <section id="alertify">
+            <h2>Alertify</h2>
+            <div>
+                <button id="btnAlert" class="btn btn-light">Alert</button>
+                <button id="btnConfirm" class="btn btn-light">Confirm</button>
+                <button id="btnPrompt" class="btn btn-light">Prompt</button>
+                <br />
+                <br />
+                <button id="btnNotification" class="btn btn-light">Notify</button>
+                <button id="btnSuccessNotification" class="btn btn-success">Success</button>
+                <button id="btnErrorNotification" class="btn btn-danger">Error</button>
+                <button id="btnPositionNotification" class="btn btn-light">Change Position</button>
+                <button id="btnFixedNotification" class="btn btn-light">Fixed</button>
+                <br />
+                <br />
+                <button class="for-theme btn btn-primary">Primary</button>
+                <button class="for-theme btn btn-secondary">Secondary</button>
+                <button class="for-theme btn btn-success">Success</button>
+                <button class="for-theme btn btn-info">Info</button>
+                <button class="for-theme btn btn-warning">Warning</button>
+                <button class="for-theme btn btn-danger">Danger</button>
+                <button class="for-theme btn btn-dark">Dark</button>
+                <button class="for-theme btn btn-light">Light</button>
+            </div>
+            <script>
+                $(function () {
+                    $('#alertify #btnAlert').click(function () {
+                        alertify.alert('Alert', function () {
+                            alertify.success('Ok');
                         });
                     });
-                </script>
-            </section>
+                    $('#alertify #btnConfirm').click(function () {
+                        alertify.confirm('Confirm', function () {
+                            alertify.success('Ok');
+                        }, function () {
+                            alertify.notify('Cancel');
+                        });
+                    });
+                    $('#alertify #btnPrompt').click(function () {
+                        alertify.prompt('Prompt', function (val) {
+                            alertify.success(val);
+                        });
+                    });
+                    $('#alertify #btnNotification').click(function () {
+                        var msg = "<img src='https://placehold.it/256x128'>" +
+                            "<h3>This is HTML</h3>" +
+                            "<p>It's great, right?</p>";
+                        alertify.notify(msg, 30000);
+                    });
+                    $('#alertify #btnSuccessNotification').click(function () {
+                        alertify.success('Success');
+                    });
+                    $('#alertify #btnErrorNotification').click(function () {
+                        alertify.error('<i class="fa fa-warning"></i> Error');
+                    });
+                    $('#alertify #btnPositionNotification').click(function () {
+                        alertify.setup({
+                            notificationPosition: 'bottom left',
+                        });
+                        alertify.success('Position Changed');
+                    });
+                    $('#alertify #btnFixedNotification').click(function () {
+                        alertify.setup({
+                            delay: 0,
+                        });
+                        alertify.notify('Fixed Notification');
+                    });
+                    $('#alertify .for-theme').click(function () {
+                        var s = $(this).text().toLowerCase();
+                        eval('alertify.' + s + '("alertify.' + s + '(your-message)");');
+                    });
+                });
+            </script>
+        </section>
 
-            <section id="block">
-                <style>
-                    #block .block {
-                        background: #dedede;
-                    }
-                </style>
-                <h2>Block</h2>
-                <div>
-                    <span class="block block-sm block-inline">.block.block-inline.block-sm</span>
-                    <span class="block block-inline">.block.block-inline</span>
-                    <span class="block block-lg block-inline">.block.block-inline.block-lg</span>
-                    <span class="block block-lg">.block.block-lg</span>
-                </div>
-            </section>
+        <section id="block">
+            <style>
+                #block .block {
+                    background: #dedede;
+                }
+            </style>
+            <h2>Block</h2>
+            <div>
+                <span class="block block-sm block-inline">.block.block-inline.block-sm</span>
+                <span class="block block-inline">.block.block-inline</span>
+                <span class="block block-lg block-inline">.block.block-inline.block-lg</span>
+                <span class="block block-lg">.block.block-lg</span>
+            </div>
+        </section>
 
-            <section id="checkbox">
-                <h2>Checkbox</h2>
-                <div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <fieldset>
-                                <legend>
-                                    themes
-                                </legend>
-                                <div class="form-check checkbox" style="font-size: 12px;">
-                                    <input class="form-check-input" id="checkbox1" type="checkbox">
-                                    <label class="form-check-label" for="checkbox1">
-                                        Default 12px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-primary" style="font-size: 13px;">
-                                    <input class="form-check-input" id="checkbox2" type="checkbox" checked>
-                                    <label class="form-check-label" for="checkbox2">
-                                        Primary 13px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-success" style="font-size: 14px;">
-                                    <input class="form-check-input" id="checkbox3" type="checkbox">
-                                    <label class="form-check-label" for="checkbox3">
-                                        Success 14px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-info" style="font-size: 15px;">
-                                    <input class="form-check-input" id="checkbox4" type="checkbox">
-                                    <label class="form-check-label" for="checkbox4">
-                                        Info 15px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-warning" style="font-size: 18px;">
-                                    <input class="form-check-input" id="checkbox5" type="checkbox" checked>
-                                    <label class="form-check-label" for="checkbox5">
-                                        Warning 18px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-danger" style="font-size: 24px;">
-                                    <input class="form-check-input" id="checkbox6" type="checkbox" checked>
-                                    <label class="form-check-label" for="checkbox6">
-                                        Danger 24px
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-md-3">
-                            <fieldset>
-                                <legend>
-                                    .checkbox-circle
-                                </legend>
-                                <div class="form-check checkbox checkbox-circle" style="font-size: 12px;">
-                                    <input class="form-check-input" id="checkbox21" type="checkbox">
-                                    <label class="form-check-label" for="checkbox21">
-                                        Default 12px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-primary checkbox-circle" style="font-size: 13px;">
-                                    <input class="form-check-input" id="checkbox22" type="checkbox" checked>
-                                    <label class="form-check-label" for="checkbox22">
-                                        Primary 13px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-success checkbox-circle" style="font-size: 14px;">
-                                    <input class="form-check-input" id="checkbox23" type="checkbox">
-                                    <label class="form-check-label" for="checkbox23">
-                                        Success 14px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-info checkbox-circle" style="font-size: 15px;">
-                                    <input class="form-check-input" id="checkbox24" type="checkbox">
-                                    <label class="form-check-label" for="checkbox24">
-                                        Info 15px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-warning checkbox-circle" style="font-size: 18px;">
-                                    <input class="form-check-input" id="checkbox25" type="checkbox" checked>
-                                    <label class="form-check-label" for="checkbox25">
-                                        Warning 18px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-danger checkbox-circle" style="font-size: 24px;">
-                                    <input class="form-check-input" id="checkbox26" type="checkbox" checked>
-                                    <label class="form-check-label" for="checkbox26">
-                                        Danger 24px
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-md-3">
-                            <fieldset>
-                                <legend>
-                                    .checkbox-flat
-                                </legend>
-                                <div class="form-check checkbox checkbox-flat" style="font-size: 12px;">
-                                    <input class="form-check-input" id="checkbox41" type="checkbox">
-                                    <label class="form-check-label" for="checkbox41">
-                                        Default 12px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-primary checkbox-flat" style="font-size: 13px;">
-                                    <input class="form-check-input" id="checkbox42" type="checkbox" checked>
-                                    <label class="form-check-label" for="checkbox42">
-                                        Primary 13px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-success checkbox-flat" style="font-size: 14px;">
-                                    <input class="form-check-input" id="checkbox43" type="checkbox">
-                                    <label class="form-check-label" for="checkbox43">
-                                        Success 14px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-info checkbox-flat" style="font-size: 15px;">
-                                    <input class="form-check-input" id="checkbox44" type="checkbox">
-                                    <label class="form-check-label" for="checkbox44">
-                                        Info 15px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-warning checkbox-flat" style="font-size: 18px;">
-                                    <input class="form-check-input" id="checkbox45" type="checkbox" checked>
-                                    <label class="form-check-label" for="checkbox45">
-                                        Warning 18px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-danger checkbox-flat" style="font-size: 24px;">
-                                    <input class="form-check-input" id="checkbox46" type="checkbox" checked>
-                                    <label class="form-check-label" for="checkbox46">
-                                        Danger 24px
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-md-3">
-                            <fieldset>
-                                <legend>
-                                    &lt;input disabled /&gt;
-                                </legend>
-                                <div class="form-check checkbox checkbox-circle" style="font-size: 12px;">
-                                    <input class="form-check-input" id="checkbox31" type="checkbox" disabled>
-                                    <label class="form-check-label" for="checkbox31">
-                                        Default 12px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-primary" style="font-size: 13px;">
-                                    <input class="form-check-input" id="checkbox32" type="checkbox" checked disabled>
-                                    <label class="form-check-label" for="checkbox32">
-                                        Primary 13px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-success checkbox-circle" style="font-size: 14px;">
-                                    <input class="form-check-input" id="checkbox33" type="checkbox" disabled>
-                                    <label class="form-check-label" for="checkbox33">
-                                        Success 14px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-info" style="font-size: 15px;">
-                                    <input class="form-check-input" id="checkbox34" type="checkbox" disabled>
-                                    <label class="form-check-label" for="checkbox34">
-                                        Info 15px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-warning checkbox-circle" style="font-size: 18px;">
-                                    <input class="form-check-input" id="checkbox35" type="checkbox" checked disabled>
-                                    <label class="form-check-label" for="checkbox35">
-                                        Warning 18px
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-danger" style="font-size: 24px;">
-                                    <input class="form-check-input" id="checkbox36" type="checkbox" checked disabled>
-                                    <label class="form-check-label" for="checkbox36">
-                                        Danger 24px
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
+        <section id="checkbox">
+            <h2>Checkbox</h2>
+            <div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <fieldset>
+                            <legend>
+                                themes
+                            </legend>
+                            <div class="form-check checkbox" style="font-size: 12px;">
+                                <input class="form-check-input" id="checkbox1" type="checkbox">
+                                <label class="form-check-label" for="checkbox1">
+                                    Default 12px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-primary" style="font-size: 13px;">
+                                <input class="form-check-input" id="checkbox2" type="checkbox" checked>
+                                <label class="form-check-label" for="checkbox2">
+                                    Primary 13px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-success" style="font-size: 14px;">
+                                <input class="form-check-input" id="checkbox3" type="checkbox">
+                                <label class="form-check-label" for="checkbox3">
+                                    Success 14px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-info" style="font-size: 15px;">
+                                <input class="form-check-input" id="checkbox4" type="checkbox">
+                                <label class="form-check-label" for="checkbox4">
+                                    Info 15px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-warning" style="font-size: 18px;">
+                                <input class="form-check-input" id="checkbox5" type="checkbox" checked>
+                                <label class="form-check-label" for="checkbox5">
+                                    Warning 18px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-danger" style="font-size: 24px;">
+                                <input class="form-check-input" id="checkbox6" type="checkbox" checked>
+                                <label class="form-check-label" for="checkbox6">
+                                    Danger 24px
+                                </label>
+                            </div>
+                        </fieldset>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-md-4">
-                            <fieldset>
-                                <legend>
-                                    Without label text
-                                </legend>
-                                <div class="form-check checkbox">
-                                    <input class="form-check-input" type="checkbox" id="singleCheckbox1" value="option1" aria-label="Single checkbox One">
-                                    <label class="form-check-label" for="singleCheckbox1"></label>
-                                </div>
-                                <div class="form-check checkbox checkbox-primary">
-                                    <input class="form-check-input" type="checkbox" id="singleCheckbox2" value="option2" checked aria-label="Single checkbox Two">
-                                    <label class="form-check-label" for="singleCheckbox2"></label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-md-4">
-                            <fieldset>
-                                <legend>
-                                    Indeterminate state
-                                </legend>
-                                <div class="form-check checkbox checkbox-primary">
-                                    <input class="form-check-input" id="indeterminateCheckbox" type="checkbox" onclick="changeState(this)">
-                                    <label class="form-check-label" for="indeterminateCheckbox"></label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-md-4">
-                            <fieldset>
-                                <legend>
-                                    Inline checkboxes
-                                </legend>
-                                <div class="form-check checkbox form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                    <label class="form-check-label" for="inlineCheckbox1"> One </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-success form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1" checked>
-                                    <label class="form-check-label" for="inlineCheckbox2"> Two </label>
-                                </div>
-                                <div class="form-check checkbox form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
-                                    <label class="form-check-label" for="inlineCheckbox3"> Three </label>
-                                </div>
-                            </fieldset>
-                        </div>
+                    <div class="col-md-3">
+                        <fieldset>
+                            <legend>
+                                .checkbox-circle
+                            </legend>
+                            <div class="form-check checkbox checkbox-circle" style="font-size: 12px;">
+                                <input class="form-check-input" id="checkbox21" type="checkbox">
+                                <label class="form-check-label" for="checkbox21">
+                                    Default 12px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-primary checkbox-circle" style="font-size: 13px;">
+                                <input class="form-check-input" id="checkbox22" type="checkbox" checked>
+                                <label class="form-check-label" for="checkbox22">
+                                    Primary 13px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-success checkbox-circle" style="font-size: 14px;">
+                                <input class="form-check-input" id="checkbox23" type="checkbox">
+                                <label class="form-check-label" for="checkbox23">
+                                    Success 14px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-info checkbox-circle" style="font-size: 15px;">
+                                <input class="form-check-input" id="checkbox24" type="checkbox">
+                                <label class="form-check-label" for="checkbox24">
+                                    Info 15px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-warning checkbox-circle" style="font-size: 18px;">
+                                <input class="form-check-input" id="checkbox25" type="checkbox" checked>
+                                <label class="form-check-label" for="checkbox25">
+                                    Warning 18px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-danger checkbox-circle" style="font-size: 24px;">
+                                <input class="form-check-input" id="checkbox26" type="checkbox" checked>
+                                <label class="form-check-label" for="checkbox26">
+                                    Danger 24px
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-3">
+                        <fieldset>
+                            <legend>
+                                .checkbox-flat
+                            </legend>
+                            <div class="form-check checkbox checkbox-flat" style="font-size: 12px;">
+                                <input class="form-check-input" id="checkbox41" type="checkbox">
+                                <label class="form-check-label" for="checkbox41">
+                                    Default 12px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-primary checkbox-flat" style="font-size: 13px;">
+                                <input class="form-check-input" id="checkbox42" type="checkbox" checked>
+                                <label class="form-check-label" for="checkbox42">
+                                    Primary 13px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-success checkbox-flat" style="font-size: 14px;">
+                                <input class="form-check-input" id="checkbox43" type="checkbox">
+                                <label class="form-check-label" for="checkbox43">
+                                    Success 14px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-info checkbox-flat" style="font-size: 15px;">
+                                <input class="form-check-input" id="checkbox44" type="checkbox">
+                                <label class="form-check-label" for="checkbox44">
+                                    Info 15px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-warning checkbox-flat" style="font-size: 18px;">
+                                <input class="form-check-input" id="checkbox45" type="checkbox" checked>
+                                <label class="form-check-label" for="checkbox45">
+                                    Warning 18px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-danger checkbox-flat" style="font-size: 24px;">
+                                <input class="form-check-input" id="checkbox46" type="checkbox" checked>
+                                <label class="form-check-label" for="checkbox46">
+                                    Danger 24px
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-3">
+                        <fieldset>
+                            <legend>
+                                &lt;input disabled /&gt;
+                            </legend>
+                            <div class="form-check checkbox checkbox-circle" style="font-size: 12px;">
+                                <input class="form-check-input" id="checkbox31" type="checkbox" disabled>
+                                <label class="form-check-label" for="checkbox31">
+                                    Default 12px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-primary" style="font-size: 13px;">
+                                <input class="form-check-input" id="checkbox32" type="checkbox" checked disabled>
+                                <label class="form-check-label" for="checkbox32">
+                                    Primary 13px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-success checkbox-circle" style="font-size: 14px;">
+                                <input class="form-check-input" id="checkbox33" type="checkbox" disabled>
+                                <label class="form-check-label" for="checkbox33">
+                                    Success 14px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-info" style="font-size: 15px;">
+                                <input class="form-check-input" id="checkbox34" type="checkbox" disabled>
+                                <label class="form-check-label" for="checkbox34">
+                                    Info 15px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-warning checkbox-circle" style="font-size: 18px;">
+                                <input class="form-check-input" id="checkbox35" type="checkbox" checked disabled>
+                                <label class="form-check-label" for="checkbox35">
+                                    Warning 18px
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-danger" style="font-size: 24px;">
+                                <input class="form-check-input" id="checkbox36" type="checkbox" checked disabled>
+                                <label class="form-check-label" for="checkbox36">
+                                    Danger 24px
+                                </label>
+                            </div>
+                        </fieldset>
                     </div>
                 </div>
-            </section>
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <fieldset>
+                            <legend>
+                                Without label text
+                            </legend>
+                            <div class="form-check checkbox">
+                                <input class="form-check-input" type="checkbox" id="singleCheckbox1" value="option1" aria-label="Single checkbox One">
+                                <label class="form-check-label" for="singleCheckbox1"></label>
+                            </div>
+                            <div class="form-check checkbox checkbox-primary">
+                                <input class="form-check-input" type="checkbox" id="singleCheckbox2" value="option2" checked aria-label="Single checkbox Two">
+                                <label class="form-check-label" for="singleCheckbox2"></label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-4">
+                        <fieldset>
+                            <legend>
+                                Indeterminate state
+                            </legend>
+                            <div class="form-check checkbox checkbox-primary">
+                                <input class="form-check-input" id="indeterminateCheckbox" type="checkbox" onclick="changeState(this)">
+                                <label class="form-check-label" for="indeterminateCheckbox"></label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-4">
+                        <fieldset>
+                            <legend>
+                                Inline checkboxes
+                            </legend>
+                            <div class="form-check checkbox form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1"> One </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-success form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1" checked>
+                                <label class="form-check-label" for="inlineCheckbox2"> Two </label>
+                            </div>
+                            <div class="form-check checkbox form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox3"> Three </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <section id="datetimepicker">
-                <h2>DateTime Picker</h2>
-                <div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
+        <section id="datetimepicker">
+            <h2>DateTime Picker</h2>
+            <div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
                             <input type="text" class="form-control" data-toggle="datetimepicker" placeholder="With Icon">
                             <i class="fa fa-calendar form-control-feedback"></i>
-                            </div>
                         </div>
-                        <div class="col">
-                            <input class="form-control" data-toggle="datetimepicker" type="text" placeholder="Datetime Picker">
-                        </div>
-                        <div class="col">
-                            <input class="form-control" data-toggle="datepicker" data-format="MM/DD/YYYY h:mm a" type="text" placeholder="Date Picker">
-                        </div>
-                        <div class="col">
-                            <input class="form-control" data-toggle="timepicker" data-options="{format: 'h:mm a'}" type="text" placeholder="Time Picker">
-                        </div>
-                        <div class="col">
-                            <input class="form-control" data-toggle="datetimepicker" data-options="{theme: 'dark'}" type="text" placeholder="Dark Theme">
-                        </div>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" data-toggle="datetimepicker" type="text" placeholder="Datetime Picker">
+                    </div>
+                    <div class="col">
+                        <input class="form-control" data-toggle="datepicker" data-format="MM/DD/YYYY h:mm a" type="text" placeholder="Date Picker">
+                    </div>
+                    <div class="col">
+                        <input class="form-control" data-toggle="timepicker" data-options="{format: 'h:mm a'}" type="text" placeholder="Time Picker">
+                    </div>
+                    <div class="col">
+                        <input class="form-control" data-toggle="datetimepicker" data-options="{theme: 'dark'}" type="text" placeholder="Dark Theme">
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="dialog">
-                <h2>Dialog</h2>
-                <div>
-                    <button id="btn1" class="btn btn-primary">Open Dialog</button>
-                    <button id="btn2" class="btn btn-primary">Open Dialog without Title</button>
-                    <button id="btn3" class="btn btn-primary">Open Dialog with ID</button>
-                    <button id="btn4" class="btn btn-primary">Open Dialog with Buttons</button>
+        <section id="dialog">
+            <h2>Dialog</h2>
+            <div>
+                <button id="btn1" class="btn btn-primary">Open Dialog</button>
+                <button id="btn2" class="btn btn-primary">Open Dialog without Title</button>
+                <button id="btn3" class="btn btn-primary">Open Dialog with ID</button>
+                <button id="btn4" class="btn btn-primary">Open Dialog with Buttons</button>
 
-                    <div id="dialogContent" class="d-none">
-                        <div class="text-center">
-                            <i class="fa fa-spin fa-spinner"></i>
-                        </div>
+                <div id="dialogContent" class="d-none">
+                    <div class="text-center">
+                        <i class="fa fa-spin fa-spinner"></i>
                     </div>
                 </div>
-                <script>
-                    $(function() {
-                        var d_dialog;
-                        function delayCloseDialog() {
-                            setTimeout(function() {
-                                if (d_dialog) {
-                                    d_dialog.close();
-                                }
-                            }, 3000);
-                        }
-                        $('#dialog').on('click', '#btn1', function() {
-                            d_dialog = dialog.open({title:'Title', content:'This is a dialog'});
-                            delayCloseDialog();
-                        });
-                        $('#dialog').on('click', '#btn2', function() {
-                            d_dialog = dialog.open({content:'This is a dialog'});
-                            delayCloseDialog();
-                        });
-                        $('#dialog').on('click', '#btn3', function() {
-                            d_dialog = dialog.small({content: '#dialogContent'});
-                            delayCloseDialog();
-                        });
-                        $('#dialog').on('click', '#btn4', function() {
-                            d_dialog = dialog.open({
-                                title: '<i class="fa fa-info"></i> Dialog',
-                                content: 'Dialog with Buttons', 
-                                statusBar: '<span>Status</span>',
-                                buttons: [
-                                    {
-                                        text: 'Cancel',
-                                        cls: 'btn btn-secondary',
-                                        onClick: function(event) {
-                                            alertify.error('You clicked Cancel');
-                                            this.close();
-                                        }
-                                    },
-                                    {
-                                        text: 'OK',
-                                        cls: 'btn btn-primary',
-                                        onClick: function(event) {
-                                            alertify.notify('You clicked OK');
-                                            this.close();
-                                        }
-                                    },
-                            ]});
-                        });
-                    })
-                </script>
-            </section>
+            </div>
+            <script>
+                $(function () {
+                    var d_dialog;
 
-            <section id="file-input">
-                <h2>File input</h2>
-                <div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-                </div>
-            </section>
-
-            <section id="input-with-feedback">
-                <h2>Input with feedback</h2>
-                <div>
-                    <div class="form-group">
-                        <input type="text" class="form-control">
-                        <i class="fa fa-spin fa-spinner form-control-feedback"></i>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control is-valid">
-                        <i class="fa fa-check form-control-feedback"></i>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control is-invalid">
-                        <i class="fa fa-times form-control-feedback"></i>
-                    </div>
-                </div>
-            </section>
-
-            <section id="links">
-                <h2>Links</h2>
-                <div>
-                    <div class="list-link">
-                        <a class="text-primary">
-                            <i class="fa fa-plus"></i>
-                        </a>
-                        <a class="text-info">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <a class="text-danger">
-                            <i class="fa fa-remove"></i>
-                        </a>
-                    </div>
-                    <div class="list-link">
-                        <a class="link-btn link-btn-primary">
-                            <i class="fa fa-plus"></i>
-                        </a>
-                        <a class="link-btn link-btn-info">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <a class="link-btn link-btn-danger">
-                            <i class="fa fa-remove"></i>
-                        </a>
-                    </div>
-                    <div class="list-link">
-                        <a class="link-btn link-btn-primary">
-                            <i class="fa fa-plus"></i> Add
-                        </a>
-                        <a class="link-btn link-btn-info">Edit</a>
-                        <a class="link-btn link-btn-danger">Delete</a>
-                        <a class="link-btn link-btn-light">Light</a>
-                        <a class="link-btn link-btn-dark">Dark</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="loading">
-                <h2>Loading</h2>
-                <div>
-                    <button class="btn0 btn btn-block btn-primary">Ajax Request</button>
-                    <button class="btn1 btn btn-block btn-primary">Page Loading</button>
-                    <button class="btn2 btn btn-block btn-secondary">Load Data/Cancel</button>
-                    <br />
-                    <div class="row">
-                        <div class="col">
-                            Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
-                            and get ready to launch your own project.
-                        </div>
-                        <div class="col">
-                            Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
-                            and get ready to launch your own project.
-                        </div>
-                        <div class="col">
-                            Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
-                            and get ready to launch your own project.
-                        </div>
-                    </div>
-                </div>
-                <script>
-                    $(function () {
-                        $('#loading').on('click', '.btn0', function () { 
-                            $.get('https://api.github.com/users/bndynet/events?' + generateRandomAlphaNum(10));
-                        });
-                        $('#loading').on('click', '.btn1', function () { 
-                            $.bloading();
-                        });
-                        var loadingLoadData = false;
-                        $('#loading').on('click', '.btn2', function () {
-                            loadingLoadData = !loadingLoadData;
-                            if (loadingLoadData) {
-                                $($('#loading .col')[0]).bloading();
-                                $($('#loading .col')[1]).bloading('bounce-rectangle', 'primary');
-                                $($('#loading .col')[2]).bloading('circle', 'info');
-                            } else {
-                                $($('#loading .col')[0]).bloading(false);
-                                $($('#loading .col')[1]).bloading(false);
-                                $($('#loading .col')[2]).bloading(false);
+                    function delayCloseDialog() {
+                        setTimeout(function () {
+                            if (d_dialog) {
+                                d_dialog.close();
                             }
+                        }, 3000);
+                    }
+                    $('#dialog').on('click', '#btn1', function () {
+                        d_dialog = dialog.open({
+                            title: 'Title',
+                            content: 'This is a dialog'
+                        });
+                        delayCloseDialog();
+                    });
+                    $('#dialog').on('click', '#btn2', function () {
+                        d_dialog = dialog.open({
+                            content: 'This is a dialog'
+                        });
+                        delayCloseDialog();
+                    });
+                    $('#dialog').on('click', '#btn3', function () {
+                        d_dialog = dialog.small({
+                            content: '#dialogContent'
+                        });
+                        delayCloseDialog();
+                    });
+                    $('#dialog').on('click', '#btn4', function () {
+                        d_dialog = dialog.open({
+                            title: '<i class="fa fa-info"></i> Dialog',
+                            content: 'Dialog with Buttons',
+                            statusBar: '<span>Status</span>',
+                            buttons: [{
+                                    text: 'Cancel',
+                                    cls: 'btn btn-secondary',
+                                    onClick: function (event) {
+                                        alertify.error('You clicked Cancel');
+                                        this.close();
+                                    }
+                                },
+                                {
+                                    text: 'OK',
+                                    cls: 'btn btn-primary',
+                                    onClick: function (event) {
+                                        alertify.notify('You clicked OK');
+                                        this.close();
+                                    }
+                                },
+                            ]
                         });
                     });
-                </script>
-            </section>
+                })
+            </script>
+        </section>
 
-            <section id="overflow">
-                <h2>Overflow</h2>
-                <div>
-                    <div class="overflow">
-                        <code>class="overflow"</code>
+        <section id="file-input">
+            <h2>File input</h2>
+            <div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+            </div>
+        </section>
+
+        <section id="input-with-feedback">
+            <h2>Input with feedback</h2>
+            <div>
+                <div class="form-group">
+                    <input type="text" class="form-control">
+                    <i class="fa fa-spin fa-spinner form-control-feedback"></i>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control is-valid">
+                    <i class="fa fa-check form-control-feedback"></i>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control is-invalid">
+                    <i class="fa fa-times form-control-feedback"></i>
+                </div>
+            </div>
+        </section>
+
+        <section id="links">
+            <h2>Links</h2>
+            <div>
+                <div class="list-link">
+                    <a class="text-primary">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                    <a class="text-info">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a class="text-danger">
+                        <i class="fa fa-remove"></i>
+                    </a>
+                </div>
+                <div class="list-link">
+                    <a class="link-btn link-btn-primary">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                    <a class="link-btn link-btn-info">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a class="link-btn link-btn-danger">
+                        <i class="fa fa-remove"></i>
+                    </a>
+                </div>
+                <div class="list-link">
+                    <a class="link-btn link-btn-primary">
+                        <i class="fa fa-plus"></i> Add
+                    </a>
+                    <a class="link-btn link-btn-info">Edit</a>
+                    <a class="link-btn link-btn-danger">Delete</a>
+                    <a class="link-btn link-btn-light">Light</a>
+                    <a class="link-btn link-btn-dark">Dark</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="loading">
+            <h2>Loading</h2>
+            <div>
+                <button class="btn0 btn btn-block btn-primary">Ajax Request</button>
+                <button class="btn1 btn btn-block btn-primary">Page Loading</button>
+                <button class="btn2 btn btn-block btn-secondary">Load Data/Cancel</button>
+                <br />
+                <div class="row">
+                    <div class="col">
                         Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
                         and get ready to launch your own project.
                     </div>
-                    <div class="overflow overflow-fade">
-                        <code>class="overflow overflow-fade"</code>
+                    <div class="col">
                         Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
                         and get ready to launch your own project.
                     </div>
-                    <hr />
-                    <div style="height: 150px;" class="overflow overflow-fade-v">
-                        <code>class="overflow overflow-fade-v"</code>
+                    <div class="col">
                         Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
-                        and get ready to launch your own project. Learn more about the world of open source and get ready
-                        to launch your own project. Learn more about the world of open source and get ready to launch your
-                        own project. Learn more about the world of open source and get ready to launch your own project.
-                        Learn more about the world of open source and get ready to launch your own project. Learn more about
-                        the world of open source and get ready to launch your own project. Learn more about the world of
-                        open source and get ready to launch your own project. Learn more about the world of open source and
-                        get ready to launch your own project. Learn more about the world of open source and get ready to
-                        launch your own project. Learn more about the world of open source and get ready to launch your own
-                        project. Learn more about the world of open source and get ready to launch your own project. Learn
-                        more about the world of open source and get ready to launch your own project. Learn more about the
-                        world of open source and get ready to launch your own project.
+                        and get ready to launch your own project.
                     </div>
                 </div>
-            </section>
-
-            <section id="overlay">
-                <h2>Overlay</h2>
-                <div>
-                    <div class="btn btn-primary d-block">Toggle Overlay</div>
-                </div>
-                <script>
-                    $(function(){
-                        var overlayShow = false;
-                        $('#overlay').on('click', '.btn', function() {
-                            overlayShow = !overlayShow;
-                            if (overlayShow) {
-                                $.boverlay();
-                            }  else {
-                                $.boverlay(false);
-                            }
-                        });
-                        $('body').on('click', '.overlay', function() {
-                            overlayShow = !overlayShow;
-                            $.boverlay(false);
-                        })
+            </div>
+            <script>
+                $(function () {
+                    $('#loading').on('click', '.btn0', function () {
+                        $.get('https://api.github.com/users/bndynet/events?' + generateRandomAlphaNum(
+                            10));
                     });
-                </script>
-            </section>
-
-            <section id="radio">
-                <h2>Radio</h2>
-                <div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <fieldset>
-                                <legend>
-                                    themes
-                                </legend>
-                                <div class="form-check radio" style="font-size: 12px;">
-                                    <input class="form-check-input" type="radio" name="radio1" id="radio1" value="option1" checked>
-                                    <label class="form-check-label" for="radio1">
-                                        Default 12px
-                                    </label>
-                                </div>
-                                <div class="form-check radio radio-primary" style="font-size: 13px;">
-                                    <input class="form-check-input" type="radio" name="radio1" id="radio2" value="option1" checked>
-                                    <label class="form-check-label" for="radio2">
-                                        Primary 13px
-                                    </label>
-                                </div>
-                                <div class="form-check radio radio-success" style="font-size: 14px;">
-                                    <input class="form-check-input" type="radio" name="radio1" id="radio3" value="option1" checked>
-                                    <label class="form-check-label" for="radio3">
-                                        Success 14px
-                                    </label>
-                                </div>
-                                <div class="form-check radio radio-info" style="font-size: 15px;">
-                                    <input class="form-check-input" type="radio" name="radio1" id="radio4" value="option1" checked>
-                                    <label class="form-check-label" for="radio4">
-                                        Info 15px
-                                    </label>
-                                </div>
-                                <div class="form-check radio radio-warning" style="font-size: 18px;">
-                                    <input class="form-check-input" type="radio" name="radio1" id="radio5" value="option1" checked>
-                                    <label class="form-check-label" for="radio5">
-                                        Warning 18px
-                                    </label>
-                                </div>
-                                <div class="form-check radio radio-danger" style="font-size: 24px;">
-                                    <input class="form-check-input" type="radio" name="radio1" id="radio6" value="option1" checked>
-                                    <label class="form-check-label" for="radio6">
-                                        Danger 24px
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-md-4">
-                            <fieldset>
-                                <legend>
-                                    Inline radios
-                                </legend>
-                                <div class="form-check radio radio-info form-check-inline">
-                                    <input class="form-check-input" type="radio" id="inlineRadio1" value="option1" name="radioInline" checked>
-                                    <label class="form-check-label" for="inlineRadio1"> Inline One </label>
-                                </div>
-                                <div class="form-check radio form-check-inline">
-                                    <input class="form-check-input" type="radio" id="inlineRadio2" value="option2" name="radioInline">
-                                    <label class="form-check-label" for="inlineRadio2"> Inline Two </label>
-                                </div>
-                            </fieldset>
-                            <fieldset>
-                                <legend>
-                                    Disabled
-                                </legend>
-                                <div class="form-check radio radio-primary form-check-inline">
-                                    <input class="form-check-input" type="radio" id="disabledRadio1" value="option1" name="radioInline" checked disabled>
-                                    <label class="form-check-label" for="disabledRadio1"> Inline One </label>
-                                </div>
-                                <div class="form-check radio form-check-inline">
-                                    <input class="form-check-input" type="radio" id="disabledRadio2" value="option2" name="radioInline" disabled>
-                                    <label class="form-check-label" for="disabledRadio2"> Inline Two </label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-md-4">
-                            <fieldset>
-                                <legend>
-                                    As Checkboxes
-                                </legend>
-                                <p>
-                                    Radios can be made to look like checkboxes.
-                                </p>
-                                <div class="form-check checkbox checkbox">
-                                    <input class="form-check-input" type="radio" name="radio4" id="radio7" value="option1" checked>
-                                    <label class="form-check-label" for="radio7">
-                                        Default
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-success">
-                                    <input class="form-check-input" type="radio" name="radio4" id="radio8" value="option2">
-                                    <label class="form-check-label" for="radio8">
-                                        Success
-                                    </label>
-                                </div>
-                                <div class="form-check checkbox checkbox-danger">
-                                    <input class="form-check-input" type="radio" name="radio4" id="radio9" value="option3">
-                                    <label class="form-check-label" for="radio9">
-                                        Danger
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="select">
-                <h2>Select</h2>
-                <div>
-                    <div class="row">
-                        <div class="col">
-                            <select id="select-select1" data-toggle="select">
-                                <option>Option 1</option>
-                                <option selected>Option 2</option>
-                                <option disabled>Option 3</option>
-                                <option>Option Option Option Option</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <select id="select-select2" class="form-control form-control-sm" data-toggle="select">
-                                <option>Option 1</option>
-                                <option selected>Option 2</option>
-                                <option disabled>Option 3</option>
-                                <option>Option Option Option Option</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <select id="select-select3" class="right" data-toggle="select">
-                                <option>Option 1</option>
-                                <option selected>Option 2</option>
-                                <option disabled>Option 3</option>
-                                <option>Option Option Option Option</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <select id="select-select4" class="wide" data-toggle="select">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option disabled>Option 3</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <select id="select-select5" data-toggle="select" multiple="multiple" style="width: 200px;" placeholder="This is a placeholder">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option disabled>Option 3</option>
-                                <option>Option 4</option>
-                                <option>Option 5</option>
-                                <option>Option 6</option>
-                                <option>Option 7</option>
-                                <option>Option 8</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="status">
-                <h2>Status</h2>
-                <div>
-                    <div class="row">
-                        <div class="col status status-loading status-3x">
-                            Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
-                            and get ready to launch your own project.
-                        </div>
-                        <div class="col status status-ok status-2x">
-                            Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
-                            and get ready to launch your own project.
-                        </div>
-                        <div class="col status status-error">
-                            Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
-                            and get ready to launch your own project.
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="tooltip">
-                <h2>Tooltip</h2>
-                <div class="text-center">
-                    <button class="btn btn-primary" data-tooltip-placement="left">Tooltip Left</button>
-                    <button class="btn btn-primary" data-tooltip-placement="top">Tooltip Top</button>
-                    <button class="btn btn-primary" data-tooltip-placement="bottom">Tooltip Bottom</button>
-                    <button class="btn btn-primary" data-tooltip-placement="right">Tooltip Right</button>
-                </div>
-                <script>
-                    $('#tooltip').on('click', '.btn', function () {
-                        var tooltipShow = $(this).data('tooltip-show') || false;
-                        tooltipShow = !tooltipShow;
-                        $(this).data('tooltip-show', tooltipShow);
-                        if (tooltipShow) {
-                            $(this).btooltip('This is a tooltip', $(this).data('tooltip-placement'));
+                    $('#loading').on('click', '.btn1', function () {
+                        $.bloading();
+                    });
+                    var loadingLoadData = false;
+                    $('#loading').on('click', '.btn2', function () {
+                        loadingLoadData = !loadingLoadData;
+                        if (loadingLoadData) {
+                            $($('#loading .col')[0]).bloading();
+                            $($('#loading .col')[1]).bloading('bounce-rectangle', 'primary');
+                            $($('#loading .col')[2]).bloading('circle', 'info');
                         } else {
-                            $(this).btooltip(false);
+                            $($('#loading .col')[0]).bloading(false);
+                            $($('#loading .col')[1]).bloading(false);
+                            $($('#loading .col')[2]).bloading(false);
                         }
                     });
-                </script>
-            </section>
+                });
+            </script>
+        </section>
 
-        </main>
+        <section id="overflow">
+            <h2>Overflow</h2>
+            <div>
+                <div class="overflow">
+                    <code>class="overflow"</code>
+                    Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                    and get ready to launch your own project.
+                </div>
+                <div class="overflow overflow-fade">
+                    <code>class="overflow overflow-fade"</code>
+                    Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                    and get ready to launch your own project.
+                </div>
+                <hr />
+                <div style="height: 150px;" class="overflow overflow-fade-v">
+                    <code>class="overflow overflow-fade-v"</code>
+                    Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                    and get ready to launch your own project. Learn more about the world of open source and get ready to
+                    launch your own project. Learn more about the world of open source and get ready to launch your own project.
+                    Learn more about the world of open source and get ready to launch your own project. Learn more about
+                    the world of open source and get ready to launch your own project. Learn more about the world of open
+                    source and get ready to launch your own project. Learn more about the world of open source and get ready
+                    to launch your own project. Learn more about the world of open source and get ready to launch your own
+                    project. Learn more about the world of open source and get ready to launch your own project. Learn more
+                    about the world of open source and get ready to launch your own project. Learn more about the world of
+                    open source and get ready to launch your own project. Learn more about the world of open source and get
+                    ready to launch your own project. Learn more about the world of open source and get ready to launch your
+                    own project.
+                </div>
+            </div>
+        </section>
+
+        <section id="overlay">
+            <h2>Overlay</h2>
+            <div>
+                <div class="btn btn-primary d-block">Toggle Overlay</div>
+            </div>
+            <script>
+                $(function () {
+                    var overlayShow = false;
+                    $('#overlay').on('click', '.btn', function () {
+                        overlayShow = !overlayShow;
+                        if (overlayShow) {
+                            $.boverlay();
+                        } else {
+                            $.boverlay(false);
+                        }
+                    });
+                    $('body').on('click', '.overlay', function () {
+                        overlayShow = !overlayShow;
+                        $.boverlay(false);
+                    })
+                });
+            </script>
+        </section>
+
+        <section id="radio">
+            <h2>Radio</h2>
+            <div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <fieldset>
+                            <legend>
+                                themes
+                            </legend>
+                            <div class="form-check radio" style="font-size: 12px;">
+                                <input class="form-check-input" type="radio" name="radio1" id="radio1" value="option1" checked>
+                                <label class="form-check-label" for="radio1">
+                                    Default 12px
+                                </label>
+                            </div>
+                            <div class="form-check radio radio-primary" style="font-size: 13px;">
+                                <input class="form-check-input" type="radio" name="radio1" id="radio2" value="option1" checked>
+                                <label class="form-check-label" for="radio2">
+                                    Primary 13px
+                                </label>
+                            </div>
+                            <div class="form-check radio radio-success" style="font-size: 14px;">
+                                <input class="form-check-input" type="radio" name="radio1" id="radio3" value="option1" checked>
+                                <label class="form-check-label" for="radio3">
+                                    Success 14px
+                                </label>
+                            </div>
+                            <div class="form-check radio radio-info" style="font-size: 15px;">
+                                <input class="form-check-input" type="radio" name="radio1" id="radio4" value="option1" checked>
+                                <label class="form-check-label" for="radio4">
+                                    Info 15px
+                                </label>
+                            </div>
+                            <div class="form-check radio radio-warning" style="font-size: 18px;">
+                                <input class="form-check-input" type="radio" name="radio1" id="radio5" value="option1" checked>
+                                <label class="form-check-label" for="radio5">
+                                    Warning 18px
+                                </label>
+                            </div>
+                            <div class="form-check radio radio-danger" style="font-size: 24px;">
+                                <input class="form-check-input" type="radio" name="radio1" id="radio6" value="option1" checked>
+                                <label class="form-check-label" for="radio6">
+                                    Danger 24px
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-4">
+                        <fieldset>
+                            <legend>
+                                Inline radios
+                            </legend>
+                            <div class="form-check radio radio-info form-check-inline">
+                                <input class="form-check-input" type="radio" id="inlineRadio1" value="option1" name="radioInline" checked>
+                                <label class="form-check-label" for="inlineRadio1"> Inline One </label>
+                            </div>
+                            <div class="form-check radio form-check-inline">
+                                <input class="form-check-input" type="radio" id="inlineRadio2" value="option2" name="radioInline">
+                                <label class="form-check-label" for="inlineRadio2"> Inline Two </label>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>
+                                Disabled
+                            </legend>
+                            <div class="form-check radio radio-primary form-check-inline">
+                                <input class="form-check-input" type="radio" id="disabledRadio1" value="option1" name="radioInline" checked disabled>
+                                <label class="form-check-label" for="disabledRadio1"> Inline One </label>
+                            </div>
+                            <div class="form-check radio form-check-inline">
+                                <input class="form-check-input" type="radio" id="disabledRadio2" value="option2" name="radioInline" disabled>
+                                <label class="form-check-label" for="disabledRadio2"> Inline Two </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-4">
+                        <fieldset>
+                            <legend>
+                                As Checkboxes
+                            </legend>
+                            <p>
+                                Radios can be made to look like checkboxes.
+                            </p>
+                            <div class="form-check checkbox checkbox">
+                                <input class="form-check-input" type="radio" name="radio4" id="radio7" value="option1" checked>
+                                <label class="form-check-label" for="radio7">
+                                    Default
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-success">
+                                <input class="form-check-input" type="radio" name="radio4" id="radio8" value="option2">
+                                <label class="form-check-label" for="radio8">
+                                    Success
+                                </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-danger">
+                                <input class="form-check-input" type="radio" name="radio4" id="radio9" value="option3">
+                                <label class="form-check-label" for="radio9">
+                                    Danger
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="select">
+            <h2>Select</h2>
+            <div>
+                <div class="row">
+                    <div class="col">
+                        <select id="select-select1" data-toggle="select">
+                            <option>Option 1</option>
+                            <option selected>Option 2</option>
+                            <option disabled>Option 3</option>
+                            <option>Option Option Option Option</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select id="select-select2" class="form-control form-control-sm" data-toggle="select">
+                            <option>Option 1</option>
+                            <option selected>Option 2</option>
+                            <option disabled>Option 3</option>
+                            <option>Option Option Option Option</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select id="select-select3" class="right" data-toggle="select">
+                            <option>Option 1</option>
+                            <option selected>Option 2</option>
+                            <option disabled>Option 3</option>
+                            <option>Option Option Option Option</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select id="select-select4" class="wide" data-toggle="select">
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option disabled>Option 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <select id="select-select5" data-toggle="select" multiple="multiple" style="width: 200px;" placeholder="This is a placeholder">
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option disabled>Option 3</option>
+                            <option>Option 4</option>
+                            <option>Option 5</option>
+                            <option>Option 6</option>
+                            <option>Option 7</option>
+                            <option>Option 8</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="status">
+            <h2>Status</h2>
+            <div>
+                <div class="row">
+                    <div class="col status status-loading status-3x">
+                        Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                        and get ready to launch your own project.
+                    </div>
+                    <div class="col status status-ok status-2x">
+                        Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                        and get ready to launch your own project.
+                    </div>
+                    <div class="col status status-error">
+                        Learn more about the world of open source and get ready to launch your own project. Learn more about the world of open source
+                        and get ready to launch your own project.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tooltip">
+            <h2>Tooltip</h2>
+            <div class="text-center">
+                <button class="btn btn-primary" data-tooltip-placement="left">Tooltip Left</button>
+                <button class="btn btn-primary" data-tooltip-placement="top">Tooltip Top</button>
+                <button class="btn btn-primary" data-tooltip-placement="bottom">Tooltip Bottom</button>
+                <button class="btn btn-primary" data-tooltip-placement="right">Tooltip Right</button>
+            </div>
+            <script>
+                $('#tooltip').on('click', '.btn', function () {
+                    var tooltipShow = $(this).data('tooltip-show') || false;
+                    tooltipShow = !tooltipShow;
+                    $(this).data('tooltip-show', tooltipShow);
+                    if (tooltipShow) {
+                        $(this).btooltip('This is a tooltip', $(this).data('tooltip-placement'));
+                    } else {
+                        $(this).btooltip(false);
+                    }
+                });
+            </script>
+        </section>
+
     </div>
+
+    <div class="side-right hidden">
+        <br />
+        <br />
+        <div class="block block-sm">
+            <div class="row">
+                <span class="col">Author</span>
+                <span class="col text-right">Bendy Zhang</span>
+            </div>
+        </div>
+        <div class="block block-sm">
+            <div class="row">
+                <span class="col">Homepage</span>
+                <span class="col text-right">http://bndy.net</span>
+            </div>
+        </div>
+        <div class="block block-sm">
+            <div class="row">
+                <span class="col">Email</span>
+                <span class="col text-right">zb@bndy.net</span>
+            </div>
+        </div>
+        <div class="block block-sm">
+            Links:
+            <br />
+            <ul>
+                <li>
+                    <a href="https://github.com/bndynet/bbootstrap" target="_blank" >
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.npmjs.com/package/@bndynet/bbootstrap" target="_blank">
+                        NPM Package
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <script type="text/javascript">
         function changeState(el) {
             if (el.readOnly) el.checked = el.readOnly = false;

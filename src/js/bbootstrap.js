@@ -63,6 +63,12 @@ bbootstrap = {
         var $this = this;
         $this.langs.define(locale, value);
     },
+    toggleLeftSide: function() {
+        $('.layout-admin > .side-left').toggleClass('mini');
+    },
+    toggleRightSide: function() {
+        $('.layout-admin > .side-right').toggleClass('hidden');
+    },
     setup: function (options) {
         var $this = this;
         var lang = $this.langs.getDefault();
@@ -90,8 +96,14 @@ bbootstrap = {
         alertify.setup(alertifyOptions);
 
         // pace.js
-        if ($this.options.pace) {
+        if ($this.options.pace || $this.options.progressBar) {
+            $this.options.pace = $.extend({}, $this.options.pace, $this.options.progressBar);
             $(function () {
+                if (window) {
+                    window.paceOptions = $this.options.pace;
+                    window.paceOptions.restartOnRequestAfter = true;
+                }
+                Pace.start();
                 if ($this.options.pace.color) {
                     $('.pace-progress').css('background-color', $this.options.pace.color);
                     $('.pace-activity').css({

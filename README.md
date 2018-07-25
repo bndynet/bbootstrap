@@ -7,8 +7,8 @@
 
 # Bbootstrap
 
-![npm](https://img.shields.io/npm/v/@bndynet/bbootstrap.svg)
-![npm](https://img.shields.io/npm/dt/@bndynet/bbootstrap.svg)
+[![npm](https://img.shields.io/npm/v/@bndynet/bbootstrap.svg)](https://www.npmjs.com/package/@bndynet/bbootstrap)
+[![npm](https://img.shields.io/npm/dt/@bndynet/bbootstrap.svg)](https://www.npmjs.com/package/@bndynet/bbootstrap)
 
 A set which includes some useful components. 
 [Demo](https://bndynet.github.io/bbootstrap/)
@@ -34,34 +34,60 @@ Note: You can use the above components in your project directly. So don't need i
 <link rel="stylesheet" href="dist/css/bbootstrap.min.css">
 <script src="dist/js/bbootstrap.min.js"></script>
 <script>
-    // Define your languages, MUST be before `setup` method
-    bbootstrap.defineLang('zh-CN', {
-        ok: '确定',
-        cancel: '取消',
-    });
-    // Or bbootstrap.setup() to use default options
-    bbootstrap.setup({
-        locale: 'zh-CN',
-        // Moment.js format used
-        datetimeFormat: 'YYYY-MM-DD H:mm',
-        timeFormat: 'H:mm',
-        dateFormat: 'YYYY-MM-DD'
-        alertify: {
-            maxNotifications: 2,
-            closeNotificationOnClick: false,
-            delay: 5000,
-            customeClass: '',
-            notificationPosition: "bottom right",
-        },
-        pace: {
-            theme: 'primary|secondary|success|info|warning|danger|dark|light',  // theme in bootstrap, or
-            color:  '#ff0000',  
-        },
-    });
+    bbootstrap.setup();
 </script>
 ```
 
+If you do not need default English, you can define your languages.
+
+```js
+// MUST be before `setup` method
+bbootstrap.defineLang('zh-CN', {
+    ok: '确定',
+    cancel: '取消',
+});
+bbootstrap.setup({
+    locale: 'zh-CN',
+});
+```
+
+Below is available options, you can override them via `bbootstrap.setup({})`.
+
+```js
+{
+    locale: 'en-US',
+    // Moment.js format used
+    datetimeFormat: 'YYYY-MM-DD H:mm',
+    timeFormat: 'H:mm',
+    dateFormat: 'YYYY-MM-DD'
+    alertify: {
+        maxNotifications: 2,
+        closeNotificationOnClick: true,
+        delay: 5000,
+        customeClass: '',
+        notificationPosition: "bottom right",
+    },
+    // Below is for enabling page loading progress bar for ajax, document and all events
+    progressBar: {
+        theme: 'primary|secondary|success|info|warning|danger|dark|light',  // theme in bootstrap, or
+        color:  '#ff0000',  
+    },
+}
+```
+
+
 ## Changelog
+
+### v1.3.0
+
+- Styles: Add some layout styles
+- Component(progressBar): By default the page progress bar is disabled unless set `progressBar.theme` or `progressBar.color`
+- Component(progressBar): rename option `pace` to `progressBar`
+- Component(alertify): `closeNotificationOnClick` is `true` by default
+
+### v1.2.1
+
+No changes
 
 ### v1.2.0
 
