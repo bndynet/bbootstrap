@@ -71,6 +71,7 @@ $.fn.extend({
             placement: position || 'top',
             title: destoryOrTitle,
             trigger: 'manual',
+            html: true,
         });
         $(this).tooltip('show');
     },

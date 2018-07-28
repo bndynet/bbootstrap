@@ -1,0 +1,41 @@
+i.bicon {
+    font-style: normal;
+}
+.bicon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    box-sizing: border-box;
+    text-align: left;
+    &.bicon-loading {
+        width: 0.9em;
+        height: 0.9em;
+        border-radius: 50%;
+        border-top: 2px solid rgba(0, 0, 0, 0.1);
+        border-right: 2px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        border-left: 2px solid $body-color;
+        animation: rotate 1s infinite linear;
+
+        @each $theme, $color in $theme-colors {
+            &.text-#{$theme} {
+                border-left-color: $color;
+            }
+        }
+    }
+    &.bicon-checked:before {
+        content: "\2713";
+    }
+    &.bicon-close:before,
+    &.bicon-times:before,
+    &.bicon-remove:before {
+        content: "\00D7";
+    }
+    &.bicon-prev:before {
+        content: "\2039";
+    }
+    &.bicon-next:before {
+        content: "\203A";
+    }
+}

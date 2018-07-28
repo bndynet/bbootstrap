@@ -111,7 +111,7 @@
                 <b class="hidden-mini">COMPONENTS</b>
             </a>
             <a class="list-group-item list-group-item-action" href="#alertify">
-                <i class="fa fa-jsfiddle fa-fw"></i>
+                <i class="fa fa-code fa-fw"></i>
                 <span class="hidden-mini">
                     Alertify
                 </span>
@@ -129,13 +129,13 @@
                 </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#datetimepicker">
-                <i class="fa fa-jsfiddle fa-fw"></i>
+                <i class="fa fa-code fa-fw"></i>
                 <span class="hidden-mini">
                 DateTime Picker
                 </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#dialog">
-                <i class="fa fa-jsfiddle fa-fw"></i>
+                <i class="fa fa-code fa-fw"></i>
                 <span class="hidden-mini">
                 Dialog
                 </span>
@@ -144,6 +144,12 @@
                 <i class="fa fa-css3 fa-fw"></i>
                 <span class="hidden-mini">
                 File input
+                </span>
+            </a>
+            <a class="list-group-item list-group-item-action" href="#icons-without-fonts">
+                <i class="fa fa-css3 fa-fw"></i>
+                <span class="hidden-mini">
+                Icons without Fonts
                 </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#input-with-feedback">
@@ -159,7 +165,7 @@
                 </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#loading">
-                <i class="fa fa-jsfiddle fa-fw"></i>
+                <i class="fa fa-code fa-fw"></i>
                 <span class="hidden-mini">
                 Loading</a>
             <a class="list-group-item list-group-item-action" href="#overflow">
@@ -169,7 +175,7 @@
                 </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#overlay">
-                <i class="fa fa-jsfiddle fa-fw"></i>
+                <i class="fa fa-code fa-fw"></i>
                 <span class="hidden-mini">
                 Overlay
                 </span>
@@ -181,7 +187,7 @@
                 </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#select">
-                <i class="fa fa-jsfiddle fa-fw"></i>
+                <i class="fa fa-code fa-fw"></i>
                 <span class="hidden-mini">
                 Select
                 </span>
@@ -193,7 +199,7 @@
                 </span>
             </a>
             <a class="list-group-item list-group-item-action" href="#tooltip">
-                <i class="fa fa-jsfiddle fa-fw"></i>
+                <i class="fa fa-code fa-fw"></i>
                 <span class="hidden-mini">
                 Tooltip
                 </span>
@@ -470,7 +476,7 @@
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <fieldset>
                             <legend>
                                 Without label text
@@ -485,7 +491,7 @@
                             </div>
                         </fieldset>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <fieldset>
                             <legend>
                                 Indeterminate state
@@ -496,7 +502,7 @@
                             </div>
                         </fieldset>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <fieldset>
                             <legend>
                                 Inline checkboxes
@@ -512,6 +518,23 @@
                             <div class="form-check checkbox form-check-inline">
                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
                                 <label class="form-check-label" for="inlineCheckbox3"> Three </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-3">
+                        <fieldset>
+                            <legend>In-process Status</legend>
+                            <div class="form-check checkbox checkbox-primary">
+                                <input class="form-check-input" type="checkbox" id="ipchk1" value="option1">
+                                <label class="form-check-label" for="ipchk1"> Loading </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-success">
+                                <input class="form-check-input loading" type="checkbox" id="ipchk2" value="option1" checked>
+                                <label class="form-check-label" for="ipchk2"> Loading </label>
+                            </div>
+                            <div class="form-check checkbox checkbox-default">
+                                <input class="form-check-input" type="checkbox" id="ipchk3" value="option1">
+                                <label class="form-check-label" for="ipchk3"> Loading </label>
                             </div>
                         </fieldset>
                     </div>
@@ -624,6 +647,17 @@
                     <input type="file" class="custom-file-input" id="customFile">
                     <label class="custom-file-label" for="customFile">Choose file</label>
                 </div>
+            </div>
+        </section>
+
+        <section id="icons-without-fonts">
+            <h2>Icons without Fonts</h2>
+            <div>
+                <i class="bicon bicon-loading text-primary"></i>
+                <i class="bicon bicon-checked text-success"></i>
+                <i class="bicon bicon-remove text-danger"></i>
+                <i class="bicon bicon-prev"></i>
+                <i class="bicon bicon-next"></i>
             </div>
         </section>
 
@@ -973,6 +1007,7 @@
                 <button class="btn btn-primary" data-tooltip-placement="top">Tooltip Top</button>
                 <button class="btn btn-primary" data-tooltip-placement="bottom">Tooltip Bottom</button>
                 <button class="btn btn-primary" data-tooltip-placement="right">Tooltip Right</button>
+                <button class="btn btn-primary" data-tooltip-placement="top" data-tooltip-content="<h1>Title</h1><div class='block'>Content</div>">Tooltip with Html</button>
             </div>
             <script>
                 $('#tooltip').on('click', '.btn', function () {
@@ -980,7 +1015,7 @@
                     tooltipShow = !tooltipShow;
                     $(this).data('tooltip-show', tooltipShow);
                     if (tooltipShow) {
-                        $(this).btooltip('This is a tooltip', $(this).data('tooltip-placement'));
+                        $(this).btooltip($(this).data('tooltip-content')||'This is a tooltip', $(this).data('tooltip-placement'));
                     } else {
                         $(this).btooltip(false);
                     }
