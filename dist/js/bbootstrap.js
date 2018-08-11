@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.3.0
+ * @bndynet/bbootstrap v1.3.1
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -48326,6 +48326,85 @@ var DateFormatter;!function(){"use strict";var e,t,a,r,n,o,i;o=864e5,i=3600,e=fu
  * @copyright BNDY.NET 2017
  * @see {@link http://bndy.net|Home Page}
  */var linkDoc="https://bndynet.github.io/jslib/docs/";function generateRandomAlphaNum(t){for(var e="";e.length<t;e+=Math.random().toString(36).substr(2));return e.substr(0,t)}function isNumber(t){return!isNaN(parseFloat(t))&&isFinite(t)}function isArray(t){return"[object Array]"===Object.prototype.toString.call(t)}function isFunction(t){return"function"==typeof t}function escapeHTML(t){var e={"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"};return t.replace(/[<>&"]/g,function(t){return e[t]})}Object.defineProperties(Object.prototype,{ifHasProperty:{value:function(t,e){this.hasOwnProperty(t)&&e&&e(this[t])},enumerable:!1,writable:!1},toJson:{value:function(){return JSON.stringify(this)}}}),String.prototype.trim||(String.prototype.trim=function(){return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,"")}),String.prototype.ltrim=function(){return String.prototype.trimLeft?this.trimLeft():this.replace(/^\s+/,"")},String.prototype.rtrim=function(){return String.prototype.trimRight?this.trimRight():this.replace(/\s+$/,"")},String.prototype.replaceAll=function(t,e){return void 0===e?this.toString():this.split(t).join(e)},String.prototype.dasherize=function(){return this.replace(/\W+/g,"-").toLowerCase()},String.prototype.capitalize=function(){for(var t=this.split(" "),e="",r=0;r<t.length;r++){var i=t[r];e+=i?(r?" ":"")+i.charAt(0).toUpperCase()+i.slice(1):r?" ":""}return e},String.prototype.stripHtmlTag=function(){return this?this.replace(/<.*?>/g,"").replace(/\s+/g," ").trim():""},String.prototype.cut=function(t,e){return e=e||"...",this.length>t?this.substr(0,t)+e:this},String.prototype.toObject=function(){return this?JSON.parse(this):null},String.prototype.regexReplace=function(t,e){return"string"==typeof t?this.replace(new RegExp(t,"ig"),e):this.replace(t,e)},String.prototype.repeat||(String.prototype.repeat=function(t){for(var e="",r=0;r<t;r++)e+=this;return e}),String.prototype.padLeft=function(t,e){if(!e)return this;if(String.prototype.padStart)return this.padStart(t,e);if(this.length<t){var r=(t-this.length)/e,i=Math.floor(t-this.length)/e;return e.repeat(r)+e.substr(0,i)+this}return this},String.prototype.padRight=function(t,e){if(!e)return this;if(String.prototype.padEnd)return this.padEnd(t,e);if(this.length<t){var r=(t-this.length)/e,i=Math.floor(t-this.length)/e;return this+e.repeat(r)+e.substr(0,i)}return this},String.prototype.title2Url=function(){return this?this.replace(/\W+/g,"-").toLowerCase():""},String.prototype.md2Html=function(){if(this){if(marked)return marked(this);if(showdown)return(new showdown.Converter).makeHtml(this);throw"No markdown parser specified. Such as Showdown or marked. Detail at "+linkDoc}return""};"use strict";"undefined"!=typeof _&&function(r){Object.defineProperty(Object.prototype,"porp",{value:function(t,e){void 0!==e?r.set(this,t,e):r.get(this,t)},enumerable:!1})}(_),function(l){l.extend({toggleScroll:function(){l("body").toggleScroll()},ajaxAll:function(){for(var t=[],e=0;e<arguments.length;e++){var r=arguments[e];t.push(new Promise(function(t,e){r.done(t).fail(e)}))}return Promise.all(t)}}),l.fn.extend({highlightText:function(t){return l(this).each(function(){0===l(this).children().length&&l(this).html(l(this).text().replace(new RegExp("("+t+")","ig"),'<mark class="highlight">$1</mark>'))}),l(this)},toggleScroll:function(){"hidden"===l(this).css("overflow")?l(this).css("overflow","auto"):l(this).css("overflow","hidden")},cover:function(t){var e=l(this);if(e.hasClass("loading-wrapper")&&(e=e.parent()),t||void 0===t){e.css({position:"relative"});var r=l('<div class="loading-wrapper"><span style="display: table-cell;vertical-align: middle;text-align: center;"></span></div>');return r.find("span").html(t),r.css({position:"absolute",top:0,left:0,display:"table",width:e.outerWidth(),height:e.outerHeight(),textAlgin:"center"}),e.append(r),r}e.find(".loading-wrapper").remove()},animateCss:function(t,e){return this.addClass("animated "+t).one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",function(){l(this).removeClass("animated "+t),e&&e()}),this},bindData:function(i,t){var e=l(this).html(),n=e;if("undefined"!=typeof Handlebars){var r=Handlebars.compile(e);n=r(i)}else{if("undefined"!=typeof _){var o=n.match(/{{[^}]+}}/g);_.forEach(o,function(t){var e=t.replace(/[{}]/g,""),r=_.get(i,e);n=n.replace(new RegExp(t.replace(/([\[\]\.])/g,"\\$1"),"g"),r||"")})}else for(var a=Object.keys(i),s=0;s<a.length;s++){var p=a[s];n=n.replace("{{"+p+"}}",i[p])}n=n.replace(/\{\{.+\}\}/g,"")}return t?l("#"+t).html(n):l(this).html(n),n},mdEditor:function(t){var e=l(this).attr("id");if(!e)throw new Error("Not found element or No `id` defined for editor.md.");if(!t.path)throw new Error("Please specify `path` value for editor.md dependencies folder in `options`. `options` example: {path: `../node_modules/editor.md/lib/`}");if(!editormd)throw new Error("Requires editor.md (http://pandao.github.io/editor.md/)");t=l.extend({},{width:"100%",height:640,syncScrolling:"single",saveHTMLToTextarea:!0},t);var r=editormd(e,t);return l.extend(r,{originHtml:r.getHTML,markdown:r.getMarkdown,html:r.getPreviewedHTML})}})}(jQuery);
+$.extend({
+    boverlay: function(destory) {
+        if (destory === false) {
+            $('body').removeClass('has-overlay').find('> .overlay').remove();
+            return;
+        }
+        var eleOverlay = '<div class="overlay"></div>';
+        $('body').addClass('has-overlay').append(eleOverlay);
+    },
+    bloading: function(destory) {
+        if (destory === false) {
+            $('body').removeClass('has-overlay').find('> .overlay').remove();
+            return;
+        }
+        $('body').addClass('has-overlay').bloading();
+    },
+});
+
+$.fn.extend({
+    bloading: function(destoryOrloadingStyle, theme) {
+        if (destoryOrloadingStyle === false) {
+            $(this).cover(false);
+            return;
+        }
+
+        loadingStyle = destoryOrloadingStyle || 'bounce';
+        theme = theme ? 'loading-' + theme : '';
+        var htmlLoading = '';
+        switch((loadingStyle||'').toLowerCase()) {
+            case 'bounce':
+                htmlLoading = '<div class="loading ' + theme + ' loading-bounce"><div class="child1"></div><div class="child2"></div><div class="child3"></div></div>';
+                break;
+
+            case 'bounce-rectangle':
+                htmlLoading = '<div class="loading ' + theme + ' loading-bounce-rectangle">' +
+                    '<div class="child1"></div>' +
+                    '<div class="child2"></div>' +
+                    '<div class="child3"></div>' +
+                    '<div class="child4"></div>' +
+                    '<div class="child5"></div>' +
+                    '</div>';
+                break;
+
+            case 'circle':
+                htmlLoading = '<div class="loading ' + theme + ' loading-circle">' + 
+                    '<div class="child1 loading-circle-child"></div>' + 
+                    '<div class="child2 loading-circle-child"></div>' + 
+                    '<div class="child3 loading-circle-child"></div>' + 
+                    '<div class="child4 loading-circle-child"></div>' + 
+                    '<div class="child5 loading-circle-child"></div>' + 
+                    '<div class="child6 loading-circle-child"></div>' + 
+                    '<div class="child7 loading-circle-child"></div>' + 
+                    '<div class="child8 loading-circle-child"></div>' + 
+                    '<div class="child9 loading-circle-child"></div>' + 
+                    '<div class="child10 loading-circle-child"></div>' + 
+                    '<div class="child11 loading-circle-child"></div>' + 
+                    '<div class="child12 loading-circle-child"></div>' + 
+                    '</div>';
+                break;
+        }
+        htmlLoading = htmlLoading || 'No `' + loadingStyle + '` style defined.';
+        $(this).cover(htmlLoading);
+    },
+
+    btooltip: function(destoryOrTitle, position) {
+        if (destoryOrTitle == false) {
+            $(this).tooltip('dispose');
+            return;
+        }
+        $(this).tooltip({
+            placement: position || 'top',
+            title: destoryOrTitle,
+            trigger: 'manual',
+            html: true,
+        });
+        $(this).tooltip('show');
+    },
+
+});
 (function () {
 
     'use strict';
@@ -48623,84 +48702,6 @@ var DateFormatter;!function(){"use strict";var e,t,a,r,n,o,i;o=864e5,i=3600,e=fu
     }
 
 }());
-$.extend({
-    boverlay: function(destory) {
-        if (destory === false) {
-            $('body').removeClass('has-overlay').find('> .overlay').remove();
-            return;
-        }
-        var eleOverlay = '<div class="overlay"></div>';
-        $('body').addClass('has-overlay').append(eleOverlay);
-    },
-    bloading: function(destory) {
-        if (destory === false) {
-            $('body').removeClass('has-overlay').find('> .overlay').remove();
-            return;
-        }
-        $('body').addClass('has-overlay').bloading();
-    },
-});
-
-$.fn.extend({
-    bloading: function(destoryOrloadingStyle, theme) {
-        if (destoryOrloadingStyle === false) {
-            $(this).cover(false);
-            return;
-        }
-
-        loadingStyle = destoryOrloadingStyle || 'bounce';
-        theme = theme ? 'loading-' + theme : '';
-        var htmlLoading = '';
-        switch((loadingStyle||'').toLowerCase()) {
-            case 'bounce':
-                htmlLoading = '<div class="loading ' + theme + ' loading-bounce"><div class="child1"></div><div class="child2"></div><div class="child3"></div></div>';
-                break;
-
-            case 'bounce-rectangle':
-                htmlLoading = '<div class="loading ' + theme + ' loading-bounce-rectangle">' +
-                    '<div class="child1"></div>' +
-                    '<div class="child2"></div>' +
-                    '<div class="child3"></div>' +
-                    '<div class="child4"></div>' +
-                    '<div class="child5"></div>' +
-                    '</div>';
-                break;
-
-            case 'circle':
-                htmlLoading = '<div class="loading ' + theme + ' loading-circle">' + 
-                    '<div class="child1 loading-circle-child"></div>' + 
-                    '<div class="child2 loading-circle-child"></div>' + 
-                    '<div class="child3 loading-circle-child"></div>' + 
-                    '<div class="child4 loading-circle-child"></div>' + 
-                    '<div class="child5 loading-circle-child"></div>' + 
-                    '<div class="child6 loading-circle-child"></div>' + 
-                    '<div class="child7 loading-circle-child"></div>' + 
-                    '<div class="child8 loading-circle-child"></div>' + 
-                    '<div class="child9 loading-circle-child"></div>' + 
-                    '<div class="child10 loading-circle-child"></div>' + 
-                    '<div class="child11 loading-circle-child"></div>' + 
-                    '<div class="child12 loading-circle-child"></div>' + 
-                    '</div>';
-                break;
-        }
-        htmlLoading = htmlLoading || 'No `' + loadingStyle + '` style defined.';
-        $(this).cover(htmlLoading);
-    },
-
-    btooltip: function(destoryOrTitle, position) {
-        if (destoryOrTitle == false) {
-            $(this).tooltip('dispose');
-            return;
-        }
-        $(this).tooltip({
-            placement: position || 'top',
-            title: destoryOrTitle,
-            trigger: 'manual',
-        });
-        $(this).tooltip('show');
-    },
-
-});
 (function ($) {
     $.fn.dialog = function (event) {
         if (event === 'open') {
@@ -49104,7 +49105,7 @@ if (window) {
 
 // setup
 bbootstrap = {
-    version: '1.3.0',
+    version: '1.3.1',
     options: {
         locale: 'en-US',
         datetimeFormat: 'YYYY-MM-DD H:mm',

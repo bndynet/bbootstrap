@@ -8,6 +8,8 @@ $font-size-base: 0.9rem;
 @import "node_modules/font-awesome/scss/font-awesome";
 @import "node_modules/jquery-datetimepicker/jquery.datetimepicker";
 
+@import "keyframes";
+@import "icons";
 @import "layout";
 @import "link";
 @import "block";
@@ -22,3 +24,8 @@ $font-size-base: 0.9rem;
 @import "pace";
 @import "select";
 @import "dialog";
+
+
+.loading-wrapper {
+    z-index: 9999;
+}

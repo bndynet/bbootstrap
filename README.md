@@ -78,6 +78,11 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 
 ## Changelog
 
+### v1.3.1
+
+- Fix some bugs
+- Add icons without font
+
 ### v1.3.0
 
 - Styles: Add some layout styles

@@ -5,8 +5,8 @@
 //=require moment/min/moment-with-locales.js
 //=require jquery-datetimepicker/build/jquery.datetimepicker.full.min.js
 //=require @bndynet/jslib/dist/jslib.min.js
+//=require _jq.js
 //=require _alertify.js
-//=require _jQuery.js
 //=require _dialog.js
 //=require _pace.js
 //=require _select.js

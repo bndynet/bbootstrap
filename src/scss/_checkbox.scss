@@ -1,9 +1,4 @@
-
-//
-// Checkboxes
-// --------------------------------------------------
-
-
+// Checkbox
 $font-family-icon: 'FontAwesome' !default;
 $fa-var-check: "\f00c" !default;
 $check-icon: $fa-var-check !default;
@@ -141,23 +136,12 @@ $check-icon: $fa-var-check !default;
   }
 }
 
-@include checkbox-variant('.checkbox-primary', theme-color(primary));
-@include checkbox-variant('.checkbox-danger', theme-color(danger));
-@include checkbox-variant('.checkbox-info', theme-color(info));
-@include checkbox-variant('.checkbox-warning', theme-color(warning));
-@include checkbox-variant('.checkbox-success', theme-color(success));
+@each $theme, $color in $theme-colors {
+  @include checkbox-variant('.checkbox-#{$theme}', $color);
+  @include checkbox-variant-indeterminate('.checkbox-#{$theme}', $color);
+}
 
-
-@include checkbox-variant-indeterminate('checkbox-primary', theme-color(primary));
-@include checkbox-variant-indeterminate('checkbox-danger', theme-color(danger));
-@include checkbox-variant-indeterminate('checkbox-info', theme-color(info));
-@include checkbox-variant-indeterminate('checkbox-warning', theme-color(warning));
-@include checkbox-variant-indeterminate('checkbox-success', theme-color(success));
-
-//
-// Radios
-// --------------------------------------------------
-
+// Radio
 @mixin radio-variant($parent, $color) {
   #{$parent} input[type="radio"]{
     + label{
@@ -263,11 +247,9 @@ $check-icon: $fa-var-check !default;
   }
 }
 
-@include radio-variant('.radio-primary', theme-color(primary));
-@include radio-variant('.radio-danger', theme-color(danger));
-@include radio-variant('.radio-info', theme-color(info));
-@include radio-variant('.radio-warning', theme-color(warning));
-@include radio-variant('.radio-success', theme-color(success));
+@each $theme, $color in $theme-colors {
+  @include radio-variant('.radio-#{$theme}', $color);
+}
 
 
 // Validation states
