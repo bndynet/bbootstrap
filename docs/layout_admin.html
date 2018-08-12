@@ -28,7 +28,7 @@
     </style>
 </head>
 
-<body class="layout-admin">
+<body class="layout-admin layout-admin-sm">
     <header style="background: green;">
         <a class="pull-left" style="color: white; padding: 10px; cursor: pointer;" onclick="bbootstrap.toggleLeftSide()">
             <i class="fa fa-bars fa-2x"></i>
@@ -39,8 +39,9 @@
     </header>
     <div class="side-left">
         <nav id="side-navs" class="list-group list-group-flush">
-            <a class="list-group-item hidden-mini">
-                <b>COMPONENTS</b>
+            <a class="list-group-item">
+                <i class="fa fa-fw fa-home"></i>
+                <span class="hidden-mini">Home</span>
             </a>
             <a class="list-group-item list-group-item-action">
                 <i class="fa fa-bars fa-fw"></i>
@@ -50,7 +51,24 @@
             </a>
         </nav>
     </div>
-    <div class="main"></div>
+    <div class="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Library</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+          </nav>
+        <div class="content-header with-border">
+            <h1>Title <small class="text-muted">Description for title</small></h1>
+            <div class="toolbox">
+                <button class="btn btn-sm btn-primary">Edit</button>
+            </div>
+        </div>
+        <div class="content-body">
+            This is the content of page.
+        </div>
+    </div>
     <div class="side-right"></div>
 </body>
 

@@ -76,7 +76,11 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 ```
 
 
-## Changelog
+## [Changelog](https://github.com/bndynet/bbootstrap/wiki/Changelog)
+
+### v1.3.2
+
+- Perfect layout styles
 
 ### v1.3.1
 

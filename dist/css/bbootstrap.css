@@ -11726,6 +11726,14 @@ a {
   height: 100%;
   overflow: auto; }
 
+.layout-two.layout-two-sm > .side-left {
+  width: 200px; }
+
+.layout-two.layout-two-sm > main,
+.layout-two.layout-two-sm > .main {
+  margin-left: 200px;
+  width: calc(100% - 200px); }
+
 .layout-admin {
   position: relative; }
   .layout-admin > header,
@@ -11780,6 +11788,52 @@ a {
     height: calc(100% - 50px);
     overflow: auto;
     transition: all 0.5s ease 0s; }
+    .layout-admin > main .breadcrumb,
+    .layout-admin > .main .breadcrumb {
+      border-radius: 0; }
+    .layout-admin > main .content-header,
+    .layout-admin > .main .content-header {
+      position: relative;
+      margin: 0.75rem 1rem; }
+      .layout-admin > main .content-header h1,
+      .layout-admin > .main .content-header h1 {
+        margin: 0; }
+        .layout-admin > main .content-header h1 small,
+        .layout-admin > .main .content-header h1 small {
+          font-size: 65%; }
+      .layout-admin > main .content-header .toolbox,
+      .layout-admin > .main .content-header .toolbox {
+        position: absolute;
+        right: 0;
+        bottom: 0.25rem; }
+      .layout-admin > main .content-header.with-border,
+      .layout-admin > .main .content-header.with-border {
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #ced4da; }
+        .layout-admin > main .content-header.with-border .toolbox,
+        .layout-admin > .main .content-header.with-border .toolbox {
+          bottom: 0.75rem; }
+    .layout-admin > main .content-body,
+    .layout-admin > .main .content-body {
+      margin: 0.75rem 1rem; }
+  .layout-admin.layout-admin-sm > .side-left {
+    width: 200px; }
+  .layout-admin.layout-admin-sm > main,
+  .layout-admin.layout-admin-sm > .main {
+    margin-left: 200px;
+    width: calc(100% - 200px); }
+  .layout-admin.layout-admin-sm > .side-right {
+    width: 200px; }
+    .layout-admin.layout-admin-sm > .side-right.hidden {
+      right: -220px; }
+
+header .nav-item .nav-link {
+  height: 50px;
+  line-height: calc(50px - 3px);
+  padding: 0 1rem; }
+  header .nav-item .nav-link .fa-2x {
+    position: relative;
+    top: 6px; }
 
 .list-link > a {
   cursor: pointer;

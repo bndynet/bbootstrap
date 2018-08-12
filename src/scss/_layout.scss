@@ -1,6 +1,7 @@
 @import "common";
 
 $side-width: 260px !default;
+$side-width-sm: 200px !default;
 $side-width-mini: 3.5rem !default;
 $header-height: 50px !default;
 $transition-duration: 0.5s !default;
@@ -37,6 +38,17 @@ a {
         width: calc(100% - #{$side-width});
         height: 100%;
         overflow: auto;
+    }
+
+    &.layout-two-sm {
+        & > .side-left {
+            width: $side-width-sm;
+        }
+        & > main,
+        & > .main {
+            margin-left: $side-width-sm;
+            width: calc(100% - #{$side-width-sm});
+        }
     }
 }
 
@@ -112,5 +124,67 @@ a {
         height: calc(100% - #{$header-height});
         overflow: auto;
         transition: all $transition-duration ease 0s;
+
+        .breadcrumb {
+            border-radius: 0;
+        }
+
+        .content-header {
+            position: relative;
+            margin: 0.75rem 1rem;
+            h1 {
+                margin: 0;
+
+                small {
+                    font-size: 65%;
+                }
+            }
+            .toolbox {
+                position: absolute;
+                right: 0;
+                bottom: 0.25rem;
+            }
+            &.with-border {
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid $gray-400;
+                .toolbox {
+                    bottom: 0.75rem;
+                }
+            }
+        }
+
+        .content-body {
+            margin: 0.75rem 1rem;
+        }
+    }
+
+    // themes
+    &.layout-admin-sm {
+        & > .side-left {
+            width: $side-width-sm;
+        }
+        & > main,
+        & > .main {
+            margin-left: $side-width-sm;
+            width: calc(100% - #{$side-width-sm});
+        }
+        & > .side-right {
+            width: $side-width-sm;
+            &.hidden {
+                right: -20 - $side-width-sm;
+            }
+        }
+    }
+}
+
+// hack for bootstrap
+header .nav-item .nav-link {
+    height: $header-height;
+    line-height: calc(#{$header-height} - 3px);
+    padding: 0 1rem;
+
+    .fa-2x {
+        position: relative;
+        top: 6px;
     }
 }
