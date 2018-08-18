@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.3.1
+ * @bndynet/bbootstrap v1.3.2
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -11698,6 +11698,9 @@ i.bicon {
   .bicon.bicon-next:before {
     content: "\203A"; }
 
+.with-shadow {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+
 html,
 body {
   height: 100%; }
@@ -11834,6 +11837,119 @@ header .nav-item .nav-link {
   header .nav-item .nav-link .fa-2x {
     position: relative;
     top: 6px; }
+
+.card {
+  margin-top: 1rem; }
+
+.card-header,
+.card-footer {
+  position: relative;
+  display: flex; }
+  .card-header h1, .card-header h2, .card-header h3, .card-header h4, .card-header h5, .card-header h6,
+  .card-footer h1,
+  .card-footer h2,
+  .card-footer h3,
+  .card-footer h4,
+  .card-footer h5,
+  .card-footer h6 {
+    margin: 0;
+    padding: 0; }
+  .card-header p,
+  .card-footer p {
+    margin: 0;
+    padding: 0.25rem; }
+  .card-header > *,
+  .card-footer > * {
+    display: inline-block;
+    flex: 1; }
+    .card-header > *:last-child,
+    .card-footer > *:last-child {
+      text-align: right;
+      flex: inherit; }
+
+.card-sm {
+  border-radius: 3px; }
+  .card-sm .card-header,
+  .card-sm .card-footer {
+    padding: 0.5rem; }
+    .card-sm .card-header .toolbox,
+    .card-sm .card-footer .toolbox {
+      right: 0.5rem;
+      top: 0.5rem; }
+  .card-sm .card-body {
+    padding: 0.5rem; }
+  .card-sm.card-primary {
+    border-color: #f8f9fa;
+    border-top: 3px solid #007bff; }
+    .card-sm.card-primary .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-primary .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-secondary {
+    border-color: #f8f9fa;
+    border-top: 3px solid #6c757d; }
+    .card-sm.card-secondary .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-secondary .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-success {
+    border-color: #f8f9fa;
+    border-top: 3px solid #28a745; }
+    .card-sm.card-success .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-success .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-info {
+    border-color: #f8f9fa;
+    border-top: 3px solid #17a2b8; }
+    .card-sm.card-info .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-info .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-warning {
+    border-color: #f8f9fa;
+    border-top: 3px solid #ffc107; }
+    .card-sm.card-warning .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-warning .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-danger {
+    border-color: #f8f9fa;
+    border-top: 3px solid #dc3545; }
+    .card-sm.card-danger .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-danger .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-light {
+    border-color: #f8f9fa;
+    border-top: 3px solid #f8f9fa; }
+    .card-sm.card-light .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-light .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-dark {
+    border-color: #f8f9fa;
+    border-top: 3px solid #343a40; }
+    .card-sm.card-dark .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-dark .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
 
 .list-link > a {
   cursor: pointer;
@@ -12602,6 +12718,46 @@ label .was-validated .form-check-input:invalid .checkbox:before, label
     color: #28a745; }
   .form-group .form-control.is-invalid + .form-control-feedback {
     color: #dc3545; }
+
+.tag {
+  display: inline-block;
+  background-color: #28a745;
+  color: #ffffff;
+  border-radius: 3px;
+  font-size: 80%; }
+  .tag > * {
+    padding: 0.15rem 0.35rem;
+    display: inline-block; }
+  .tag > *:first-child {
+    border-radius: 3px 0 0 3px; }
+  .tag > label {
+    background-color: #6c757d;
+    margin: 0;
+    font-weight: normal; }
+  .tag.tag-primary {
+    background-color: #007bff; }
+  .tag.tag-secondary {
+    background-color: #6c757d; }
+  .tag.tag-success {
+    background-color: #28a745; }
+  .tag.tag-info {
+    background-color: #17a2b8; }
+  .tag.tag-warning {
+    background-color: #ffc107; }
+  .tag.tag-danger {
+    background-color: #dc3545; }
+  .tag.tag-light {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #6c757d;
+    border-radius: 4px; }
+    .tag.tag-light > label {
+      color: #ffffff; }
+  .tag.tag-dark {
+    background-color: #343a40; }
+
+.tags .tag {
+  margin-bottom: 0.25rem; }
 
 .alertify-dialog {
   position: fixed;

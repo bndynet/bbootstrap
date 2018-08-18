@@ -1,0 +1,58 @@
+// bootstrap
+.card {
+    margin-top: 1rem;
+}
+.card-header,
+.card-footer {
+    position: relative;
+    display: flex;
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
+    } 
+    p {
+        margin: 0;
+        padding: 0.25rem;
+    }
+    & > * {
+        display: inline-block;
+        flex: 1;
+        &:last-child {
+            text-align: right; 
+            flex: inherit;
+        }
+    }
+}
+
+.card-sm {
+    border-radius: 3px;
+
+    .card-header,
+    .card-footer {
+        padding: 0.5rem;
+
+        .toolbox {
+            right: 0.5rem;
+            top: 0.5rem;
+        }
+    }
+    .card-body {
+        padding: 0.5rem;
+    }
+
+    @each $theme, $color in $theme-colors {
+        &.card-#{$theme} {
+            border-color: $light;
+            border-top: 3px solid $color;
+
+            .card-header {
+                border-bottom-color: $gray-200;
+                background-color: #ffffff;
+            }
+            .card-footer {
+                border-top-color: $gray-200;
+                background-color: #ffffff;
+            }
+        }
+    }
+}

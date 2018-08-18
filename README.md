@@ -81,6 +81,8 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 ### v1.3.2
 
 - Perfect layout styles
+- Add `.tags`, `.tag`, `.tag-theme` styles
+- Enhancement for `.card` with `.card-sm` and `.cart-theme`
 
 ### v1.3.1
 

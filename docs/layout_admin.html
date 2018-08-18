@@ -23,7 +23,7 @@
         }
 
         .main {
-            background: #ddd;
+            background: #dedede;
         }
     </style>
 </head>
@@ -54,19 +54,77 @@
     <div class="main">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Library</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Data</li>
+                <li class="breadcrumb-item">
+                    <a href="#">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Library</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
             </ol>
-          </nav>
+        </nav>
         <div class="content-header with-border">
-            <h1>Title <small class="text-muted">Description for title</small></h1>
+            <h1>Title
+                <small class="text-muted">Description for title</small>
+            </h1>
             <div class="toolbox">
                 <button class="btn btn-sm btn-primary">Edit</button>
             </div>
         </div>
         <div class="content-body">
-            This is the content of page.
+            <div class="card">
+                <div class="card-header">
+                    <h5>Title</h5>
+                    <div class="toolbox">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Panel Content
+                </div>
+                <div class="card-footer">
+                    <p> Footer description </p>
+                    <div class="toolbox">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-sm">
+                <div class="card-header">
+                    <h5>Title</h5>
+                    <div class="toolbox">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Panel Content
+                </div>
+                <div class="card-footer">
+                    <p> Footer description </p>
+                    <div class="toolbox">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-sm card-primary with-shadow">
+                <div class="card-header">
+                    <h5>Title</h5>
+                    <div class="toolbox">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Panel Content
+                </div>
+                <div class="card-footer">
+                    <p> Footer description </p>
+                    <div class="toolbox">
+                        <button class="btn btn-sm btn-primary">OK</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="side-right"></div>
