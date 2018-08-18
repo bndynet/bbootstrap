@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.3.1
+ * @bndynet/bbootstrap v1.3.2
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -12774,6 +12774,94 @@ label .was-validated .form-check-input:invalid .checkbox:before, label
 
 .tags .tag {
   margin-bottom: 0.25rem; }
+
+.workflow .workflow-item {
+  display: flex; }
+  .workflow .workflow-item label {
+    display: inline-block;
+    border-radius: 4px;
+    margin: 0;
+    padding: 0.25em 0.5em;
+    border: solid 2px #6c757d;
+    background-color: #ffffff; }
+  .workflow .workflow-item .arrow {
+    flex: 1;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    position: relative;
+    top: -0.35em;
+    color: rgba(51, 51, 51, 0.7); }
+    .workflow .workflow-item .arrow:before {
+      position: absolute;
+      content: " ";
+      border-top: 2px solid #6c757d;
+      width: calc(100% - 0.5em);
+      display: inline-block;
+      margin-top: 5px;
+      top: 1em;
+      left: 0;
+      z-index: -1; }
+    .workflow .workflow-item .arrow:after {
+      position: absolute;
+      right: 0;
+      content: "\027A4";
+      color: #6c757d;
+      top: 1em; }
+  .workflow .workflow-item.workflow-item-primary label {
+    border-color: #007bff; }
+  .workflow .workflow-item.workflow-item-primary .arrow:before {
+    border-color: #007bff; }
+  .workflow .workflow-item.workflow-item-primary .arrow:after {
+    color: #007bff; }
+  .workflow .workflow-item.workflow-item-secondary label {
+    border-color: #6c757d; }
+  .workflow .workflow-item.workflow-item-secondary .arrow:before {
+    border-color: #6c757d; }
+  .workflow .workflow-item.workflow-item-secondary .arrow:after {
+    color: #6c757d; }
+  .workflow .workflow-item.workflow-item-success label {
+    border-color: #28a745; }
+  .workflow .workflow-item.workflow-item-success .arrow:before {
+    border-color: #28a745; }
+  .workflow .workflow-item.workflow-item-success .arrow:after {
+    color: #28a745; }
+  .workflow .workflow-item.workflow-item-info label {
+    border-color: #17a2b8; }
+  .workflow .workflow-item.workflow-item-info .arrow:before {
+    border-color: #17a2b8; }
+  .workflow .workflow-item.workflow-item-info .arrow:after {
+    color: #17a2b8; }
+  .workflow .workflow-item.workflow-item-warning label {
+    border-color: #ffc107; }
+  .workflow .workflow-item.workflow-item-warning .arrow:before {
+    border-color: #ffc107; }
+  .workflow .workflow-item.workflow-item-warning .arrow:after {
+    color: #ffc107; }
+  .workflow .workflow-item.workflow-item-danger label {
+    border-color: #dc3545; }
+  .workflow .workflow-item.workflow-item-danger .arrow:before {
+    border-color: #dc3545; }
+  .workflow .workflow-item.workflow-item-danger .arrow:after {
+    color: #dc3545; }
+  .workflow .workflow-item.workflow-item-light label {
+    border-color: #f8f9fa; }
+  .workflow .workflow-item.workflow-item-light .arrow:before {
+    border-color: #f8f9fa; }
+  .workflow .workflow-item.workflow-item-light .arrow:after {
+    color: #f8f9fa; }
+  .workflow .workflow-item.workflow-item-dark label {
+    border-color: #343a40; }
+  .workflow .workflow-item.workflow-item-dark .arrow:before {
+    border-color: #343a40; }
+  .workflow .workflow-item.workflow-item-dark .arrow:after {
+    color: #343a40; }
+
+.workflow.workflow-dotted .arrow:before {
+  border-top-style: dotted; }
+
+.workflow.workflow-dashed .arrow:before {
+  border-top-style: dashed; }
 
 .alertify-dialog {
   position: fixed;

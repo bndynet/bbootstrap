@@ -1,0 +1,75 @@
+$default-color: $gray-600 !default;
+
+.workflow {
+    .workflow-item {
+        display: flex;
+        label {
+            display: inline-block;
+            border-radius: 4px;
+            margin: 0;
+            padding: 0.25em 0.5em;
+            border: solid 2px $default-color;
+            background-color: #ffffff;
+        }
+        .arrow {
+            flex: 1;
+            font-size: 12px;
+            line-height: 12px;
+            text-align: center;
+            position: relative; 
+            top: -0.35em;
+            color: rgba($body-color, 0.7);
+            &:before {
+                position: absolute;
+                content: " ";
+                border-top: 2px solid $default-color;
+                width: calc(100% - 0.5em);
+                display: inline-block;
+                margin-top: 5px;
+                top: 1em;
+                left: 0;
+                z-index: -1;
+            }
+            &:after {
+                position: absolute;
+                right: 0;
+                content: "\027A4";
+                color: $default-color; 
+                top: 1em;
+            }
+        }
+
+        @each $theme, $color in $theme-colors {
+            &.workflow-item-#{$theme} {
+                label {
+                    border-color: $color;
+                }
+
+                .arrow {
+                    &:before {
+                        border-color: $color;
+                    }
+                    &:after {
+                        color: $color;
+                    }
+                }
+            }
+        }
+    }
+
+    &.workflow-dotted {
+        .arrow {
+            &:before {
+                border-top-style: dotted;
+            }
+        }
+    }
+
+    &.workflow-dashed {
+        .arrow {
+            &:before {
+                border-top-style: dashed;
+            }
+        }
+    }
+}

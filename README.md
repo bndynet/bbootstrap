@@ -76,13 +76,14 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 ```
 
 
-## [Changelog](https://github.com/bndynet/bbootstrap/wiki/Changelog)
+## Changelog
 
 ### v1.3.2
 
 - Perfect layout styles
-- Add `.tags`, `.tag`, `.tag-theme` styles
-- Enhancement for `.card` with `.card-sm` and `.cart-theme`
+- Add `.tags`, `.tag`, `.tag-theme` styles - [Demo](https://bndynet.github.io/bbootstrap/#tags)
+- Enhancement for `.card` with `.card-sm` and `.card-theme` - [Demo](https://bndynet.github.io/bbootstrap/layout-admin.html)
+- Add `.workflow` styles - [Demo](https://bndynet.github.io/bbootstrap/#workflow)
 
 ### v1.3.1
 
