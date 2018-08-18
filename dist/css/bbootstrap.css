@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.3.2
+ * @bndynet/bbootstrap v1.4.0
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -12718,22 +12718,6 @@ label .was-validated .form-check-input:invalid .checkbox:before, label
 .was-validated .form-check-input:invalid .radio:before, label .form-check-input.is-invalid .checkbox:before, label
 .form-check-input.is-invalid .radio:before {
   border-color: #dc3545; }
-
-.form-group {
-  position: relative; }
-  .form-group .form-control + .form-control-feedback {
-    position: absolute;
-    right: 0;
-    margin-right: 0.75rem;
-    margin-top: -1.5rem; }
-  .form-group .form-control.form-control-lg + .form-control-feedback, .form-group .input-group-lg > .form-control + .form-control-feedback, .form-group .input-group-lg > .input-group-prepend > .form-control.input-group-text + .form-control-feedback, .form-group .input-group-lg > .input-group-append > .form-control.input-group-text + .form-control-feedback, .form-group .input-group-lg > .input-group-prepend > .form-control.btn + .form-control-feedback, .form-group .input-group-lg > .input-group-append > .form-control.btn + .form-control-feedback {
-    margin-top: -1.8rem; }
-  .form-group .form-control.form-control-sm + .form-control-feedback, .form-group .input-group-sm > .form-control + .form-control-feedback, .form-group .input-group-sm > .input-group-prepend > .form-control.input-group-text + .form-control-feedback, .form-group .input-group-sm > .input-group-append > .form-control.input-group-text + .form-control-feedback, .form-group .input-group-sm > .input-group-prepend > .form-control.btn + .form-control-feedback, .form-group .input-group-sm > .input-group-append > .form-control.btn + .form-control-feedback {
-    margin-top: -1.35rem; }
-  .form-group .form-control.is-valid + .form-control-feedback {
-    color: #28a745; }
-  .form-group .form-control.is-invalid + .form-control-feedback {
-    color: #dc3545; }
 
 .tag {
   display: inline-block;

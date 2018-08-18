@@ -1,6 +1,21 @@
+// enhancement for bootstrap
+
+.was-validated .form-control:valid.is-invalid {
+    border-color: $danger;
+}
+
 .form-group {
     position: relative;
 
+    label {
+        & + .form-text {
+            float: right;
+            margin-top: 0;
+        }
+        & + small.form-text {
+            margin-top: 0.1em;
+        }
+    }
     .form-control {
         & + .form-control-feedback {
             position: absolute;

@@ -78,7 +78,7 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 
 ## Changelog
 
-### v1.3.2
+### v1.4.0
 
 - Perfect layout styles
 - Add `.tags`, `.tag`, `.tag-theme` styles - [Demo](https://bndynet.github.io/bbootstrap/#tags)
