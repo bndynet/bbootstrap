@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.3.2
+ * @bndynet/bbootstrap v1.3.1
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -11857,7 +11857,7 @@ header .nav-item .nav-link {
   .card-header p,
   .card-footer p {
     margin: 0;
-    padding: 0.25rem; }
+    padding: 0.25rem 0; }
   .card-header > *,
   .card-footer > * {
     display: inline-block;
@@ -11879,8 +11879,10 @@ header .nav-item .nav-link {
   .card-sm .card-body {
     padding: 0.5rem; }
   .card-sm.card-primary {
+    border-width: 0;
     border-color: #f8f9fa;
-    border-top: 3px solid #007bff; }
+    border-top: 3px solid #007bff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
     .card-sm.card-primary .card-header {
       border-bottom-color: #e9ecef;
       background-color: #ffffff; }
@@ -11888,8 +11890,10 @@ header .nav-item .nav-link {
       border-top-color: #e9ecef;
       background-color: #ffffff; }
   .card-sm.card-secondary {
+    border-width: 0;
     border-color: #f8f9fa;
-    border-top: 3px solid #6c757d; }
+    border-top: 3px solid #6c757d;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
     .card-sm.card-secondary .card-header {
       border-bottom-color: #e9ecef;
       background-color: #ffffff; }
@@ -11897,8 +11901,10 @@ header .nav-item .nav-link {
       border-top-color: #e9ecef;
       background-color: #ffffff; }
   .card-sm.card-success {
+    border-width: 0;
     border-color: #f8f9fa;
-    border-top: 3px solid #28a745; }
+    border-top: 3px solid #28a745;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
     .card-sm.card-success .card-header {
       border-bottom-color: #e9ecef;
       background-color: #ffffff; }
@@ -11906,8 +11912,10 @@ header .nav-item .nav-link {
       border-top-color: #e9ecef;
       background-color: #ffffff; }
   .card-sm.card-info {
+    border-width: 0;
     border-color: #f8f9fa;
-    border-top: 3px solid #17a2b8; }
+    border-top: 3px solid #17a2b8;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
     .card-sm.card-info .card-header {
       border-bottom-color: #e9ecef;
       background-color: #ffffff; }
@@ -11915,8 +11923,10 @@ header .nav-item .nav-link {
       border-top-color: #e9ecef;
       background-color: #ffffff; }
   .card-sm.card-warning {
+    border-width: 0;
     border-color: #f8f9fa;
-    border-top: 3px solid #ffc107; }
+    border-top: 3px solid #ffc107;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
     .card-sm.card-warning .card-header {
       border-bottom-color: #e9ecef;
       background-color: #ffffff; }
@@ -11924,8 +11934,10 @@ header .nav-item .nav-link {
       border-top-color: #e9ecef;
       background-color: #ffffff; }
   .card-sm.card-danger {
+    border-width: 0;
     border-color: #f8f9fa;
-    border-top: 3px solid #dc3545; }
+    border-top: 3px solid #dc3545;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
     .card-sm.card-danger .card-header {
       border-bottom-color: #e9ecef;
       background-color: #ffffff; }
@@ -11933,8 +11945,10 @@ header .nav-item .nav-link {
       border-top-color: #e9ecef;
       background-color: #ffffff; }
   .card-sm.card-light {
+    border-width: 0;
     border-color: #f8f9fa;
-    border-top: 3px solid #f8f9fa; }
+    border-top: 3px solid #f8f9fa;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
     .card-sm.card-light .card-header {
       border-bottom-color: #e9ecef;
       background-color: #ffffff; }
@@ -11942,8 +11956,10 @@ header .nav-item .nav-link {
       border-top-color: #e9ecef;
       background-color: #ffffff; }
   .card-sm.card-dark {
+    border-width: 0;
     border-color: #f8f9fa;
-    border-top: 3px solid #343a40; }
+    border-top: 3px solid #343a40;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
     .card-sm.card-dark .card-header {
       border-bottom-color: #e9ecef;
       background-color: #ffffff; }

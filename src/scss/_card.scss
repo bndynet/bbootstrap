@@ -12,7 +12,7 @@
     } 
     p {
         margin: 0;
-        padding: 0.25rem;
+        padding: 0.25rem 0;
     }
     & > * {
         display: inline-block;
@@ -42,8 +42,10 @@
 
     @each $theme, $color in $theme-colors {
         &.card-#{$theme} {
+            border-width: 0;
             border-color: $light;
             border-top: 3px solid $color;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 
             .card-header {
                 border-bottom-color: $gray-200;
