@@ -78,6 +78,10 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 
 ## Changelog
 
+### v1.4.1
+
+- Fix some bugs
+
 ### v1.4.0
 
 - Perfect layout styles

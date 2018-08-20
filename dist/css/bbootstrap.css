@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.4.0
+ * @bndynet/bbootstrap v1.4.1
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -432,8 +432,8 @@
     -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
     transform: skewX(-0.78125deg) skewY(-0.78125deg); }
   77.7% {
-    -webkit-transform: skewX(0.39062deg) skewY(0.39062deg);
-    transform: skewX(0.39062deg) skewY(0.39062deg); }
+    -webkit-transform: skewX(0.39063deg) skewY(0.39063deg);
+    transform: skewX(0.39063deg) skewY(0.39063deg); }
   88.8% {
     -webkit-transform: skewX(-0.19531deg) skewY(-0.19531deg);
     transform: skewX(-0.19531deg) skewY(-0.19531deg); } }
@@ -460,8 +460,8 @@
     -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
     transform: skewX(-0.78125deg) skewY(-0.78125deg); }
   77.7% {
-    -webkit-transform: skewX(0.39062deg) skewY(0.39062deg);
-    transform: skewX(0.39062deg) skewY(0.39062deg); }
+    -webkit-transform: skewX(0.39063deg) skewY(0.39063deg);
+    transform: skewX(0.39063deg) skewY(0.39063deg); }
   88.8% {
     -webkit-transform: skewX(-0.19531deg) skewY(-0.19531deg);
     transform: skewX(-0.19531deg) skewY(-0.19531deg); } }
@@ -11653,6 +11653,30 @@ a.text-dark:hover, a.text-dark:focus {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
+
+.was-validated .form-control:valid.is-invalid {
+  border-color: #dc3545; }
+
+.form-group {
+  position: relative; }
+  .form-group label + .form-text {
+    float: right;
+    margin-top: 0; }
+  .form-group label + small.form-text {
+    margin-top: 0.1em; }
+  .form-group .form-control + .form-control-feedback {
+    position: absolute;
+    right: 0;
+    margin-right: 0.75rem;
+    margin-top: -1.5rem; }
+  .form-group .form-control.form-control-lg + .form-control-feedback, .form-group .input-group-lg > .form-control + .form-control-feedback, .form-group .input-group-lg > .input-group-prepend > .form-control.input-group-text + .form-control-feedback, .form-group .input-group-lg > .input-group-append > .form-control.input-group-text + .form-control-feedback, .form-group .input-group-lg > .input-group-prepend > .form-control.btn + .form-control-feedback, .form-group .input-group-lg > .input-group-append > .form-control.btn + .form-control-feedback {
+    margin-top: -1.8rem; }
+  .form-group .form-control.form-control-sm + .form-control-feedback, .form-group .input-group-sm > .form-control + .form-control-feedback, .form-group .input-group-sm > .input-group-prepend > .form-control.input-group-text + .form-control-feedback, .form-group .input-group-sm > .input-group-append > .form-control.input-group-text + .form-control-feedback, .form-group .input-group-sm > .input-group-prepend > .form-control.btn + .form-control-feedback, .form-group .input-group-sm > .input-group-append > .form-control.btn + .form-control-feedback {
+    margin-top: -1.35rem; }
+  .form-group .form-control.is-valid + .form-control-feedback {
+    color: #28a745; }
+  .form-group .form-control.is-invalid + .form-control-feedback {
+    color: #dc3545; }
 
 i.bicon {
   font-style: normal; }
