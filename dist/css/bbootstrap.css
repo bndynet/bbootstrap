@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.3.1
+ * @bndynet/bbootstrap v1.4.0
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -11698,6 +11698,9 @@ i.bicon {
   .bicon.bicon-next:before {
     content: "\203A"; }
 
+.with-shadow {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+
 html,
 body {
   height: 100%; }
@@ -11725,6 +11728,14 @@ a {
   width: calc(100% - 260px);
   height: 100%;
   overflow: auto; }
+
+.layout-two.layout-two-sm > .side-left {
+  width: 200px; }
+
+.layout-two.layout-two-sm > main,
+.layout-two.layout-two-sm > .main {
+  margin-left: 200px;
+  width: calc(100% - 200px); }
 
 .layout-admin {
   position: relative; }
@@ -11780,6 +11791,181 @@ a {
     height: calc(100% - 50px);
     overflow: auto;
     transition: all 0.5s ease 0s; }
+    .layout-admin > main .breadcrumb,
+    .layout-admin > .main .breadcrumb {
+      border-radius: 0; }
+    .layout-admin > main .content-header,
+    .layout-admin > .main .content-header {
+      position: relative;
+      margin: 0.75rem 1rem; }
+      .layout-admin > main .content-header h1,
+      .layout-admin > .main .content-header h1 {
+        margin: 0; }
+        .layout-admin > main .content-header h1 small,
+        .layout-admin > .main .content-header h1 small {
+          font-size: 65%; }
+      .layout-admin > main .content-header .toolbox,
+      .layout-admin > .main .content-header .toolbox {
+        position: absolute;
+        right: 0;
+        bottom: 0.25rem; }
+      .layout-admin > main .content-header.with-border,
+      .layout-admin > .main .content-header.with-border {
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #ced4da; }
+        .layout-admin > main .content-header.with-border .toolbox,
+        .layout-admin > .main .content-header.with-border .toolbox {
+          bottom: 0.75rem; }
+    .layout-admin > main .content-body,
+    .layout-admin > .main .content-body {
+      margin: 0.75rem 1rem; }
+  .layout-admin.layout-admin-sm > .side-left {
+    width: 200px; }
+  .layout-admin.layout-admin-sm > main,
+  .layout-admin.layout-admin-sm > .main {
+    margin-left: 200px;
+    width: calc(100% - 200px); }
+  .layout-admin.layout-admin-sm > .side-right {
+    width: 200px; }
+    .layout-admin.layout-admin-sm > .side-right.hidden {
+      right: -220px; }
+
+header .nav-item .nav-link {
+  height: 50px;
+  line-height: calc(50px - 3px);
+  padding: 0 1rem; }
+  header .nav-item .nav-link .fa-2x {
+    position: relative;
+    top: 6px; }
+
+.card {
+  margin-top: 1rem; }
+
+.card-header,
+.card-footer {
+  position: relative;
+  display: flex; }
+  .card-header h1, .card-header h2, .card-header h3, .card-header h4, .card-header h5, .card-header h6,
+  .card-footer h1,
+  .card-footer h2,
+  .card-footer h3,
+  .card-footer h4,
+  .card-footer h5,
+  .card-footer h6 {
+    margin: 0;
+    padding: 0; }
+  .card-header p,
+  .card-footer p {
+    margin: 0;
+    padding: 0.25rem 0; }
+  .card-header > *,
+  .card-footer > * {
+    display: inline-block;
+    flex: 1; }
+    .card-header > *:last-child,
+    .card-footer > *:last-child {
+      text-align: right;
+      flex: inherit; }
+
+.card-sm {
+  border-radius: 3px; }
+  .card-sm .card-header,
+  .card-sm .card-footer {
+    padding: 0.5rem; }
+    .card-sm .card-header .toolbox,
+    .card-sm .card-footer .toolbox {
+      right: 0.5rem;
+      top: 0.5rem; }
+  .card-sm .card-body {
+    padding: 0.5rem; }
+  .card-sm.card-primary {
+    border-width: 0;
+    border-color: #f8f9fa;
+    border-top: 3px solid #007bff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+    .card-sm.card-primary .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-primary .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-secondary {
+    border-width: 0;
+    border-color: #f8f9fa;
+    border-top: 3px solid #6c757d;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+    .card-sm.card-secondary .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-secondary .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-success {
+    border-width: 0;
+    border-color: #f8f9fa;
+    border-top: 3px solid #28a745;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+    .card-sm.card-success .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-success .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-info {
+    border-width: 0;
+    border-color: #f8f9fa;
+    border-top: 3px solid #17a2b8;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+    .card-sm.card-info .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-info .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-warning {
+    border-width: 0;
+    border-color: #f8f9fa;
+    border-top: 3px solid #ffc107;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+    .card-sm.card-warning .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-warning .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-danger {
+    border-width: 0;
+    border-color: #f8f9fa;
+    border-top: 3px solid #dc3545;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+    .card-sm.card-danger .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-danger .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-light {
+    border-width: 0;
+    border-color: #f8f9fa;
+    border-top: 3px solid #f8f9fa;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+    .card-sm.card-light .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-light .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
+  .card-sm.card-dark {
+    border-width: 0;
+    border-color: #f8f9fa;
+    border-top: 3px solid #343a40;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+    .card-sm.card-dark .card-header {
+      border-bottom-color: #e9ecef;
+      background-color: #ffffff; }
+    .card-sm.card-dark .card-footer {
+      border-top-color: #e9ecef;
+      background-color: #ffffff; }
 
 .list-link > a {
   cursor: pointer;
@@ -12533,21 +12719,133 @@ label .was-validated .form-check-input:invalid .checkbox:before, label
 .form-check-input.is-invalid .radio:before {
   border-color: #dc3545; }
 
-.form-group {
-  position: relative; }
-  .form-group .form-control + .form-control-feedback {
-    position: absolute;
-    right: 0;
-    margin-right: 0.75rem;
-    margin-top: -1.5rem; }
-  .form-group .form-control.form-control-lg + .form-control-feedback, .form-group .input-group-lg > .form-control + .form-control-feedback, .form-group .input-group-lg > .input-group-prepend > .form-control.input-group-text + .form-control-feedback, .form-group .input-group-lg > .input-group-append > .form-control.input-group-text + .form-control-feedback, .form-group .input-group-lg > .input-group-prepend > .form-control.btn + .form-control-feedback, .form-group .input-group-lg > .input-group-append > .form-control.btn + .form-control-feedback {
-    margin-top: -1.8rem; }
-  .form-group .form-control.form-control-sm + .form-control-feedback, .form-group .input-group-sm > .form-control + .form-control-feedback, .form-group .input-group-sm > .input-group-prepend > .form-control.input-group-text + .form-control-feedback, .form-group .input-group-sm > .input-group-append > .form-control.input-group-text + .form-control-feedback, .form-group .input-group-sm > .input-group-prepend > .form-control.btn + .form-control-feedback, .form-group .input-group-sm > .input-group-append > .form-control.btn + .form-control-feedback {
-    margin-top: -1.35rem; }
-  .form-group .form-control.is-valid + .form-control-feedback {
+.tag {
+  display: inline-block;
+  background-color: #28a745;
+  color: #ffffff;
+  border-radius: 3px;
+  font-size: 80%; }
+  .tag > * {
+    padding: 0.15rem 0.35rem;
+    display: inline-block; }
+  .tag > *:first-child {
+    border-radius: 3px 0 0 3px; }
+  .tag > label {
+    background-color: #6c757d;
+    margin: 0;
+    font-weight: normal; }
+  .tag.tag-primary {
+    background-color: #007bff; }
+  .tag.tag-secondary {
+    background-color: #6c757d; }
+  .tag.tag-success {
+    background-color: #28a745; }
+  .tag.tag-info {
+    background-color: #17a2b8; }
+  .tag.tag-warning {
+    background-color: #ffc107; }
+  .tag.tag-danger {
+    background-color: #dc3545; }
+  .tag.tag-light {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #6c757d;
+    border-radius: 4px; }
+    .tag.tag-light > label {
+      color: #ffffff; }
+  .tag.tag-dark {
+    background-color: #343a40; }
+
+.tags .tag {
+  margin-bottom: 0.25rem; }
+
+.workflow .workflow-item {
+  display: flex; }
+  .workflow .workflow-item label {
+    display: inline-block;
+    border-radius: 4px;
+    margin: 0;
+    padding: 0.25em 0.5em;
+    border: solid 2px #6c757d;
+    background-color: #ffffff; }
+  .workflow .workflow-item .arrow {
+    flex: 1;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    position: relative;
+    top: -0.35em;
+    color: rgba(51, 51, 51, 0.7); }
+    .workflow .workflow-item .arrow:before {
+      position: absolute;
+      content: " ";
+      border-top: 2px solid #6c757d;
+      width: calc(100% - 0.5em);
+      display: inline-block;
+      margin-top: 5px;
+      top: 1em;
+      left: 0;
+      z-index: -1; }
+    .workflow .workflow-item .arrow:after {
+      position: absolute;
+      right: 0;
+      content: "\027A4";
+      color: #6c757d;
+      top: 1em; }
+  .workflow .workflow-item.workflow-item-primary label {
+    border-color: #007bff; }
+  .workflow .workflow-item.workflow-item-primary .arrow:before {
+    border-color: #007bff; }
+  .workflow .workflow-item.workflow-item-primary .arrow:after {
+    color: #007bff; }
+  .workflow .workflow-item.workflow-item-secondary label {
+    border-color: #6c757d; }
+  .workflow .workflow-item.workflow-item-secondary .arrow:before {
+    border-color: #6c757d; }
+  .workflow .workflow-item.workflow-item-secondary .arrow:after {
+    color: #6c757d; }
+  .workflow .workflow-item.workflow-item-success label {
+    border-color: #28a745; }
+  .workflow .workflow-item.workflow-item-success .arrow:before {
+    border-color: #28a745; }
+  .workflow .workflow-item.workflow-item-success .arrow:after {
     color: #28a745; }
-  .form-group .form-control.is-invalid + .form-control-feedback {
+  .workflow .workflow-item.workflow-item-info label {
+    border-color: #17a2b8; }
+  .workflow .workflow-item.workflow-item-info .arrow:before {
+    border-color: #17a2b8; }
+  .workflow .workflow-item.workflow-item-info .arrow:after {
+    color: #17a2b8; }
+  .workflow .workflow-item.workflow-item-warning label {
+    border-color: #ffc107; }
+  .workflow .workflow-item.workflow-item-warning .arrow:before {
+    border-color: #ffc107; }
+  .workflow .workflow-item.workflow-item-warning .arrow:after {
+    color: #ffc107; }
+  .workflow .workflow-item.workflow-item-danger label {
+    border-color: #dc3545; }
+  .workflow .workflow-item.workflow-item-danger .arrow:before {
+    border-color: #dc3545; }
+  .workflow .workflow-item.workflow-item-danger .arrow:after {
     color: #dc3545; }
+  .workflow .workflow-item.workflow-item-light label {
+    border-color: #f8f9fa; }
+  .workflow .workflow-item.workflow-item-light .arrow:before {
+    border-color: #f8f9fa; }
+  .workflow .workflow-item.workflow-item-light .arrow:after {
+    color: #f8f9fa; }
+  .workflow .workflow-item.workflow-item-dark label {
+    border-color: #343a40; }
+  .workflow .workflow-item.workflow-item-dark .arrow:before {
+    border-color: #343a40; }
+  .workflow .workflow-item.workflow-item-dark .arrow:after {
+    color: #343a40; }
+
+.workflow.workflow-dotted .arrow:before {
+  border-top-style: dotted; }
+
+.workflow.workflow-dashed .arrow:before {
+  border-top-style: dashed; }
 
 .alertify-dialog {
   position: fixed;

@@ -1,0 +1,39 @@
+.tag {
+    display: inline-block;
+    background-color: $green;
+    color: #ffffff;
+    border-radius: 3px;
+    font-size: 80%;
+    &>* {
+        padding: 0.15rem 0.35rem;
+        display: inline-block;
+    }
+    &>*:first-child {
+        border-radius: 3px 0 0 3px;
+    }
+    &>label {
+        background-color: $gray-600;
+        margin: 0;
+        font-weight: normal;
+    }
+
+    @each $theme, $color in $theme-colors {
+        &.tag-#{$theme} {
+            background-color: $color;
+            @if ($theme == "light") {
+                color: $body-color;
+                border: 1px solid $gray-600;
+                border-radius: 4px;
+                & > label {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}
+
+.tags {
+    .tag {
+        margin-bottom: 0.25rem;
+    }
+}

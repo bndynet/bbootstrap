@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Bbootstrap</title>
+    <link rel="stylesheet" href="css/bbootstrap.min.css" />
+    <script src="js/bbootstrap.min.js"></script>
+    <script>
+        bbootstrap.setup({
+            pace: {
+                theme: 'light',
+            }
+        });
+    </script>
+    <style>
+        .side-left {
+            background: #eeeeee;
+        }
+
+        .side-right {
+            background: #555;
+        }
+
+        .main {
+            background: #ffffff;
+        }
+    </style>
+</head>
+
+<body class="layout-admin layout-admin-sm">
+    <header style="background: green;">
+        <a class="pull-left" style="color: white; padding: 10px; cursor: pointer;" onclick="bbootstrap.toggleLeftSide()">
+            <i class="fa fa-bars fa-2x"></i>
+        </a>
+        <a class="pull-right" style="color: white; padding: 10px; cursor: pointer;" onclick="bbootstrap.toggleRightSide()">
+            <i class="fa fa-bars fa-2x"></i>
+        </a>
+    </header>
+    <div class="side-left">
+        <nav id="side-navs" class="list-group list-group-flush">
+            <a class="list-group-item">
+                <i class="fa fa-fw fa-home"></i>
+                <span class="hidden-mini">Home</span>
+            </a>
+            <a class="list-group-item list-group-item-action">
+                <i class="fa fa-bars fa-fw"></i>
+                <span class="hidden-mini">
+                    This is a Menu
+                </span>
+            </a>
+        </nav>
+    </div>
+    <div class="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Library</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+        <div class="content-header with-border">
+            <h1>Title
+                <small class="text-muted">Description for title</small>
+            </h1>
+            <div class="toolbox">
+                <button class="btn btn-sm btn-primary">Edit</button>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Title</h5>
+                    <div class="toolbox">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Panel Content
+                </div>
+                <div class="card-footer">
+                    <p> Footer description </p>
+                    <div class="toolbox">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-sm">
+                <div class="card-header">
+                    <h5>Title</h5>
+                    <div class="toolbox">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Panel Content
+                </div>
+                <div class="card-footer">
+                    <p> Footer description </p>
+                    <div class="toolbox">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-sm card-primary with-shadow">
+                <div class="card-header">
+                    <h5>Title</h5>
+                    <div class="toolbox">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Panel Content
+                </div>
+                <div class="card-footer">
+                    <p> Footer description </p>
+                    <div class="toolbox">
+                        <button class="btn btn-sm btn-primary">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="side-right"></div>
+</body>
+
+</html>

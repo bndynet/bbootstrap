@@ -11,6 +11,7 @@ $font-size-base: 0.9rem;
 @import "keyframes";
 @import "icons";
 @import "layout";
+@import "card";
 @import "link";
 @import "block";
 @import "visual";
@@ -18,7 +19,8 @@ $font-size-base: 0.9rem;
 @import "loading";
 @import "overlay";
 @import "checkbox";
-@import "form-group";
+@import "tags";
+@import "workflow";
 
 @import "alertify";
 @import "pace";
