@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.4.1
+ * @bndynet/bbootstrap v1.5.0
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -11654,6 +11654,9 @@ a.text-dark:hover, a.text-dark:focus {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 
+.navbar-brand {
+  font-size: 22px; }
+
 .was-validated .form-control:valid.is-invalid {
   border-color: #dc3545; }
 
@@ -11730,7 +11733,8 @@ i.bicon {
 
 html,
 body {
-  height: 100%; }
+  height: 100%;
+  overflow: hidden; }
 
 a {
   cursor: pointer; }
@@ -11741,7 +11745,8 @@ a {
   .layout-one > .main {
     margin: auto; }
 
-.layout-two > .side-left {
+.layout-two > .side-left,
+.layout-two > .sidebar-main {
   width: 260px;
   height: 100%;
   overflow: auto; }
@@ -11756,7 +11761,8 @@ a {
   height: 100%;
   overflow: auto; }
 
-.layout-two.layout-two-sm > .side-left {
+.layout-two.layout-two-sm > .side-left,
+.layout-two.layout-two-sm > .sdiebar-main {
   width: 200px; }
 
 .layout-two.layout-two-sm > main,
@@ -11769,36 +11775,42 @@ a {
   .layout-admin > header,
   .layout-admin > .header {
     height: 50px; }
-  .layout-admin > .side-left {
+  .layout-admin > footer,
+  .layout-admin > .footer {
+    position: fixed;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    bottom: 0;
+    margin-left: 260px;
+    z-index: 1000;
+    transition: all 0.5s ease 0s;
+    border-top: 1px solid #dee2e6;
+    background-color: #f8f9fa; }
+  .layout-admin > .side-left,
+  .layout-admin > .sidebar-main {
     position: absolute;
     z-index: 1000;
     width: 260px;
     height: calc(100% - 50px);
     overflow: auto;
-    transition: all 0.5s ease 0s; }
-    .layout-admin > .side-left .list-group-item {
+    transition: all 0.5s ease 0s;
+    border-right: 1px solid #dee2e6; }
+    .layout-admin > .side-left .list-group-item,
+    .layout-admin > .sidebar-main .list-group-item {
       white-space: nowrap; }
-    .layout-admin > .side-left .show-mini {
+    .layout-admin > .side-left .show-mini,
+    .layout-admin > .sidebar-main .show-mini {
       display: none;
       animation-name: fadeIn;
       animation-duration: 0.5s;
       animation-fill-mode: both; }
-    .layout-admin > .side-left .hidden-mini {
+    .layout-admin > .side-left .hidden-mini,
+    .layout-admin > .sidebar-main .hidden-mini {
       animation-name: fadeIn;
       animation-duration: 0.5s;
       animation-fill-mode: both; }
-    .layout-admin > .side-left.mini {
-      width: 3.5rem; }
-      .layout-admin > .side-left.mini .hidden-mini {
-        display: none;
-        white-space: nowrap; }
-      .layout-admin > .side-left.mini .show-mini {
-        display: inherit; }
-      .layout-admin > .side-left.mini + main,
-      .layout-admin > .side-left.mini + .main {
-        margin-left: 3.5rem;
-        width: calc(100% - 3.5rem); }
-  .layout-admin > .side-right {
+  .layout-admin > .side-right,
+  .layout-admin > .sidebar-assist {
     width: 260px;
     height: calc(100% - 50px);
     position: absolute;
@@ -11806,7 +11818,8 @@ a {
     right: 0;
     bottom: 0;
     transition: all 0.5s ease 0s; }
-    .layout-admin > .side-right.hidden {
+    .layout-admin > .side-right.hidden,
+    .layout-admin > .sidebar-assist.hidden {
       right: -280px; }
   .layout-admin > main,
   .layout-admin > .main {
@@ -11853,17 +11866,45 @@ a {
           bottom: 0.75rem; }
     .layout-admin > main .content-body,
     .layout-admin > .main .content-body {
-      margin: 0.75rem 1rem; }
-  .layout-admin.layout-admin-sm > .side-left {
+      margin: 0.75rem 1rem;
+      padding-bottom: 3rem; }
+  .layout-admin.sidebar-mini > .side-left,
+  .layout-admin.sidebar-mini > .sidebar-main {
+    width: 3.5rem; }
+    .layout-admin.sidebar-mini > .side-left .hidden-mini,
+    .layout-admin.sidebar-mini > .sidebar-main .hidden-mini {
+      display: none;
+      white-space: nowrap; }
+    .layout-admin.sidebar-mini > .side-left .show-mini,
+    .layout-admin.sidebar-mini > .sidebar-main .show-mini {
+      display: inherit; }
+  .layout-admin.sidebar-mini > main,
+  .layout-admin.sidebar-mini > .main,
+  .layout-admin.sidebar-mini > footer,
+  .layout-admin.sidebar-mini > .footer {
+    margin-left: 3.5rem;
+    width: calc(100% - 3.5rem); }
+  .layout-admin.layout-admin-sm > .side-left,
+  .layout-admin.layout-admin-sm > .sidebar-main {
     width: 200px; }
+  .layout-admin.layout-admin-sm > footer,
+  .layout-admin.layout-admin-sm > .footer,
   .layout-admin.layout-admin-sm > main,
   .layout-admin.layout-admin-sm > .main {
     margin-left: 200px;
     width: calc(100% - 200px); }
-  .layout-admin.layout-admin-sm > .side-right {
+  .layout-admin.layout-admin-sm > .side-right,
+  .layout-admin.layout-admin-sm > .sidebar-assist {
     width: 200px; }
-    .layout-admin.layout-admin-sm > .side-right.hidden {
+    .layout-admin.layout-admin-sm > .side-right.hidden,
+    .layout-admin.layout-admin-sm > .sidebar-assist.hidden {
       right: -220px; }
+  .layout-admin.layout-admin-sm.sidebar-mini > main,
+  .layout-admin.layout-admin-sm.sidebar-mini > .main,
+  .layout-admin.layout-admin-sm.sidebar-mini > footer,
+  .layout-admin.layout-admin-sm.sidebar-mini > .footer {
+    margin-left: 3.5rem;
+    width: calc(100% - 3.5rem); }
 
 header .nav-item .nav-link {
   height: 50px;

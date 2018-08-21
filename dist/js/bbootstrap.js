@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.4.1
+ * @bndynet/bbootstrap v1.5.0
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -49105,7 +49105,7 @@ if (window) {
 
 // setup
 bbootstrap = {
-    version: '1.4.1',
+    version: '1.5.0',
     options: {
         locale: 'en-US',
         datetimeFormat: 'YYYY-MM-DD H:mm',
@@ -49156,10 +49156,10 @@ bbootstrap = {
         $this.langs.define(locale, value);
     },
     toggleLeftSide: function() {
-        $('.layout-admin > .side-left').toggleClass('mini');
+        $('body').toggleClass('sidebar-mini');
     },
     toggleRightSide: function() {
-        $('.layout-admin > .side-right').toggleClass('hidden');
+        $('.layout-admin > .side-right, .layout-admin > .sidebar-assist').toggleClass('hidden');
     },
     setup: function (options) {
         var $this = this;

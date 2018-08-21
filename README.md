@@ -78,6 +78,12 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 
 ## Changelog
 
+### v1.5.0
+
+- Rename `.side-left` to `.sidebar-main`
+- Rename `.side-right` to `.sidebar-assit`
+- [Admin Layout](https://bndynet.github.io/bbootstrap/layout-admin.html)
+
 ### v1.4.1
 
 - Fix some bugs

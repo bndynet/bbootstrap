@@ -64,10 +64,10 @@ bbootstrap = {
         $this.langs.define(locale, value);
     },
     toggleLeftSide: function() {
-        $('.layout-admin > .side-left').toggleClass('mini');
+        $('body').toggleClass('sidebar-mini');
     },
     toggleRightSide: function() {
-        $('.layout-admin > .side-right').toggleClass('hidden');
+        $('.layout-admin > .side-right, .layout-admin > .sidebar-assist').toggleClass('hidden');
     },
     setup: function (options) {
         var $this = this;

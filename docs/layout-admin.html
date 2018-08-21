@@ -14,12 +14,17 @@
         });
     </script>
     <style>
-        .side-left {
+        .sidebar-main {
             background: #eeeeee;
         }
 
-        .side-right {
+        .sidebar-assist {
             background: #555;
+        }
+
+        footer {
+            border-top: solid 1px #dedede;
+            background-color: #ffffff;
         }
 
         .main {
@@ -37,7 +42,7 @@
             <i class="fa fa-bars fa-2x"></i>
         </a>
     </header>
-    <div class="side-left">
+    <div class="sidebar-main">
         <nav id="side-navs" class="list-group list-group-flush">
             <a class="list-group-item">
                 <i class="fa fa-fw fa-home"></i>
@@ -70,7 +75,7 @@
             <div class="toolbox">
                 <form style="width: 300px;">
                     <div class="input-group input-group-sm">
-                        <input class="form-control">
+                        <input class="form-control" value="keywords for search">
                         <div class="input-group-append">
                             <button class="btn btn-primary">Search</button>
                         </div>
@@ -135,7 +140,10 @@
             </div>
         </div>
     </div>
-    <div class="side-right"></div>
+    <footer>
+        Copyright &copy; 2018 BNDY-NET
+    </footer>
+    <div class="sidebar-assist"></div>
 </body>
 
 </html>

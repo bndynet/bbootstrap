@@ -9,6 +9,7 @@ $transition-duration: 0.5s !default;
 html,
 body {
     height: 100%;
+    overflow: hidden;
 }
 
 a {
@@ -24,7 +25,8 @@ a {
 }
 
 .layout-two {
-    & > .side-left {
+    & > .side-left,
+    & > .sidebar-main {
         width: $side-width;
         height: 100%;
         overflow: auto;
@@ -41,7 +43,8 @@ a {
     }
 
     &.layout-two-sm {
-        & > .side-left {
+        & > .side-left,
+        & > .sdiebar-main {
             width: $side-width-sm;
         }
         & > main,
@@ -60,13 +63,28 @@ a {
         height: $header-height;
     }
 
-    & > .side-left {
+    & > footer,
+    & > .footer {
+        position: fixed;
+        padding: 0.75rem 1rem;
+        width: 100%;
+        bottom: 0;
+        margin-left: $side-width;
+        z-index: 1000;
+        transition: all $transition-duration ease 0s;
+        border-top: 1px solid $border-color;
+        background-color: $light;
+    }
+
+    & > .side-left,
+    & > .sidebar-main {
         position: absolute;
         z-index: 1000;
         width: $side-width;
         height: calc(100% - #{$header-height});
         overflow: auto;
         transition: all $transition-duration ease 0s;
+        border-right: 1px solid $border-color;
 
         .list-group-item {
             white-space: nowrap;
@@ -80,27 +98,10 @@ a {
         .hidden-mini { 
             @include animate(fadeIn, $transition-duration);
         }
-
-        &.mini {
-            width: $side-width-mini;
-            
-            .hidden-mini {
-                display: none;
-                white-space: nowrap;
-            } 
-            .show-mini {
-                display: inherit;
-            }
-
-            & + main,
-            & + .main {
-                margin-left: $side-width-mini;
-                width: calc(100% - #{$side-width-mini});
-            }
-        }
     }
 
-    & > .side-right {
+    & > .side-right,
+    & > .sidebar-assist {
         width: $side-width;
         height: calc(100% - #{$header-height});
         position: absolute;
@@ -164,23 +165,64 @@ a {
 
         .content-body {
             margin: 0.75rem 1rem;
+            padding-bottom: 3rem;
+        }
+    }
+
+    // sidebar mini
+    &.sidebar-mini {
+        & > .side-left,
+        & > .sidebar-main {
+            width: $side-width-mini;
+            
+            .hidden-mini {
+                display: none;
+                white-space: nowrap;
+            } 
+            .show-mini {
+                display: inherit;
+            }
+
+        }
+        
+        & > main,
+        & > .main,
+        & > footer,
+        & > .footer {
+            margin-left: $side-width-mini;
+            width: calc(100% - #{$side-width-mini});
         }
     }
 
     // themes
     &.layout-admin-sm {
-        & > .side-left {
+        & > .side-left,
+        & > .sidebar-main {
             width: $side-width-sm;
         }
+
+        & > footer,
+        & > .footer,
         & > main,
         & > .main {
             margin-left: $side-width-sm;
             width: calc(100% - #{$side-width-sm});
         }
-        & > .side-right {
+        & > .side-right,
+        & > .sidebar-assist {
             width: $side-width-sm;
             &.hidden {
                 right: -20 - $side-width-sm;
+            }
+        }
+
+        &.sidebar-mini {
+            & > main,
+            & > .main,
+            & > footer,
+            & > .footer {
+                margin-left: $side-width-mini;
+                width: calc(100% - #{$side-width-mini});
             }
         }
     }
