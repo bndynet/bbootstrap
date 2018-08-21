@@ -143,6 +143,15 @@ a {
                 position: absolute;
                 right: 0;
                 bottom: 0.25rem;
+
+                & > * {
+                    margin-right: 0.25rem;
+                    vertical-align: middle;
+                    display: inline-block;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
             }
             &.with-border {
                 padding-bottom: 0.5rem;
