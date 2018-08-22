@@ -1,20 +1,10 @@
-@import "common";
+@import "mixins";
 
 $side-width: 260px !default;
 $side-width-sm: 200px !default;
-$side-width-mini: 3.5rem !default;
+$side-width-mini: 48px !default;
 $header-height: 50px !default;
 $transition-duration: 0.5s !default;
-
-html,
-body {
-    height: 100%;
-    overflow: hidden;
-}
-
-a {
-    cursor: pointer;
-}
 
 .layout-one {
     display: grid;
@@ -30,6 +20,14 @@ a {
         width: $side-width;
         height: 100%;
         overflow: auto;
+
+        & > footer,
+        & > .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
     }
     & > main,
     & > .main {
@@ -98,6 +96,14 @@ a {
         .hidden-mini { 
             @include animate(fadeIn, $transition-duration);
         }
+
+        & > footer,
+        & > .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
     }
 
     & > .side-right,
@@ -111,7 +117,7 @@ a {
         transition: all 0.5s ease 0s;
 
         &.hidden {
-            right: -20 - $side-width;
+            transform: translateX(100%);
         }
     }
 
@@ -135,10 +141,6 @@ a {
             margin: 0.75rem 1rem;
             h1 {
                 margin: 0;
-
-                small {
-                    font-size: 65%;
-                }
             }
             .toolbox {
                 position: absolute;
@@ -182,7 +184,6 @@ a {
             .show-mini {
                 display: inherit;
             }
-
         }
         
         & > main,
@@ -217,6 +218,10 @@ a {
         }
 
         &.sidebar-mini {
+            & > .side-left,
+            & > .sidebar-main {
+                width: $side-width-mini;
+            }
             & > main,
             & > .main,
             & > footer,

@@ -1,6 +1,6 @@
 // bootstrap
 .card {
-    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .card-header,
 .card-footer {
@@ -54,6 +54,68 @@
             .card-footer {
                 border-top-color: $gray-200;
                 background-color: #ffffff;
+            }
+        }
+    }
+}
+
+.card.card-mini {
+    border-radius: 3px;
+    background-color: $light;
+
+    .card-header {
+        padding: 0.5rem 0.5rem 0 0.5rem;
+        border: none;
+        font-size: 200%;
+        font-weight: bold;
+        background-color: transparent;
+    }
+
+    .card-body {
+        padding: 0 0.5rem 1rem 0.5rem;
+        border: none;
+        background-color: transparent;
+    }
+
+    .card-footer {
+        display: block;
+        text-align: center;
+        border: none;
+        font-size: 90%;
+        padding: 0.25em;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    a.card-footer {
+        color: $body-color;
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+    }
+
+    .card-icon {
+        font-size: 4.5em;
+        color: rgba(0, 0, 0, 0.1);
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+        transition: all 0.5s ease 0s;
+    }
+    &:hover {
+        .card-icon {
+            font-size: 5em;
+        }
+    }
+
+    @each $theme, $color in $theme-colors {
+        &.card-#{$theme} {
+            background-color: $color;
+            border: none;
+            @if ($theme != "light") {
+                color: #ffffff;
+                a.card-footer { 
+                    color: #ffffff;
+                }
             }
         }
     }
