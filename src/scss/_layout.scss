@@ -184,6 +184,14 @@ $transition-duration: 0.5s !default;
             .show-mini {
                 display: inherit;
             }
+
+            .list-group {
+                .list-group-item {
+                    padding-left: 0;
+                    padding-right: 0;
+                    text-align: center;
+                }
+            }
         }
         
         & > main,

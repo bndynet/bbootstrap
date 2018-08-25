@@ -13413,6 +13413,11 @@ body > .overlay {
     .layout-admin.sidebar-mini > .side-left .show-mini,
     .layout-admin.sidebar-mini > .sidebar-main .show-mini {
       display: inherit; }
+    .layout-admin.sidebar-mini > .side-left .list-group .list-group-item,
+    .layout-admin.sidebar-mini > .sidebar-main .list-group .list-group-item {
+      padding-left: 0;
+      padding-right: 0;
+      text-align: center; }
   .layout-admin.sidebar-mini > main,
   .layout-admin.sidebar-mini > .main,
   .layout-admin.sidebar-mini > footer,
