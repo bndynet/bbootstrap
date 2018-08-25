@@ -11885,13 +11885,13 @@ i.bicon {
   border-radius: 3px;
   background-color: #f8f9fa; }
   .card.card-mini .card-header {
-    padding: 0.5rem 0.5rem 0 0.5rem;
+    padding: 0.5rem 1rem 0 1rem;
     border: none;
     font-size: 200%;
     font-weight: bold;
     background-color: transparent; }
   .card.card-mini .card-body {
-    padding: 0 0.5rem 1rem 0.5rem;
+    padding: 0 1rem 1rem 1rem;
     border: none;
     background-color: transparent; }
   .card.card-mini .card-footer {
