@@ -250,18 +250,3 @@ $check-icon: $fa-var-check !default;
 @each $theme, $color in $theme-colors {
   @include radio-variant('.radio-#{$theme}', $color);
 }
-
-
-// Validation states
-// TODO: keep in sync with bootstrap since strange comment 'redo check markup lol crap'
-.form-check-input {
-  .was-validated &:invalid,
-  &.is-invalid {
-    .checkbox,
-    .radio {
-      label &:before {
-        border-color: $form-feedback-invalid-color;
-      }
-    }
-  }
-}

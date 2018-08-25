@@ -11658,9 +11658,6 @@ a {
   cursor: pointer;
   text-decoration: none; }
 
-.with-shadow {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
-
 .text-lg {
   font-size: 125%; }
 
@@ -11669,6 +11666,15 @@ a {
 
 .text-xs {
   font-size: 80%; }
+
+.toggle-hover .hover-show {
+  display: none; }
+
+.toggle-hover:hover .hover-show {
+  display: inherit; }
+
+.toggle-hover:hover .hover-hidden {
+  display: none; }
 
 @keyframes rotate {
   0% {
@@ -11751,6 +11757,17 @@ i.bicon {
     content: "\2039"; }
   .bicon.bicon-next:before {
     content: "\203A"; }
+
+.shadow-xs {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .shadow-xs.shadow-hover:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
+.shadow-sm {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .shadow-sm.shadow-hover:hover {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.25), 0 15px 12px rgba(0, 0, 0, 0.22) !important; }
 
 .card {
   margin-bottom: 1rem; }
@@ -12707,11 +12724,6 @@ body > .overlay {
 
 .radio-dark input[type="radio"]:checked + label::after {
   background-color: #343a40; }
-
-label .was-validated .form-check-input:invalid .checkbox:before, label
-.was-validated .form-check-input:invalid .radio:before, label .form-check-input.is-invalid .checkbox:before, label
-.form-check-input.is-invalid .radio:before {
-  border-color: #dc3545; }
 
 .tag {
   display: inline-block;

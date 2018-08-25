@@ -13,10 +13,6 @@ a {
     text-decoration: none;
 }
 
-.with-shadow {
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-}
-
 .text-lg {
     font-size: 125%;
 }
@@ -25,4 +21,19 @@ a {
 }
 .text-xs {
     font-size: 80%;
+}
+
+.toggle-hover {
+    .hover-show {
+        display: none;
+    }
+
+    &:hover {
+        .hover-show {
+            display: inherit;
+        }
+        .hover-hidden {
+            display: none;
+        }
+    }
 }
