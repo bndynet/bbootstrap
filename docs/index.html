@@ -45,12 +45,12 @@
             color: #ffffff;
         }
 
-        .side-right {
+        .sidebar-assist {
             color: #bbbbbb;
             background: #343a40;
             box-shadow: -3px 0 3px 1px rgba(0, 0, 0, 0.2)
         }
-        .side-right a {
+        .sidebar-assist a {
             color: #ffffff;
         }
         
@@ -76,36 +76,41 @@
 </head>
 
 <body class="layout-admin">
-    <header class="navbar navbar-dark bg-dark bd-navbar">
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
-            <img src="http://static.bndy.net/images/apple-icon-precomposed.png" width="30" height="30" class="d-inline-block align-top"
-                alt=""> Bbootstrap
-            <small class="version"></small>
+            Bbootstrap <small><sup class="version"></sup></small>
         </a>
-        <ul class="navbar-nav flex-row">
-            <li class="nav-item">
-                <a class="nav-link" onclick="bbootstrap.toggleLeftSide()">
-                    <i class="fa fa-2x fa-bars fa-fw"></i>
-                </a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-md-auto flex-row d-md-flex">
-            <li class="nav-item">
-                <a class="nav-link" href="layout-admin.html" target="_blank">
-                    Layout for Admin
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://github.com/bndynet/bbootstrap" target="_blank">
-                    <i class="fa fa-github fa-2x"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" onclick="bbootstrap.toggleRightSide()"  rel="noopener" aria-label="Menu">
-                    <i class="fa fa-ellipsis-v fa-2x"></i>
-                </a>
-            </li>
-        </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="bbootstrap.toggleLeftSide()">
+                        <i class="fa fa-2x fa-bars fa-fw"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="layout-admin.html" target="_blank">
+                        Layout for Admin
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/bndynet/bbootstrap" target="_blank">
+                        <i class="fa fa-github fa-2x"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="bbootstrap.toggleRightSide()" rel="noopener" aria-label="Menu">
+                        <i class="fa fa-ellipsis-v fa-2x"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </header>
     <div class="sidebar-main">
         <nav id="side-navs" class="list-group list-group-flush">

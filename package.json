@@ -1,6 +1,6 @@
 {
   "name": "@bndynet/bbootstrap",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.",
   "main": "index.js",
   "scripts": {

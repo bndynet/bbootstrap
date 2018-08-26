@@ -32,7 +32,7 @@ $transition-duration: 0.5s !default;
     & > main,
     & > .main {
         position: absolute;
-        z-index: 1000;
+        z-index: 100;
         top: 0;
         margin-left: $side-width;
         width: calc(100% - #{$side-width});
@@ -68,7 +68,7 @@ $transition-duration: 0.5s !default;
         width: 100%;
         bottom: 0;
         margin-left: $side-width;
-        z-index: 1000;
+        z-index: 100;
         transition: all $transition-duration ease 0s;
         border-top: 1px solid $border-color;
         background-color: $light;
@@ -77,7 +77,7 @@ $transition-duration: 0.5s !default;
     & > .side-left,
     & > .sidebar-main {
         position: absolute;
-        z-index: 1000;
+        z-index: 100;
         width: $side-width;
         height: calc(100% - #{$header-height});
         overflow: auto;
@@ -111,7 +111,7 @@ $transition-duration: 0.5s !default;
         width: $side-width;
         height: calc(100% - #{$header-height});
         position: absolute;
-        z-index: 1000;
+        z-index: 100;
         right: 0;
         bottom: 0;
         transition: all 0.5s ease 0s;
@@ -124,7 +124,7 @@ $transition-duration: 0.5s !default;
     & > main,
     & > .main {
         position: absolute;
-        z-index: 1000;
+        z-index: 100;
         top: $header-height;
         margin-left: $side-width;
         width: calc(100% - #{$side-width});
@@ -241,14 +241,56 @@ $transition-duration: 0.5s !default;
     }
 }
 
-// hack for bootstrap
-header .nav-item .nav-link {
-    height: $header-height;
-    line-height: calc(#{$header-height} - 3px);
-    padding: 0 1rem;
+// override bootstrap
+.layout-two,
+.layout-admin {
+    & > header,
+    & > .header {
+        .nav-item {
+            .nav-link {
+                height: $header-height;
+                line-height: $header-height;
+                padding: 0 0.5rem;
+    
+                .fa-2x {
+                    position: relative;
+                    top: 4px;
+                }
+            }
 
-    .fa-2x {
-        position: relative;
-        top: 6px;
-    }
+            &.show,
+            &:hover,
+            &:active {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+        } 
+        .navbar,
+        &.navbar {
+            padding-top: 0;
+            padding-bottom: 0;
+            .navbar-brand {
+                font-size: 22px;
+            }
+            .navbar-nav {
+                .dropdown-menu {
+                    margin: 0;
+                    border: none;
+                    border-radius: 0;
+                    min-width: 100%;
+                    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+                }
+            }
+        }
+
+        .navbar-toggler {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        .navbar-collapse {
+            z-index: 110;
+        }
+        .form-inline {
+            margin: 0 0.5rem;
+        }
+    } 
 }
