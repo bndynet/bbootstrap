@@ -78,10 +78,14 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 
 ## Changelog
 
+### v1.5.1
+
+- Perfect Admin Layout
+
 ### v1.5.0
 
 - Rename `.side-left` to `.sidebar-main`
-- Rename `.side-right` to `.sidebar-assit`
+- Rename `.side-right` to `.sidebar-assist`
 - [Admin Layout](https://bndynet.github.io/bbootstrap/layout-admin.html)
 - New styles `.shadow-xs` and `.shadow-hover` for existing shadows in bootstrap - [Code](https://github.com/bndynet/bbootstrap/blob/master/src/scss/_shadow.scss)
 - New styles `.toggle-hover` to toggle `.hover-show` and `.hover-hidden` - [Code](ttps://github.com/bndynet/bbootstrap/blob/master/src/scss/_common.scss)
