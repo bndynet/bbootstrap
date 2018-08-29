@@ -134,11 +134,13 @@ $transition-duration: 0.5s !default;
 
         .breadcrumb {
             border-radius: 0;
+            padding-left: 15px;
+            padding-right: 15px;
         }
 
         .content-header {
             position: relative;
-            margin: 0.75rem 1rem;
+            margin: 15px;
             h1 {
                 margin: 0;
             }
@@ -166,7 +168,7 @@ $transition-duration: 0.5s !default;
         }
 
         .content-body {
-            margin: 0.75rem 1rem;
+            margin: 15px;
             padding-bottom: 3rem;
         }
     }
@@ -250,7 +252,7 @@ $transition-duration: 0.5s !default;
             .nav-link {
                 height: $header-height;
                 line-height: $header-height;
-                padding: 0 0.5rem;
+                padding: 0 1rem;
     
                 .fa-2x {
                     position: relative;
@@ -290,7 +292,7 @@ $transition-duration: 0.5s !default;
             z-index: 110;
         }
         .form-inline {
-            margin: 0 0.5rem;
+            margin: 0 1rem;
         }
     } 
 }

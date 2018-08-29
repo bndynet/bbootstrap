@@ -80,7 +80,8 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 
 ### v1.5.1
 
-- Perfect Admin Layout
+- Perfect admin layout
+- Rewrite `.alert` styles
 
 ### v1.5.0
 

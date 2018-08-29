@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.5.0
+ * @bndynet/bbootstrap v1.5.1
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -11711,6 +11711,59 @@ a {
   .form-group .form-control.is-invalid + .form-control-feedback {
     color: #dc3545; }
 
+.alert.alert-primary {
+  background-color: #007bff;
+  border: none;
+  color: #f8f9fa; }
+  .alert.alert-primary .alert-link {
+    color: #f8f9fa; }
+
+.alert.alert-secondary {
+  background-color: #6c757d;
+  border: none;
+  color: #f8f9fa; }
+  .alert.alert-secondary .alert-link {
+    color: #f8f9fa; }
+
+.alert.alert-success {
+  background-color: #28a745;
+  border: none;
+  color: #f8f9fa; }
+  .alert.alert-success .alert-link {
+    color: #f8f9fa; }
+
+.alert.alert-info {
+  background-color: #17a2b8;
+  border: none;
+  color: #f8f9fa; }
+  .alert.alert-info .alert-link {
+    color: #f8f9fa; }
+
+.alert.alert-warning {
+  background-color: #ffc107;
+  border: none;
+  color: #f8f9fa; }
+  .alert.alert-warning .alert-link {
+    color: #f8f9fa; }
+
+.alert.alert-danger {
+  background-color: #dc3545;
+  border: none;
+  color: #f8f9fa; }
+  .alert.alert-danger .alert-link {
+    color: #f8f9fa; }
+
+.alert.alert-light {
+  background-color: #f8f9fa;
+  border: none; }
+
+.alert.alert-dark {
+  background-color: #343a40;
+  border: none;
+  color: #f8f9fa; }
+  .alert.alert-dark .alert-link {
+    color: #f8f9fa; }
+
 i.bicon {
   font-style: normal; }
 
@@ -11790,8 +11843,8 @@ i.bicon {
   .card-footer > * {
     display: inline-block;
     flex: 1; }
-    .card-header > *:last-child,
-    .card-footer > *:last-child {
+    .card-header > *:last-child:not(:first-child),
+    .card-footer > *:last-child:not(:first-child) {
       text-align: right;
       flex: inherit; }
 
@@ -13368,11 +13421,13 @@ body > .overlay {
     transition: all 0.5s ease 0s; }
     .layout-admin > main .breadcrumb,
     .layout-admin > .main .breadcrumb {
-      border-radius: 0; }
+      border-radius: 0;
+      padding-left: 15px;
+      padding-right: 15px; }
     .layout-admin > main .content-header,
     .layout-admin > .main .content-header {
       position: relative;
-      margin: 0.75rem 1rem; }
+      margin: 15px; }
       .layout-admin > main .content-header h1,
       .layout-admin > .main .content-header h1 {
         margin: 0; }
@@ -13398,7 +13453,7 @@ body > .overlay {
           bottom: 0.75rem; }
     .layout-admin > main .content-body,
     .layout-admin > .main .content-body {
-      margin: 0.75rem 1rem;
+      margin: 15px;
       padding-bottom: 3rem; }
   .layout-admin.sidebar-mini > .side-left,
   .layout-admin.sidebar-mini > .sidebar-main {
@@ -13452,7 +13507,7 @@ body > .overlay {
 .layout-admin > .header .nav-item .nav-link {
   height: 50px;
   line-height: 50px;
-  padding: 0 0.5rem; }
+  padding: 0 1rem; }
   .layout-two > header .nav-item .nav-link .fa-2x,
   .layout-two > .header .nav-item .nav-link .fa-2x,
   .layout-admin > header .nav-item .nav-link .fa-2x,
@@ -13522,7 +13577,7 @@ body > .overlay {
 .layout-two > .header .form-inline,
 .layout-admin > header .form-inline,
 .layout-admin > .header .form-inline {
-  margin: 0 0.5rem; }
+  margin: 0 1rem; }
 
 .loading-wrapper {
   z-index: 9999; }

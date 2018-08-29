@@ -17,7 +17,7 @@
     & > * {
         display: inline-block;
         flex: 1;
-        &:last-child {
+        &:last-child:not(:first-child) {
             text-align: right; 
             flex: inherit;
         }

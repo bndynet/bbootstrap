@@ -42,3 +42,17 @@
         }
     }
 }
+
+// alert
+@each $theme, $color in $theme-colors {
+    .alert.alert-#{$theme} {
+        background-color: $color;
+        border: none;
+        @if ($theme != "light") {
+            color: $light;
+            .alert-link {
+                color: $light;
+            }
+        }
+    }
+}

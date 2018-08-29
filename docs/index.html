@@ -1004,30 +1004,7 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="tooltip">
-            <h2>Tooltip</h2>
-            <div class="text-center">
-                <button class="btn btn-primary" data-tooltip-placement="left">Tooltip Left</button>
-                <button class="btn btn-primary" data-tooltip-placement="top">Tooltip Top</button>
-                <button class="btn btn-primary" data-tooltip-placement="bottom">Tooltip Bottom</button>
-                <button class="btn btn-primary" data-tooltip-placement="right">Tooltip Right</button>
-                <button class="btn btn-primary" data-tooltip-placement="top" data-tooltip-content="<h1>Title</h1><div class='block'>Content</div>">Tooltip with Html</button>
-            </div>
-            <script>
-                $('#tooltip').on('click', '.btn', function () {
-                    var tooltipShow = $(this).data('tooltip-show') || false;
-                    tooltipShow = !tooltipShow;
-                    $(this).data('tooltip-show', tooltipShow);
-                    if (tooltipShow) {
-                        $(this).btooltip($(this).data('tooltip-content')||'This is a tooltip', $(this).data('tooltip-placement'));
-                    } else {
-                        $(this).btooltip(false);
-                    }
-                });
-            </script>
-        </section>
+        </section> 
 
         <section id="tags">
             <h2>Tags</h2>
@@ -1051,6 +1028,29 @@
                     <div class="tag tag-light"><label>npm</label><span>v1.3.3</span></div>
                 </div>
             </div>
+        </section>
+
+        <section id="tooltip">
+            <h2>Tooltip</h2>
+            <div class="text-center">
+                <button class="btn btn-primary" data-tooltip-placement="left">Tooltip Left</button>
+                <button class="btn btn-primary" data-tooltip-placement="top">Tooltip Top</button>
+                <button class="btn btn-primary" data-tooltip-placement="bottom">Tooltip Bottom</button>
+                <button class="btn btn-primary" data-tooltip-placement="right">Tooltip Right</button>
+                <button class="btn btn-primary" data-tooltip-placement="top" data-tooltip-content="<h1>Title</h1><div class='block'>Content</div>">Tooltip with Html</button>
+            </div>
+            <script>
+                $('#tooltip').on('click', '.btn', function () {
+                    var tooltipShow = $(this).data('tooltip-show') || false;
+                    tooltipShow = !tooltipShow;
+                    $(this).data('tooltip-show', tooltipShow);
+                    if (tooltipShow) {
+                        $(this).btooltip($(this).data('tooltip-content')||'This is a tooltip', $(this).data('tooltip-placement'));
+                    } else {
+                        $(this).btooltip(false);
+                    }
+                });
+            </script>
         </section>
 
         <section id="workflow">
