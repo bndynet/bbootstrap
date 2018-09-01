@@ -81,7 +81,7 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 
 - Rewrite `.alert` styles
 - Add `.layout-admin-[primary|success|...]`
-- Add `.dropdown-menu-colored`
+- Add `.dropdown-menu-[primary|success|...]`
 
 ### v1.5.0
 
