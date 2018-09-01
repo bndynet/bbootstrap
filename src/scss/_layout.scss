@@ -55,6 +55,7 @@ $transition-duration: 0.5s !default;
 
 .layout-admin {
     position: relative;
+    overflow: hidden;
 
     & > header,
     & > .header {
@@ -115,9 +116,10 @@ $transition-duration: 0.5s !default;
         right: 0;
         bottom: 0;
         transition: all 0.5s ease 0s;
+        transform: translateX(100%);
 
-        &.hidden {
-            transform: translateX(100%);
+        &.show {
+            transform: translateX(0);
         }
     }
 
@@ -241,6 +243,26 @@ $transition-duration: 0.5s !default;
             }
         }
     }
+
+    // themes
+    @each $theme, $color in $theme-colors {
+        &.layout-admin-#{$theme} {
+            header,
+            .header {
+                background-color: $color;
+                .nav-item {
+                    &.show,
+                    &:hover,
+                    &:active {
+                        background-color: darken($color, 3%);
+                    }
+                }
+                .navbar-collapse {
+                    background-color: $color;
+                }
+            }
+        }
+    }
 }
 
 // override bootstrap
@@ -259,12 +281,6 @@ $transition-duration: 0.5s !default;
                     top: 4px;
                 }
             }
-
-            &.show,
-            &:hover,
-            &:active {
-                background-color: rgba(0, 0, 0, 0.1);
-            }
         } 
         .navbar,
         &.navbar {
@@ -272,15 +288,6 @@ $transition-duration: 0.5s !default;
             padding-bottom: 0;
             .navbar-brand {
                 font-size: 22px;
-            }
-            .navbar-nav {
-                .dropdown-menu {
-                    margin: 0;
-                    border: none;
-                    border-radius: 0;
-                    min-width: 100%;
-                    box-shadow: 0 2px 10px rgba(0,0,0,.2);
-                }
             }
         }
 
@@ -293,6 +300,13 @@ $transition-duration: 0.5s !default;
         }
         .form-inline {
             margin: 0 1rem;
+        }
+        .dropdown-menu {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            min-width: 100%;
+            box-shadow: 0 2px 10px rgba(0,0,0,.2);
         }
     } 
 }

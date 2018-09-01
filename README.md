@@ -75,13 +75,13 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 }
 ```
 
-
 ## Changelog
 
 ### v1.5.1
 
-- Perfect admin layout
 - Rewrite `.alert` styles
+- Add `.layout-admin-[primary|success|...]`
+- Add `.dropdown-menu-colored`
 
 ### v1.5.0
 

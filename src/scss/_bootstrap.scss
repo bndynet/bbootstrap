@@ -55,4 +55,28 @@
             }
         }
     }
+
+    .dropdown-menu.dropdown-menu-#{$theme} {
+        background-color: darken($color, 3%);
+        .btn-#{$theme} + & {
+            box-shadow: 0 0 0 0.2rem rgba($color, .5);
+        }
+        @if ($theme != "light") {
+            .dropdown-item {
+                @if ($theme != "warning") {
+                    color: $light;
+                }
+                &:hover,
+                &:focus {
+                    background-color: rgba(0, 0, 0, 0.2);
+                    @if ($theme == "warning") {
+                        color: $light;
+                    }
+                }
+            }
+            .dropdown-divider {
+                border-top-color: lighten($color, 5%);
+            }
+        }
+    }
 }

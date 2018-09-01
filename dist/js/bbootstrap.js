@@ -49159,7 +49159,7 @@ bbootstrap = {
         $('body').toggleClass('sidebar-mini');
     },
     toggleRightSide: function() {
-        $('.layout-admin > .side-right, .layout-admin > .sidebar-assist').toggleClass('hidden');
+        $('.layout-admin > .side-right, .layout-admin > .sidebar-assist').toggleClass('show');
     },
     setup: function (options) {
         var $this = this;
@@ -49263,6 +49263,12 @@ bbootstrap = {
                 } else {
                     eleLabel.html(placeholder);
                 }
+            });
+
+            // class starts with action-*
+            $('body').on('click', '.action-top, a[href="#top"]', function() {
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                return false;
             });
         });
     },
