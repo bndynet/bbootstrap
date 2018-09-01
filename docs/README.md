@@ -17,7 +17,7 @@ Starter template:
     <script>
         $(function () {
             bbootstrap.setup();
-        }
+        });
     </script>
 </head>
 <body></body>
