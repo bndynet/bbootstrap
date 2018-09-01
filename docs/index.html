@@ -143,6 +143,12 @@
                     Block
                 </span>
             </a>
+            <a class="list-group-item list-group-item-action" href="#cascade-select">
+                <i class="fa fa-code fa-fw"></i>
+                <span class="hidden-mini">
+                    Cascade Select
+                </span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#checkbox">
                 <i class="fa fa-css3 fa-fw"></i>
                 <span class="hidden-mini">
@@ -335,6 +341,52 @@
                 <span class="block block-lg block-inline">.block.block-inline.block-lg</span>
                 <span class="block block-lg">.block.block-lg</span>
             </div>
+        </section>
+
+        <section id="cascade-select">
+            <h2>Cascade Select</h2>
+            <div>
+                <h3>Default</h3>
+                <div id="c1"></div>
+                <h3>With default values (Option A -> Child B)</h3>
+                <div id="c2"></div>
+            </div>
+            <script>
+                var treeData = [{
+                    id: 0,
+                    name: 'Option: no children',
+                }, {
+                    id: 1,
+                    name: 'Option: has children',
+                    children: [
+                        {
+                            id: 11,
+                            name: 'Chind A',
+                        },
+                        {
+                            id: 12,
+                            name: 'Chind B',
+                            children: [{
+                                id: 121,
+                                name: 'Child B - A',
+                            }],
+                        },
+                    ]
+                }, {
+                    id: 2,
+                    name: 'Option B',
+                }];
+                $('#cascade-select #c1').cascadeSelect(treeData, [
+                    { label: 'Level 1', css: 'col-3', valueProperty: 'id', textProperty: 'name', childProperty: 'children' },
+                    { label: 'Label 2', css: 'col-3', valueProperty: 'id', textProperty: 'name', childProperty: 'children' },
+                    { label: 'Label 3', css: 'col-3', valueProperty: 'id', textProperty: 'name' },
+                ]);
+                $('#cascade-select #c2').cascadeSelect(treeData, [
+                    { label: 'Label 1', valueProperty: 'id', textProperty: 'name', childProperty: 'children', selectedValue: 1 },
+                    { label: 'Label 2', valueProperty: 'id', textProperty: 'name', childProperty: 'children', selectedValue: 12 },
+                    { label: 'Label 3', valueProperty: 'id', textProperty: 'name' },
+                ]);
+            </script>
         </section>
 
         <section id="checkbox">
