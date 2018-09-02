@@ -77,6 +77,10 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 
 ## Changelog
 
+### v1.6.0
+
+- [New component](https://bndynet.github.io/bbootstrap/index.html#cascade-select) `$('#id').cascadeSelect([], {mappings: []});`
+
 ### v1.5.1
 
 - Rewrite `.alert` styles

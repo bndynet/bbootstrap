@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.5.1
+ * @bndynet/bbootstrap v1.6.0
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -48404,109 +48404,135 @@ $.fn.extend({
         $(this).tooltip('show');
     },
 
-    // options: [{label: '', css: '', valueProperty: '', textProperty: '', selectedValue: '', childProperty: ''}, {...}]
+    /**
+     * Render a cascade Select components.
+     * @param {Array} data - the array with children
+     * @param {Object} options - the options
+     * @example 
+     * var ddl = $('#id').cascadeSelect([{id, name, children}], {
+     *      mappings: [
+     *          {label: '', css: '', valueProperty: '', textProperty: '', selectedValue: '', childProperty: ''},
+     *      ],
+     *      onChange: function(value, sender, config) {
+     *      },
+     * });
+     * ddl.values();
+     */
     cascadeSelect: function(data, options) {
+        if (!options || !options.hasOwnProperty('mappings')) {
+            throw 'The arguments `options` and `options.mappings` are required. Like `$("#id").cascadeSelect([], {mappings: []});`';
+        }
+
         var _this = $(this);
         var id = _this.attr('id') + '_cascadeSelect';
         var selectedObjects = [];
+        var selectConfigs = options.mappings;
         var elFields = [];
-        var elContainer = $('<div id="' + id + '"></div>');
-        _this.append(elContainer);
 
-        for(var i = 0; i < options.length; i++) {
-            options[i].index = i;
-            buildField(options[i]);
+        for(var i = 0; i < selectConfigs.length; i++) {
+            selectConfigs[i].index = i;
+            buildField(selectConfigs[i]);
         }
 
-        function buildField(option) {
-            var elSelectId = id + '_' + option.index;
-            var d = option.index === 0 ? data :
-                selectedObjects[option.index-1] ? selectedObjects[option.index - 1][options[option.index - 1].childProperty] : null;
-            if (!d || d.length === 0) {
-                destroyField(option);
+        function buildField(selectConfig) {
+            var elSelectId = id + '_' + selectConfig.index;
+
+            selectConfig.data = selectConfig.index === 0 ? data :
+                selectedObjects[selectConfig.index-1] ? selectedObjects[selectConfig.index - 1][selectConfigs[selectConfig.index - 1].childProperty] : null;
+            if (!selectConfig.data  || selectConfig.data .length === 0) {
+                destroyField(selectConfig);
                 return null;
             }
 
             var elField = $('<div class="form-group"><select id="' + elSelectId + '" class="form-control"></select></div>');
-            if (option.label) {
-                elField.prepend('<label for="' + elSelectId + '">' + option.label + '</label>');
+            if (selectConfig.label) {
+                elField.prepend('<label for="' + elSelectId + '">' + selectConfig.label + '</label>');
             }
-            if (option.css) {
-                elField.addClass(option.css);
+            if (selectConfig.css) {
+                elField.addClass(selectConfig.css);
             }
             var elSelect = elField.find('select');
-            selectedObjects[option.index] = d.length > 0 ? d[0] : null;
-            for(var i = 0; i < d.length; i++) {
-                var item = d[i];
-                var elOption = $('<option value="' + (item[option.valueProperty]||'') + '">' + (item[option.textProperty]||'') + '</option>');
-                if (option.selectedValue === item[option.valueProperty]) {
-                    selectedObjects[option.index] = item;
+            elSelect.append('<option value="">' + (selectConfig.placeholder||'') + '</option>');
+            for(var i = 0; i < selectConfig.data.length; i++) {
+                var item = selectConfig.data[i];
+                var elOption = $('<option value="' + (item[selectConfig.valueProperty]||'') + '">' + (item[selectConfig.textProperty]||'') + '</option>');
+                if (selectConfig.selectedValue === item[selectConfig.valueProperty]) {
+                    selectedObjects[selectConfig.index] = item;
                     elOption.prop('selected', true);
                 }
                 elSelect.append(elOption);
-            } 
+            }
             elSelect.on('change', function() {
-                option.selectedValue = $(this).val();
-                for (var i = 0; i < d.length; i++) {
-                    if (d[i][option.valueProperty] == option.selectedValue) {
-                        selectedObjects[option.index] = d[i];
+                selectConfig.selectedValue = $(this).val();
+                if (selectConfig.selectedValue) {
+                    for (var i = 0; i < selectConfig.data.length; i++) {
+                        if (selectConfig.data[i][selectConfig.valueProperty] == selectConfig.selectedValue) {
+                            selectedObjects[selectConfig.index] = selectConfig.data[i];
+                        }
                     }
+                } else {
+                    selectedObjects[selectConfig.index] = null;
                 }
-                changeSelect(option);
+                changeSelect(selectConfig);
+                
+                if (options.onChange) {
+                    options.onChange($(this).val(), $(this), selectConfig);
+                }
             });
-            elFields[option.index] = elField;
-            elContainer.append(elField);
+            elFields[selectConfig.index] = elField;
+            _this.append(elField);
             return elField;
         }
 
-        function rebindField(option) {
-            var fieldData = option.index === 0 ? data : selectedObjects[option.index-1] ? selectedObjects[option.index-1][options[option.index-1].childProperty] : null;
-            var elField = elFields[option.index];
+        function rebindField(selectConfig) {
+            selectConfig.data = selectConfig.index === 0 ? data : selectedObjects[selectConfig.index-1] ? selectedObjects[selectConfig.index-1][selectConfigs[selectConfig.index-1].childProperty] : null;
+            var elField = elFields[selectConfig.index];
             if (!elField) {
-                elField = elFields[option.index] = buildField(option);
+                elField = elFields[selectConfig.index] = buildField(selectConfig);
             }
             if (!elField) {
-                destroyField(option);
+                destroyField(selectConfig);
                 return;
             }
 
             var elSelect = elField.find('select');
-            elSelect.find('option').remove();
-            selectedObjects[option.index] = fieldData && fieldData.length > 0 ? fieldData[0] : null;
-            if (fieldData && fieldData.length > 0) {
-                for(var i = 0; i < fieldData.length; i++) {
-                    var item = fieldData[i];
-                    var elOption = $('<option value="' + (item[option.valueProperty]||'') + '">' + (item[option.textProperty]||'') + '</option>');
-                    if (option.selectedValue === item[option.valueProperty]) {
-                        selectedObjects[option.index] = item;
+            elSelect.find('option[value!=""]').remove();
+            selectedObjects[selectConfig.index] = selectConfig.data && selectConfig.data.length > 0 ? selectConfig.data[0] : null;
+            if (selectConfig.data && selectConfig.data.length > 0) {
+                for(var i = 0; i < selectConfig.data.length; i++) {
+                    var item = selectConfig.data[i];
+                    var elOption = $('<option value="' + (item[selectConfig.valueProperty]||'') + '">' + (item[selectConfig.textProperty]||'') + '</option>');
+                    if (selectConfig.selectedValue === item[selectConfig.valueProperty]) {
+                        selectedObjects[selectConfig.index] = item;
                         elOption.prop('selected', true);
                     }
                     elSelect.append(elOption);
                 }
             } else {
-                destroyField(option);
+                destroyField(selectConfig);
             }
         }
 
-        function destroyField(option) {
-            if (elFields[option.index]) {
-                elFields[option.index].remove();
+        function destroyField(selectConfig) {
+            selectConfig.data = null;
+            if (elFields[selectConfig.index]) {
+                elFields[selectConfig.index].remove();
             }
-            elFields[option.index] = null;
+            elFields[selectConfig.index] = null;
         }
 
-        function changeSelect(option) {
-            for(var i = option.index + 1; i < options.length; i++) {
-                rebindField(options[i]);
+        function changeSelect(selectConfig) {
+            for(var i = selectConfig.index + 1; i < selectConfigs.length; i++) {
+                rebindField(selectConfigs[i]);
             }
         }
 
         return {
             values: function() {
                 var result = [];
-                for(var i = 0; i < options.length; i++) {
-                    result.push(elFields[i].find('select').val());
-                }
+                _this.find('select').each(function() {
+                    result.push($(this).val());
+                });
                 return result;
             },
         };
@@ -49212,7 +49238,7 @@ if (window) {
 
 // setup
 bbootstrap = {
-    version: '1.5.1',
+    version: '1.6.0',
     options: {
         locale: 'en-US',
         datetimeFormat: 'YYYY-MM-DD H:mm',
