@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <title>Bbootstrap</title>
     <link rel="stylesheet" href="css/bbootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/rainbow.min.css" />
     <script src="js/bbootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <style>
         section {
             padding: 30px 0 15px 0;
@@ -27,6 +29,11 @@
             padding: 2rem;
         }
 
+        section h2+div+pre {
+            position: relative;
+            margin-top: -5px;
+        }
+
         section .print {
             position: absolute;
             top: -.2rem;
@@ -38,6 +45,12 @@
             cursor: pointer;
             border-radius: 0 5px 0 5px;
             color: #888888;
+        }
+
+        .hljs {
+            border-radius: 0 0 5px 5px;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
         .print:hover {
@@ -70,6 +83,13 @@
             $('section').on('click', '.print', function () {
                 var elSection = $(this).closest('section');
                 console.info(elSection.html());
+            });
+
+            $('pre code').each(function(i, block) {
+                if (!$(this).text().trim()) {
+                    $(this).html($(this).closest('section').find('script').html().replace(/\s{16}/g, '\n'));
+                }
+                hljs.highlightBlock(block);
             });
         });
     </script>
@@ -372,63 +392,37 @@
                 <div id="c1" class="row"></div>
                 <h3>With default values</h3>
                 <div id="c2" class="row"></div>
-                <code></code>
+                <code class="result"></code>
             </div>
+            <pre><code class="javascript"></code></pre>
             <script>
-                var treeData = [{
-                    id: 1,
-                    name: 'A',
-                }, {
-                    id: 2,
-                    name: 'AA',
-                    children: [
-                        {
-                            id: 21,
-                            name: 'AA-B1',
-                        },
-                        {
-                            id: 22,
-                            name: 'AA-B2',
-                        },
-                    ]
-                }, {
-                    id: 3,
-                    name: 'AAA',
-                    children: [
-                        {
-                            id: 31,
-                            name: 'AAA-B',
-                        },
-                        {
-                            id: 32,
-                            name: 'AAA-BB',
-                            children: [{
-                                id: 321,
-                                name: 'AAA-BB-C',
-                            }, {
-                                id: 322,
-                                name: 'AAA-BB-C1',
-                            }],
-                        },
-                    ]
-                }];
-                var ddl1 = $('#cascade-select #c1').cascadeSelect(treeData, {
+                var cascadeSelectData = [
+                    { id: 1, name: 'A', }, 
+                    { id: 2, name: 'AA', 
+                        children: [ { id: 21, name: 'AA-B1', }, { id: 22, name: 'AA-B2' }]}, 
+                    { id: 3, name: 'AAA', 
+                        children: [ { id: 31, name: 'AAA-B', }, { id: 32, name: 'AAA-BB', 
+                            children: [ { id: 321, name: 'AAA-BB-C', }, { id: 322, name: 'AAA-BB-C1' }], 
+                        }]}
+                ];
+                var ddl1 = $('#cascade-select #c1').cascadeSelect(cascadeSelectData, {
                     mappings: [
                         { label: 'Level 1', css: 'col-3', valueProperty: 'id', textProperty: 'name', childProperty: 'children', placeholder: '-- N/A --' },
                         { label: 'Level 2', css: 'col-3', valueProperty: 'id', textProperty: 'name', childProperty: 'children', placeholder: '-- N/A --' },
                         { label: 'Level 3', css: 'col-3', valueProperty: 'id', textProperty: 'name', placeholder: '-- N/A --'},
                     ]
                 });
-                var ddl2 = $('#cascade-select #c2').cascadeSelect(treeData, {
+                var ddl2 = $('#cascade-select #c2').cascadeSelect(cascadeSelectData, {
                     mappings: [
                         { label: 'Level 1', css: 'col', valueProperty: 'id', textProperty: 'name', childProperty: 'children', selectedValue: 3 , placeholder: '-- N/A --'},
                         { label: 'Level 2', css: 'col', valueProperty: 'id', textProperty: 'name', childProperty: 'children', selectedValue: 32 , placeholder: '-- N/A --'},
                         { label: 'Level 3', css: 'col', valueProperty: 'id', textProperty: 'name', selectedValue: 322, placeholder: '-- N/A --'},
                     ],
-                    onChange: function(val, sender, config) {
-                        $('#cascade-select code').html(JSON.stringify(ddl2.values()));
+                    onChange: function(values, sender, config) {
+                        $('#cascade-select code.result').html(JSON.stringify(values));
                     }
                 });
+                $('#cascade-select code.result').html(JSON.stringify(ddl2.values()));
             </script>
         </section>
 
@@ -706,6 +700,7 @@
                     </div>
                 </div>
             </div>
+            <pre><code class="javascript"></code></pre>
             <script>
                 $(function () {
                     var d_dialog;

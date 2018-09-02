@@ -48417,41 +48417,51 @@ $.fn.extend({
      *      },
      * });
      * ddl.values();
+     * ddl.setValues(1,2,4);    // or ddl.setValues([1,2,4]);
      */
     cascadeSelect: function(data, options) {
         if (!options || !options.hasOwnProperty('mappings')) {
             throw 'The arguments `options` and `options.mappings` are required. Like `$("#id").cascadeSelect([], {mappings: []});`';
         }
+        if (!$(this).attr('id')) {
+            throw 'The `id` is required for cascadeSelect element';
+        }
 
+        var self = this;
         var _this = $(this);
         var id = _this.attr('id') + '_cascadeSelect';
         var selectedObjects = [];
         var selectConfigs = options.mappings;
-        var elFields = [];
+        var isChanged = false;
 
-        for(var i = 0; i < selectConfigs.length; i++) {
-            selectConfigs[i].index = i;
-            buildField(selectConfigs[i]);
+        function build() {
+            for(var i = 0; i < selectConfigs.length; i++) {
+                selectConfigs[i].index = i;
+                buildSelectForm(selectConfigs[i]);
+            }
         }
+        build();
 
-        function buildField(selectConfig) {
-            var elSelectId = id + '_' + selectConfig.index;
+        function buildSelectForm(selectConfig) {
+            var elContainerId = selectConfig.elContainerId = id + '_container_' + selectConfig.index;
+            var elSelectId = selectConfig.elSelectId = id + '_select_' + selectConfig.index;
+
+            destroySelectForm(selectConfig);
 
             selectConfig.data = selectConfig.index === 0 ? data :
                 selectedObjects[selectConfig.index-1] ? selectedObjects[selectConfig.index - 1][selectConfigs[selectConfig.index - 1].childProperty] : null;
-            if (!selectConfig.data  || selectConfig.data .length === 0) {
-                destroyField(selectConfig);
+            if (!selectConfig.data  || selectConfig.data.length === 0) {
                 return null;
             }
 
-            var elField = $('<div class="form-group"><select id="' + elSelectId + '" class="form-control"></select></div>');
+            var elContainer = $('<div id="' + elContainerId + '" class="form-group"><select id="' + elSelectId + '" class="form-control"></select></div>');
             if (selectConfig.label) {
-                elField.prepend('<label for="' + elSelectId + '">' + selectConfig.label + '</label>');
+                elContainer.prepend('<label for="' + elSelectId + '">' + selectConfig.label + '</label>');
             }
             if (selectConfig.css) {
-                elField.addClass(selectConfig.css);
+                elContainer.addClass(selectConfig.css);
             }
-            var elSelect = elField.find('select');
+            var elSelect = elContainer.find('select');
             elSelect.append('<option value="">' + (selectConfig.placeholder||'') + '</option>');
             for(var i = 0; i < selectConfig.data.length; i++) {
                 var item = selectConfig.data[i];
@@ -48463,6 +48473,7 @@ $.fn.extend({
                 elSelect.append(elOption);
             }
             elSelect.on('change', function() {
+                isChanged = true;
                 selectConfig.selectedValue = $(this).val();
                 if (selectConfig.selectedValue) {
                     for (var i = 0; i < selectConfig.data.length; i++) {
@@ -48476,65 +48487,51 @@ $.fn.extend({
                 changeSelect(selectConfig);
                 
                 if (options.onChange) {
-                    options.onChange($(this).val(), $(this), selectConfig);
+                    options.onChange(getValues(), $(this), selectConfig);
                 }
             });
-            elFields[selectConfig.index] = elField;
-            _this.append(elField);
-            return elField;
+            _this.append(elContainer);
+            return elContainer;
         }
 
-        function rebindField(selectConfig) {
-            selectConfig.data = selectConfig.index === 0 ? data : selectedObjects[selectConfig.index-1] ? selectedObjects[selectConfig.index-1][selectConfigs[selectConfig.index-1].childProperty] : null;
-            var elField = elFields[selectConfig.index];
-            if (!elField) {
-                elField = elFields[selectConfig.index] = buildField(selectConfig);
-            }
-            if (!elField) {
-                destroyField(selectConfig);
-                return;
-            }
-
-            var elSelect = elField.find('select');
-            elSelect.find('option[value!=""]').remove();
-            selectedObjects[selectConfig.index] = selectConfig.data && selectConfig.data.length > 0 ? selectConfig.data[0] : null;
-            if (selectConfig.data && selectConfig.data.length > 0) {
-                for(var i = 0; i < selectConfig.data.length; i++) {
-                    var item = selectConfig.data[i];
-                    var elOption = $('<option value="' + (item[selectConfig.valueProperty]||'') + '">' + (item[selectConfig.textProperty]||'') + '</option>');
-                    if (selectConfig.selectedValue === item[selectConfig.valueProperty]) {
-                        selectedObjects[selectConfig.index] = item;
-                        elOption.prop('selected', true);
-                    }
-                    elSelect.append(elOption);
-                }
-            } else {
-                destroyField(selectConfig);
-            }
-        }
-
-        function destroyField(selectConfig) {
+        function destroySelectForm(selectConfig) {
             selectConfig.data = null;
-            if (elFields[selectConfig.index]) {
-                elFields[selectConfig.index].remove();
+            selectedObjects[selectConfig.index] = null;
+            if (isChanged) {
+                selectConfig.selectedValue = null;
             }
-            elFields[selectConfig.index] = null;
+            _this.find('#' + selectConfig.elContainerId).remove();
         }
 
         function changeSelect(selectConfig) {
             for(var i = selectConfig.index + 1; i < selectConfigs.length; i++) {
-                rebindField(selectConfigs[i]);
+                buildSelectForm(selectConfigs[i]);
             }
         }
 
+        function setValues() {
+            var values = arguments[0] && Array.isArray(arguments[0]) ? arguments[0] : arguments;
+            for(var i = 0; i < selectConfigs.length; i++) {
+                if (values.length > i) {
+                    selectConfigs[i].selectedValue = values[i];
+                } else {
+                    selectConfigs[i].selectedValue = null;
+                }
+            }
+            build();
+        }
+
+        function getValues() {
+            var result = [];
+            _this.find('select').each(function() {
+                result.push($(this).val());
+            });
+            return result;
+        }
+
         return {
-            values: function() {
-                var result = [];
-                _this.find('select').each(function() {
-                    result.push($(this).val());
-                });
-                return result;
-            },
+            values: getValues,
+            setValues: setValues,
         };
     }
 });
