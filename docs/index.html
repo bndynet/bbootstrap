@@ -29,9 +29,10 @@
             padding: 2rem;
         }
 
-        section h2+div+pre {
+        section pre {
             position: relative;
             margin-top: -5px;
+            margin-bottom: 0;
         }
 
         section .print {
@@ -52,6 +53,9 @@
             padding-left: 1rem;
             padding-right: 1rem;
         }
+        .hljs.html {
+            background-color: #333333;
+        }
 
         .print:hover {
             background-color: #007bff;
@@ -69,6 +73,18 @@
         
     </style>
     <script>
+        function encodeHtml(s) {
+            return s.replace('<div class="print">Print Code to Console</div>', '').replace(/\n\s{16}/g, '\n')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+        function delayExec(fn) {
+            $(function() {
+                setTimeout(function() {
+                    fn();
+                });
+            });
+        }
         $(function () {
             $('.version').html('v' + bbootstrap.version);
             bbootstrap.setup({
@@ -87,7 +103,11 @@
 
             $('pre code').each(function(i, block) {
                 if (!$(this).text().trim()) {
-                    $(this).html($(this).closest('section').find('script').html().replace(/\s{16}/g, '\n'));
+                    if ($(this).hasClass('javascript')) {
+                        $(this).html(encodeHtml($(this).closest('section').find('script').html()));
+                    } else if ($(this).hasClass('html')) {
+                        $(this).html(encodeHtml($(this).closest('section').find('h2 + div').html()));
+                    }
                 }
                 hljs.highlightBlock(block);
             });
@@ -319,6 +339,8 @@
                 <button class="for-theme btn btn-dark">Dark</button>
                 <button class="for-theme btn btn-light">Light</button>
             </div>
+            <pre><code class="html"></code></pre>
+            <pre><code class="javascript"></code></pre>
             <script>
                 $(function () {
                     $('#alertify #btnAlert').click(function () {
@@ -383,6 +405,7 @@
                 <span class="block block-lg block-inline">.block.block-inline.block-lg</span>
                 <span class="block block-lg">.block.block-lg</span>
             </div>
+            <pre><code class="html"></code></pre>
         </section>
 
         <section id="cascade-select">
@@ -655,6 +678,14 @@
                     <div class="col-md-3"></div>
                 </div>
             </div>
+            <pre><code class="html">
+&lt;div class="form-check checkbox checkbox-[primary|success|...]"&gt;
+    &lt;input class="form-check-input" id="chk" type="checkbox"&gt;
+    &lt;label class="form-check-label" for="chk"&gt;
+        Label for checkbox
+    &lt;/label&gt;
+&lt;/div&gt;
+            </code></pre>
         </section>
 
         <section id="datetimepicker">
@@ -684,6 +715,7 @@
                     </div>
                 </div>
             </div>
+            <pre><code class="html"></code></pre>
         </section>
 
         <section id="dialog">
@@ -817,6 +849,7 @@
                     <label class="custom-file-label" for="customFile">Choose file</label>
                 </div>
             </div>
+            <pre><code class="html"></code></pre>
         </section>
 
         <section id="icons-without-fonts">
@@ -828,6 +861,7 @@
                 <i class="bicon bicon-prev"></i>
                 <i class="bicon bicon-next"></i>
             </div>
+            <pre><code class="html"></code></pre>
         </section>
 
         <section id="input-with-feedback">
@@ -846,6 +880,7 @@
                     <i class="fa fa-times form-control-feedback"></i>
                 </div>
             </div>
+            <pre><code class="html"></code></pre>
         </section>
 
         <section id="links">
@@ -883,6 +918,7 @@
                     <a class="link-btn link-btn-dark">Dark</a>
                 </div>
             </div>
+            <pre><code class="html"></code></pre>
         </section>
 
         <section id="loading">
@@ -910,6 +946,8 @@
                     </div>
                 </div>
             </div>
+            <pre><code class="html"></code></pre>
+            <pre><code class="javascript"></code></pre>
             <script>
                 $(function () {
                     $('#loading').on('click', '.btn0', function () {
@@ -979,6 +1017,7 @@
                     own project.
                 </div>
             </div>
+            <pre><code class="html"></code></pre>
         </section>
 
         <section id="overlay">
@@ -986,6 +1025,7 @@
             <div>
                 <div class="btn btn-primary d-block">Toggle Overlay</div>
             </div>
+            <pre><code class="javascript"></code></pre>
             <script>
                 $(function () {
                     var overlayShow = false;
@@ -1221,6 +1261,7 @@
                     <div class="tag tag-light"><label>npm</label><span>v1.3.3</span></div>
                 </div>
             </div>
+            <pre><code class="html"></code></pre>
         </section>
 
         <section id="tooltip">
@@ -1233,6 +1274,8 @@
                 <button class="btn btn-primary" data-tooltip-placement="top" data-tooltip-content="<h1>Title</h1><div class='block'>Content</div>">Tooltip
                     with Html</button>
             </div>
+            <pre><code class="html"></code></pre>
+            <pre><code class="javascript"></code></pre>
             <script>
                 $('#tooltip').on('click', '.btn', function () {
                     var tooltipShow = $(this).data('tooltip-show') || false;
@@ -1273,6 +1316,7 @@
                     </div>
                 </div>
             </div>
+            <pre><code class="html"></code></pre>
         </section>
     </div>
 
