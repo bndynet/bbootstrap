@@ -77,6 +77,10 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 
 ## Changelog
 
+### v1.6.1
+
+- New style `.card-flip` for **Card**
+
 ### v1.6.0
 
 - [New component](https://bndynet.github.io/bbootstrap/index.html#cascade-select) `$('#id').cascadeSelect([], {mappings: []});`

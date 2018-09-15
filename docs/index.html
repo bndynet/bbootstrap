@@ -70,6 +70,12 @@
         .sidebar-assist a {
             color: #ffffff;
         }
+
+        .list-group-item .pull-right {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
         
     </style>
     <script>
@@ -92,6 +98,8 @@
                     theme: 'light',
                 },
             });
+
+            $('#total').text($('#side-navs .list-group-item').length - 1);
 
             $('section').each(function () {
                 $(this).find('h2 + div').prepend('<div class="print">Print Code to Console</div>')
@@ -163,7 +171,7 @@
                 <b class="show-mini">
                     <i class="fa fa-home fa-fw"></i>
                 </b>
-                <b class="hidden-mini">COMPONENTS</b>
+                <b class="hidden-mini">COMPONENTS (<span id="total"></span>)</b>
             </a>
             <a class="list-group-item list-group-item-action" href="#alertify">
                 <i class="fa fa-code fa-fw"></i>
@@ -185,6 +193,13 @@
                     Cascade Select
                 </span>
                 <span class="hidden-mini badge badge-light pull-right">1.6.0</span>
+            </a>
+            <a class="list-group-item list-group-item-action" href="#card">
+                <i class="fa fa-css3 fa-fw"></i>
+                <span class="hidden-mini">
+                    Card
+                </span>
+                <span class="hidden-mini badge badge-light pull-right">1.4.0</span>
             </a>
             <a class="list-group-item list-group-item-action" href="#checkbox">
                 <i class="fa fa-css3 fa-fw"></i>
@@ -441,6 +456,84 @@
                 });
                 $('#cascade-select code.result').html(JSON.stringify(ddl2.values()));
             </script>
+        </section>
+
+        <section id="card">
+            <h2>Card</h2>
+            <div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card card-mini card-flip">
+                            <div class="flip-content">
+                                <div class="front bg-light">
+                                    <div class="card-header">
+                                        Over here
+                                    </div>
+                                    <div class="card-body">
+                                        Do you know how many orders?
+                                    </div>
+                                    <i class="fa fa-question card-icon"></i>
+                                </div>
+                                <div class="back bg-dark text-white">
+                                    <div class="card-header">
+                                        100
+                                    </div>
+                                    <div class="card-body">
+                                        New Orders
+                                    </div>
+                                    <a href="#" class="card-footer text-white">
+                                        More info
+                                    </a>
+                                    <i class="fa fa-shopping-bag card-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card card-mini card-primary">
+                            <div class="card-header">
+                                100
+                            </div>
+                            <div class="card-body">
+                                New Orders
+                            </div>
+                            <a class="card-footer">
+                                More info
+                            </a>
+                            <i class="fa fa-shopping-bag card-icon"></i>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card card-mini card-secondary">
+                            <div class="card-header">
+                                100
+                            </div>
+                            <div class="card-body">
+                                New Orders
+                            </div>
+                            <a class="card-footer">
+                                More info
+                            </a>
+                            <i class="fa fa-shopping-bag card-icon"></i>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card card-mini card-danger">
+                            <div class="card-header">
+                                100
+                            </div>
+                            <div class="card-body">
+                                New Orders
+                            </div>
+                            <a class="card-footer">
+                                More info
+                            </a>
+                            <i class="fa fa-shopping-bag card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre><code class="html"></code></pre>
         </section>
 
         <section id="checkbox">
