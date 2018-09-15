@@ -129,7 +129,7 @@ bbootstrap = {
                     }, $this._getElementDataOptions($(this)))
                 );
             });
-            $('[data-toggle="datepicker"').each(function () {
+            $('[data-toggle="datepicker"]').each(function () {
                 var format = $(this).data('format') || $this.options.dateFormat;
                 $(this).datetimepicker(
                     $.extend({
@@ -138,7 +138,7 @@ bbootstrap = {
                     }, $this._getElementDataOptions($(this)))
                 );
             });
-            $('[data-toggle="timepicker"').each(function () {
+            $('[data-toggle="timepicker"]').each(function () {
                 var format = $(this).data('format') || $this.options.timeFormat;
                 $(this).datetimepicker(
                     $.extend({
