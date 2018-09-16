@@ -80,6 +80,7 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 ### v1.6.1
 
 - New style `.card-flip` for **Card**
+- Fix some typos
 
 ### v1.6.0
 

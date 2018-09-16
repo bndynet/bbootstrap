@@ -12,7 +12,7 @@
 //=require _select.js
 
 // setup
-bbootstrap = {
+bb = bbootstrap = {
     version: '{{bbootstrap-version}}',
     options: {
         locale: 'en-US',
@@ -62,12 +62,6 @@ bbootstrap = {
     defineLang: function(locale, value) {
         var $this = this;
         $this.langs.define(locale, value);
-    },
-    toggleLeftSide: function() {
-        $('body').toggleClass('sidebar-mini');
-    },
-    toggleRightSide: function() {
-        $('.layout-admin > .side-right, .layout-admin > .sidebar-assist').toggleClass('show');
     },
     setup: function (options) {
         var $this = this;
@@ -180,6 +174,46 @@ bbootstrap = {
             });
         });
     },
+
+    // common functions
+    toggleLeftSide: function() {
+        $('body').toggleClass('sidebar-mini');
+    },
+    toggleRightSide: function() {
+        $('.layout-admin > .side-right, .layout-admin > .sidebar-assist').toggleClass('show');
+    },
+
+    alert: function(msg, fn) {
+        alertify.alert(msg, fn);
+    },
+    confirm: function(msg, fnOk, fnCancel) {
+        alertify.confirm(msg, fnOk, fnCancel);
+    },
+    prompt: function(msg, fnOk) {
+        alertify.prompt(msg, function(val) {
+            if (fnOk && typeof fnOk === 'function') {
+                fnOk(val);
+            }
+        });
+    },
+    info: function(msg) {
+        alertify.notify(msg);
+    },
+    success: function(msg) {
+        alertify.success(msg);
+    },
+    error: function(msg) {
+        alertify.error(msg);
+    },
+    loading: function(destory) {
+        if (destory === false) {
+            $('body').removeClass('has-overlay').find('> .loading-wrapper').remove();
+            return;
+        } 
+        $('body').addClass('has-overlay').bloading();
+    },
+
+    // private functions
     _getElementDataOptions: function(jqEl) {
         var dataOptions = $(jqEl).data('options');
         if (dataOptions) {
