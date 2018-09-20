@@ -27,18 +27,34 @@ A set which includes some useful components.
 
 Note: You can use the above components in your project directly. So don't need include them.
 
-
 ## Quick start
 
 ```html
 <link rel="stylesheet" href="dist/css/bbootstrap.min.css">
 <script src="dist/js/bbootstrap.min.js"></script>
 <script>
-    bbootstrap.setup();
+    bb.setup();
 </script>
 ```
 
-If you do not need default English, you can define your languages.
+### Application Utils
+
+```javascript
+bb.toggleLeftSide();
+bb.toggleRightSide();
+bb.alert('');
+bb.confirm('', function(val){} [, function(){}]);
+bb.prompt('', function(){});
+bb.info('');
+bb.success('');
+bb.error('');
+bb.loading();
+bb.loading(false);
+```
+
+### Advanced Customization
+
+Default English, you can define your languages as below:
 
 ```js
 // MUST be before `setup` method
@@ -51,7 +67,7 @@ bbootstrap.setup({
 });
 ```
 
-Below is available options, you can override them via `bbootstrap.setup({})`.
+Below is available options, you can override them via `bb.setup({})`.
 
 ```js
 {
@@ -81,6 +97,8 @@ Below is available options, you can override them via `bbootstrap.setup({})`.
 
 - New style `.card-flip` for **Card**
 - Fix some typos
+- Alias `bb` for `bbootstrap`
+- Alias methods `bb.alert`, `bb.confirm`, `bb.prompt` `bb.info`, `bb.success`, `bb.error` and `bb.loading`
 
 ### v1.6.0
 
