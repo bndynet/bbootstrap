@@ -58,11 +58,11 @@ Default English, you can define your languages as below:
 
 ```js
 // MUST be before `setup` method
-bbootstrap.defineLang('zh-CN', {
+bb.defineLang('zh-CN', {
     ok: '确定',
     cancel: '取消',
 });
-bbootstrap.setup({
+bb.setup({
     locale: 'zh-CN',
 });
 ```
@@ -92,6 +92,11 @@ Below is available options, you can override them via `bb.setup({})`.
 ```
 
 ## Changelog
+
+### v1.6.2
+
+- Add new icons
+- Fix some icons size and position
 
 ### v1.6.1
 

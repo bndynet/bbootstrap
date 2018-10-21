@@ -1,13 +1,17 @@
 i.bicon {
     font-style: normal;
 }
+
 .bicon {
+    position: relative;
+    top: 0.1em;
     display: inline-block;
     width: 1em;
     height: 1em;
-    position: relative;
     box-sizing: border-box;
     text-align: left;
+    line-height: 0;
+
     &.bicon-loading {
         width: 0.9em;
         height: 0.9em;
@@ -18,24 +22,108 @@ i.bicon {
         border-left: 2px solid $body-color;
         animation: rotate 1s infinite linear;
 
-        @each $theme, $color in $theme-colors {
+        @each $theme,
+        $color in $theme-colors {
             &.text-#{$theme} {
                 border-left-color: $color;
             }
         }
     }
+
     &.bicon-checked:before {
         content: "\2713";
+        position: absolute;
+        top: 0.55em;
+        left: 0.05em;
     }
-    &.bicon-close:before,
-    &.bicon-times:before,
-    &.bicon-remove:before {
-        content: "\00D7";
+
+    &.bicon-close,
+    &.bicon-times,
+    &.bicon-remove {
+        &::before {
+            content: "\00D7";
+            position: absolute;
+            top: 0.35em;
+            left: 0.05em;
+            font-size: 1.5em;
+            line-height: 0;
+        }
     }
-    &.bicon-prev:before {
-        content: "\2039";
+
+    &.bicon-prev {
+        &::before {
+            position: absolute;
+            top: 0.1em;
+            left: 0.2em;
+            content: " ";
+            display: inline-block;
+            border-style: solid;
+            border-width: 0.4em 0.4em 0.4em 0;
+            border-top-color: transparent;
+            border-right-color: $body-color;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+
+            a:hover & {
+                border-right-color: $link-color;
+            }
+        }
     }
-    &.bicon-next:before {
-        content: "\203A";
+
+    &.bicon-next {
+        &::before {
+            position: absolute;
+            top: 0.1em;
+            left: 0.3em;
+            content: " ";
+            display: inline-block;
+            border-style: solid;
+            border-width: 0.4em 0 0.4em 0.4em;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color:  $body-color;
+            a:hover & {
+                border-left-color:  $link-color;
+            }
+        }
     }
+
+    &.bicon-sort {
+        &::before {
+            position: absolute;
+            top: 0.1em;
+            left: 0.05em;
+            content: " ";
+            display: inline-block;
+            border-style: solid;
+            border-width: 0 0.4em 0.4em 0.4em;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: $gray-400;
+            border-left-color: transparent;
+        }
+
+        &.bicon-sort-asc::before {
+            border-bottom-color: $body-color;
+        }
+
+        &::after {
+            position: absolute;
+            top: 0.6em;
+            left: 0.05em;
+            content: " ";
+            display: inline-block;
+            border-style: solid;
+            border-width: 0.4em 0.4em 0 0.4em;
+            border-top-color: $gray-400;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+        }
+        &.bicon-sort-desc::after {
+            border-top-color: $body-color;
+        }
+    }
+
 }
