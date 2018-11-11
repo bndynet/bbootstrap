@@ -61,10 +61,14 @@ Default English, you can define your languages as below:
 bb.defineLang('zh-CN', {
     ok: '确定',
     cancel: '取消',
+    yes: '是',
+    no: '否',
+    browse: '浏览'
 });
 bb.setup({
     locale: 'zh-CN',
 });
+console.log(bb.langs.default); // print default and you can overwrite them using above code
 ```
 
 Below is available options, you can override them via `bb.setup({})`.

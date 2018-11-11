@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.6.2
+ * @bndynet/bbootstrap v1.6.3pre
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -49235,7 +49235,7 @@ if (window) {
 
 // setup
 bb = bbootstrap = {
-    version: '1.6.2',
+    version: '1.6.3pre',
     options: {
         locale: 'en-US',
         datetimeFormat: 'YYYY-MM-DD H:mm',
@@ -49248,6 +49248,7 @@ bb = bbootstrap = {
             cancel: 'Cancel',
             yes: 'Yes',
             no: 'No',
+            browse: 'Browse'
         },
         get: function(locale) {
             var $this = this;
@@ -49284,6 +49285,16 @@ bb = bbootstrap = {
     defineLang: function(locale, value) {
         var $this = this;
         $this.langs.define(locale, value);
+    },
+    attachStyles: function(styles) {
+        var elStyle;
+        if ($('style[origin=bbootstrap]').length > 0) {
+            elStyle = $($('style[origin=bbootstrap]')[0]);
+        } else {
+            elStyle = $('<style origin="bbootstrap">/* placeholder for bbootstrap */</style>');
+            $('head').append(elStyle);
+        }
+        elStyle.html(elStyle.html() + '\n' + styles);
     },
     setup: function (options) {
         var $this = this;
@@ -49370,6 +49381,7 @@ bb = bbootstrap = {
             });
 
             // file input
+            bb.attachStyles('.custom-file-label:after {content:"' + lang.browse + '";}');
             $('body').on('change', '.custom-file-input', function () {
                 var eleFile = $(this)[0];
                 var eleLabel = $(eleFile).next();
