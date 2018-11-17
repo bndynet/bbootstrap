@@ -97,6 +97,10 @@ Below is available options, you can override them via `bb.setup({})`.
 
 ## Changelog
 
+### v1.6.3
+
+- Supports to customize file input button text in language
+
 ### v1.6.2
 
 - Add new icons

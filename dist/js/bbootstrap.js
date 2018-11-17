@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v1.6.3pre
+ * @bndynet/bbootstrap v1.6.3
  * A set based on Bootstrap 4 with jQuery, popper.js, font-awesome, animate.css and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -49235,7 +49235,7 @@ if (window) {
 
 // setup
 bb = bbootstrap = {
-    version: '1.6.3pre',
+    version: '1.6.3',
     options: {
         locale: 'en-US',
         datetimeFormat: 'YYYY-MM-DD H:mm',
