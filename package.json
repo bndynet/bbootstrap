@@ -5,11 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "deploy-docs": "ts-node tools/gh-pages-publish"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bndynet/bbootstrap.git"
+    "url": "https://github.com/bndynet/bbootstrap.git"
   },
   "keywords": [
     "jQuery",
@@ -48,6 +55,8 @@
     "popper.js": "^1.14.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^7.3.2",
+    "@semantic-release/git": "^7.0.8",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
@@ -62,6 +71,14 @@
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
-    "node-sass": "^4.9.0"
+    "husky": "^1.3.1",
+    "node-sass": "^4.9.0",
+    "semantic-release": "^15.13.3",
+    "ts-node": "^8.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
