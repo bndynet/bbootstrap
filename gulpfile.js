@@ -15,7 +15,7 @@ var paths = {
     scripts: 'src/js/**/*.js',
     images: 'src/img/**/*',
     styles: 'src/scss/*.scss',
-    fontFiles: ['node_modules/font-awesome/fonts/*'],
+    fontFiles: ['node_modules/font-awesome/fonts/*', 'fonts/*'],
 };
 
 var comment = '/*\n' +

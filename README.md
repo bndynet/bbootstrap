@@ -1,16 +1,16 @@
 
-    ,-----.   ,--.  ,--. ,------. ,--.   ,--.     ,--.  ,--. ,------. ,--------. 
-    |  |) /_  |  ,'.|  | |  .-.  \ \  `.'  /      |  ,'.|  | |  .---' '--.  .--' 
-    |  .-.  \ |  |' '  | |  |  \  : '.    /       |  |' '  | |  `--,     |  |    
-    |  '--' / |  | `   | |  '--'  /   |  |   .--. |  | `   | |  `---.    |  |    
-    `------'  `--'  `--' `-------'    `--'   '--' `--'  `--' `------'    `--'    
+    ,-----.   ,--.  ,--. ,------. ,--.   ,--.     ,--.  ,--. ,------. ,--------.
+    |  |) /_  |  ,'.|  | |  .-.  \ \  `.'  /      |  ,'.|  | |  .---' '--.  .--'
+    |  .-.  \ |  |' '  | |  |  \  : '.    /       |  |' '  | |  `--,     |  |
+    |  '--' / |  | `   | |  '--'  /   |  |   .--. |  | `   | |  `---.    |  |
+    `------'  `--'  `--' `-------'    `--'   '--' `--'  `--' `------'    `--'
 
 # Bbootstrap
 
 [![npm](https://img.shields.io/npm/v/@bndynet/bbootstrap.svg)](https://www.npmjs.com/package/@bndynet/bbootstrap)
 [![npm](https://img.shields.io/npm/dt/@bndynet/bbootstrap.svg)](https://www.npmjs.com/package/@bndynet/bbootstrap)
 
-A set which includes some useful components. 
+A set which includes some useful components.
 [Demo](https://bndynet.github.io/bbootstrap/)
 
 ## Components
@@ -90,12 +90,16 @@ Below is available options, you can override them via `bb.setup({})`.
     // Below is for enabling page loading progress bar for ajax, document and all events
     progressBar: {
         theme: 'primary|secondary|success|info|warning|danger|dark|light',  // theme in bootstrap, or
-        color:  '#ff0000',  
+        color:  '#ff0000',
     },
 }
 ```
 
 ## Changelog
+
+### v1.6.4
+
+- New style `.text-placeholder` to hide real text - [Demo](https://bndynet.github.io/bbootstrap/#text-placeholder)
 
 ### v1.6.3
 

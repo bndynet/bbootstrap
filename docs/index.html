@@ -76,7 +76,7 @@
             right: 1rem;
             top: 1rem;
         }
-        
+
     </style>
     <script>
         function encodeHtml(s) {
@@ -306,6 +306,13 @@
                 </span>
                 <span class="hidden-mini badge badge-light pull-right">1.4.0</span>
             </a>
+            <a class="list-group-item list-group-item-action" href="#text-placeholder">
+                <i class="fa fa-css3 fa-fw"></i>
+                <span class="hidden-mini">
+                    Text Placeholder
+                </span>
+                <span class="hidden-mini badge badge-light pull-right">1.6.4</span>
+            </a>
             <a class="list-group-item list-group-item-action" href="#tooltip">
                 <i class="fa fa-code fa-fw"></i>
                 <span class="hidden-mini">
@@ -429,12 +436,12 @@
             <pre><code class="javascript"></code></pre>
             <script>
                 var cascadeSelectData = [
-                    { id: 1, name: 'A', }, 
-                    { id: 2, name: 'AA', 
-                        children: [ { id: 21, name: 'AA-B1', }, { id: 22, name: 'AA-B2' }]}, 
-                    { id: 3, name: 'AAA', 
-                        children: [ { id: 31, name: 'AAA-B', }, { id: 32, name: 'AAA-BB', 
-                            children: [ { id: 321, name: 'AAA-BB-C', }, { id: 322, name: 'AAA-BB-C1' }], 
+                    { id: 1, name: 'A', },
+                    { id: 2, name: 'AA',
+                        children: [ { id: 21, name: 'AA-B1', }, { id: 22, name: 'AA-B2' }]},
+                    { id: 3, name: 'AAA',
+                        children: [ { id: 31, name: 'AAA-B', }, { id: 32, name: 'AAA-BB',
+                            children: [ { id: 321, name: 'AAA-BB-C', }, { id: 322, name: 'AAA-BB-C1' }],
                         }]}
                 ];
                 var ddl1 = $('#cascade-select #c1').cascadeSelect(cascadeSelectData, {
@@ -1352,6 +1359,19 @@
                 </div>
             </div>
             <pre><code class="html"></code></pre>
+        </section>
+
+        <section id="text-placeholder">
+            <h2>Text Placeholder</h2>
+            <div class="jumbotron text-placeholder">
+                <h1 class="display-4">Hello, world!</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <hr class="my-4">
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <p class="lead">
+                  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                </p>
+            </div>
         </section>
 
         <section id="tooltip">
