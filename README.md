@@ -16,15 +16,15 @@ A set which includes some useful components.
 ## Components
 
 - [jQuery](http://jquery.com/) 3.3.1
-- [popper.js](https://popper.js.org/) 1.14.3
-- [bootstrap](http://getbootstrap.com) 4.1.1
-- [Lodash](https://lodash.com/) 4.17.10
+- [popper.js](https://popper.js.org/) 1.14.7
+- [bootstrap](http://getbootstrap.com) 4.3.1
+- [Lodash](https://lodash.com/) 4.17.11
 - [momentjs](https://momentjs.com) 2.22.2 without locales
 - [font-awesome](https://fontawesome.com/) 4.7.0
 - [jslib](https://github.com/bndynet/jslib) v2.0.0
 - [pace.js](https://github.com/HubSpot/pace) v1.0.2
 
-Note: You can use the above components in your project directly. So don't need include them.
+Note: You can use the above components in your project directly. So don't need include them. If you need [moment locales](http://momentjs.com/downloads/moment-with-locales.min.js) support, you should add library to your website.
 
 ## Quick start
 
@@ -42,8 +42,8 @@ Note: You can use the above components in your project directly. So don't need i
 bb.toggleLeftSide();
 bb.toggleRightSide();
 bb.alert('');
-bb.confirm('', function(val){} [, function(){}]);
-bb.prompt('', function(){});
+bb.confirm('', function(){} [, function(){}]);
+bb.prompt('', function(val){});
 bb.info('');
 bb.success('');
 bb.error('');

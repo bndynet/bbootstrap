@@ -2,7 +2,9 @@
 //=require popper.js/dist/umd/popper.js
 //=require bootstrap/dist/js/bootstrap.js
 //=require lodash/lodash.min.js
+if (!moment) {
 //=require moment/min/moment.min.js
+}
 //=require jquery-datetimepicker/build/jquery.datetimepicker.full.min.js
 //=require @bndynet/jslib/dist/jslib.min.js
 //=require _jq.js
