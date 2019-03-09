@@ -96,6 +96,10 @@ Below is available options, you can override them via `bb.setup({})`.
 
 ## Changelog
 
+### v2.0.0
+
+- Remove locales of moment.js and animate.css as option
+
 ### v1.6.4
 
 - New style `.text-placeholder` to hide real text - [Demo](https://bndynet.github.io/bbootstrap/#text-placeholder)
