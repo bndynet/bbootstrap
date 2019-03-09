@@ -19,9 +19,8 @@ A set which includes some useful components.
 - [popper.js](https://popper.js.org/) 1.14.3
 - [bootstrap](http://getbootstrap.com) 4.1.1
 - [Lodash](https://lodash.com/) 4.17.10
-- [momentjs](https://momentjs.com) 2.22.2
+- [momentjs](https://momentjs.com) 2.22.2 without locales
 - [font-awesome](https://fontawesome.com/) 4.7.0
-- [animate.css](https://daneden.github.io/animate.css/) 3.6.1
 - [jslib](https://github.com/bndynet/jslib) v2.0.0
 - [pace.js](https://github.com/HubSpot/pace) v1.0.2
 
