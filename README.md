@@ -96,6 +96,10 @@ Below is available options, you can override them via `bb.setup({})`.
 
 ## Changelog
 
+### v2.1.0
+
+- New component: Pin element on window top when scroll the element position `$('#id').pinTopOnScroll([resolve, reject])`
+
 ### v2.0.0
 
 - Remove locales of moment.js and animate.css as option

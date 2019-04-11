@@ -36,3 +36,9 @@ $font-size-base: 0.9rem;
 .loading-wrapper {
     z-index: 9999;
 }
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}

@@ -237,6 +237,14 @@
                 </span>
                 <span class="hidden-mini badge badge-light pull-right">1.0.1</span>
             </a>
+            <a class="list-group-item list-group-item-action" href="#fixTopOnScroll">
+                <i class="fa fa-code fa-fw"></i>
+                <span class="hidden-mini">
+                    Fixed Top on Scroll
+                </span>
+                <span class="hidden-mini badge badge-light pull-right">2.1.0</span>
+            </a>
+
             <a class="list-group-item list-group-item-action" href="#icons-without-fonts">
                 <i class="fa fa-css3 fa-fw"></i>
                 <span class="hidden-mini">
@@ -947,6 +955,11 @@
             <pre><code class="html"></code></pre>
         </section>
 
+        <section id="fixTopOnScroll">
+            <h2>Fixed Top on Scroll</h2>
+            <pre><code class="html">bb.fixTopOnScroll('#header'); // or bb.pinTopOnScroll('#header');</code></pre>
+        </section>
+
         <section id="icons-without-fonts">
             <h2>Icons without Fonts</h2>
             <div>
@@ -1475,6 +1488,9 @@
             if (el.readOnly) el.checked = el.readOnly = false;
             else if (!el.checked) el.readOnly = el.indeterminate = true;
         }
+        $(function() {
+            bb.scrollToFix('section > h2', '.main');
+        });
     </script>
 </body>
 

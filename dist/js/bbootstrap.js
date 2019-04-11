@@ -17592,19 +17592,19 @@ $.fn.extend({
                 break;
 
             case 'circle':
-                htmlLoading = '<div class="loading ' + theme + ' loading-circle">' + 
-                    '<div class="child1 loading-circle-child"></div>' + 
-                    '<div class="child2 loading-circle-child"></div>' + 
-                    '<div class="child3 loading-circle-child"></div>' + 
-                    '<div class="child4 loading-circle-child"></div>' + 
-                    '<div class="child5 loading-circle-child"></div>' + 
-                    '<div class="child6 loading-circle-child"></div>' + 
-                    '<div class="child7 loading-circle-child"></div>' + 
-                    '<div class="child8 loading-circle-child"></div>' + 
-                    '<div class="child9 loading-circle-child"></div>' + 
-                    '<div class="child10 loading-circle-child"></div>' + 
-                    '<div class="child11 loading-circle-child"></div>' + 
-                    '<div class="child12 loading-circle-child"></div>' + 
+                htmlLoading = '<div class="loading ' + theme + ' loading-circle">' +
+                    '<div class="child1 loading-circle-child"></div>' +
+                    '<div class="child2 loading-circle-child"></div>' +
+                    '<div class="child3 loading-circle-child"></div>' +
+                    '<div class="child4 loading-circle-child"></div>' +
+                    '<div class="child5 loading-circle-child"></div>' +
+                    '<div class="child6 loading-circle-child"></div>' +
+                    '<div class="child7 loading-circle-child"></div>' +
+                    '<div class="child8 loading-circle-child"></div>' +
+                    '<div class="child9 loading-circle-child"></div>' +
+                    '<div class="child10 loading-circle-child"></div>' +
+                    '<div class="child11 loading-circle-child"></div>' +
+                    '<div class="child12 loading-circle-child"></div>' +
                     '</div>';
                 break;
         }
@@ -17626,11 +17626,43 @@ $.fn.extend({
         $(this).tooltip('show');
     },
 
+    pinTopOnScroll: function(resolve, reject) {
+        var fixableElements = [];
+        var fixableElementTops = [];
+        $(this).each(function() {
+            fixableElements.push($(this));
+            fixableElementTops.push($(this).offset().top);
+            $(window).scroll(function() {
+                var offsetY = window.pageYOffset;
+                for(var index = 0; index < fixableElementTops.length; index++) {
+                    if (offsetY > fixableElementTops[index]) {
+                        if (!$(fixableElements[index]).hasClass('fixed-top')) {
+                            $(fixableElements[index]).addClass('fixed-top');
+                            $(fixableElements[index]).next().css('padding-top',
+                                $(fixableElements[index]).outerHeight(true));
+                            if (typeof resolve === 'function') {
+                                resolve();
+                            }
+                        }
+                    } else {
+                        if ($(fixableElements[index]).hasClass('fixed-top')) {
+                            $(fixableElements[index]).removeClass('fixed-top');
+                            $(fixableElements[index]).next().css('padding-top', 0);
+                            if (typeof reject === 'function') {
+                                reject();
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    },
+
     /**
      * Render a cascade Select components.
      * @param {Array} data - the array with children
      * @param {Object} options - the options
-     * @example 
+     * @example
      * var ddl = $('#id').cascadeSelect([{id, name, children}], {
      *      mappings: [
      *          {label: '', css: '', valueProperty: '', textProperty: '', selectedValue: '', childProperty: ''},
@@ -17707,7 +17739,7 @@ $.fn.extend({
                     selectedObjects[selectConfig.index] = null;
                 }
                 changeSelect(selectConfig);
-                
+
                 if (options.onChange) {
                     options.onChange(getValues(), $(this), selectConfig);
                 }
@@ -18667,6 +18699,12 @@ bb = bbootstrap = {
             return;
         }
         $('body').addClass('has-overlay').bloading();
+    },
+    fixTopOnScroll: function(selector, resolve, reject) {
+        this.pinTopOnScroll(selector, resolve, reject);
+    },
+    pinTopOnScroll: function(selector, resolve, reject) {
+       $(selector).pinTopOnScroll(resolve, reject);
     },
 
     // private functions

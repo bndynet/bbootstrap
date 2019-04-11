@@ -226,6 +226,12 @@ bb = bbootstrap = {
         }
         $('body').addClass('has-overlay').bloading();
     },
+    fixTopOnScroll: function(selector, resolve, reject) {
+        this.pinTopOnScroll(selector, resolve, reject);
+    },
+    pinTopOnScroll: function(selector, resolve, reject) {
+       $(selector).pinTopOnScroll(resolve, reject);
+    },
 
     // private functions
     _getElementDataOptions: function(jqEl) {
