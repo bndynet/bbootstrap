@@ -29,8 +29,9 @@ Note: You can use the above components in your project directly. So don't need i
 ## Quick start
 
 ```html
-<link rel="stylesheet" href="dist/css/bbootstrap.min.css">
-<script src="dist/js/bbootstrap.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@bndynet/bbootstrap/dist/css/bbootstrap.min.css">
+<script src="https://unpkg.com/@bndynet/bbootstrap/dist/js/bbootstrap.min.js"></script>
+
 <script>
     bb.setup();
 </script>
