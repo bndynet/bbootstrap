@@ -1,0 +1,38 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/font-awesome/scss/font-awesome";
+@import "node_modules/jquery-datetimepicker/jquery.datetimepicker";
+
+@import "common";
+@import "keyframes";
+@import "bootstrap";
+@import "icons";
+@import "shadow";
+
+@import "text";
+@import "card";
+@import "link";
+@import "block";
+@import "visual";
+@import "status";
+@import "loading";
+@import "overlay";
+@import "checkbox";
+@import "tags";
+@import "workflow";
+
+@import "alertify";
+@import "pace";
+@import "select";
+@import "dialog";
+
+@import "layout";
+
+.loading-wrapper {
+    z-index: 9999;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
