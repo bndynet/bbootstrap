@@ -8,6 +8,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var include = require('gulp-include');
 var banner = require('gulp-banner');
 var babel = require('gulp-babel');
+var rename = require("gulp-rename");
 var del = require('del');
 var replace = require('gulp-replace');
 
@@ -78,9 +79,8 @@ gulp.task('scripts', ['cleanScripts'], function () {
 });
 
 gulp.task('styles', ['cleanStyles'], function () {
-    return gulp.src(paths.styles)
+    return gulp.src('src/scss/bbootstrap*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(concat('bbootstrap.css'))
         .pipe(banner(comment, {
             pkg: pkg
         }))
@@ -92,9 +92,8 @@ gulp.task('styles', ['cleanStyles'], function () {
             console.log(`${details.name}: ${details.stats.originalSize}`);
             console.log(`${details.name}: ${details.stats.minifiedSize}`);
         }))
-        .pipe(concat('bbootstrap.min.css'))
-        .pipe(banner(comment, {
-            pkg: pkg
+        .pipe(rename({
+            extname: ".min.css"
         }))
         .pipe(gulp.dest('dist/css'))
         .pipe(gulp.dest('docs/css'));
