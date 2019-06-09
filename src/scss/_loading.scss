@@ -80,7 +80,8 @@
         &>div {
             width: 1em;
             height: 1em;
-            background-color: #333;
+            margin: 0 2px;
+            background-color: $body-color;
             border-radius: 100%;
             display: inline-block;
             -webkit-animation: kf-loading-bounce 1.4s infinite ease-in-out both;
@@ -97,7 +98,7 @@
         height: 40px;
         font-size: 10px;
         &>div {
-            background-color: #333;
+            background-color: $body-color;
             height: 100%;
             width: 6px;
             margin-right: 0.5em;
@@ -128,7 +129,7 @@
                 margin: 0 auto;
                 width: 15%;
                 height: 15%;
-                background-color: #333;
+                background-color: $body-color;
                 border-radius: 100%;
                 -webkit-animation: kf-loading-circle 1.2s infinite ease-in-out both;
                 animation: kf-loading-circle 1.2s infinite ease-in-out both;
@@ -148,15 +149,15 @@
     }
 }
 .loading-wrapper {
-    background-color: rgba($white, 0.8);
+    background-color: rgba($body-bg, 0.8);
 }
 
 body > .loading-wrapper {
-    background-color: rgba($white, 0.5);
+    background-color: rgba($body-bg, 0.5);
 }
 
 @mixin loading-variant($theme, $color) {
-    .loading { 
+    .loading {
         &.loading-#{$theme} {
             &.loading-bounce,
             &.loading-bounce-rectangle {
