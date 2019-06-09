@@ -1,0 +1,24 @@
+// variable overrides
+// more options can be found at https://getbootstrap.com/docs/4.3/getting-started/theming/#sass-options
+$body-bg: #303030;
+$body-color: #ffffff;
+$input-color: #ffffff;
+$input-bg: #424242;
+$font-size-base: 0.9rem;
+$jumbotron-bg: $input-bg;
+$modal-content-bg: lighten($body-bg, 20%);
+$list-group-bg: $body-bg;
+$list-group-action-active-bg: ligthen($body-bg, 10%);
+$list-group-hover-bg: ligthen($body-bg, 10%);
+$list-group-action-color: ligthen($body-bg, 10%);
+$theme-colors: (
+    "primary": #4285f4,
+    "secondary": #a6c,
+    "success": #00c851,
+    "info": #33b5e5,
+    "warning": #fb3,
+    "danger": #ff3547,
+    // "light": , "dark": ,
+);
+
+@import "shared";

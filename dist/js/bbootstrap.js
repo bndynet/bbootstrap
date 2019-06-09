@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v2.1.1
+ * @bndynet/bbootstrap v2.2.0-alpha
  * A set based on Bootstrap 4 with jQuery, popper.js, moment.js, font-awesome and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -18489,7 +18489,7 @@ if (window) {
 
 // setup
 bb = bbootstrap = {
-    version: '2.1.1',
+    version: '2.2.0-alpha',
     options: {
         locale: 'en-US',
         datetimeFormat: 'YYYY-MM-DD H:mm',

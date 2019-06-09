@@ -12,7 +12,7 @@
     }
     &::before {
         height: 100%;
-        background-color: rgba($color: #ffffff, $alpha: 0.9);
+        background-color: rgba($color: $body-bg, $alpha: 0.9);
     }
     &::after {
         top: calc(50% - 1em);

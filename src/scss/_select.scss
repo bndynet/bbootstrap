@@ -1,7 +1,8 @@
 // Default variables
 .b-select {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: #fff;
+    color: $input-color;
+    background-color: $input-bg;
     border-radius: $input-border-radius;
     border: solid 1px $input-border-color;
     box-sizing: border-box;
@@ -80,6 +81,7 @@
         display: block;
     }
     &.multiple {
+        padding-left: 0.375rem;
         .current {
             overflow: hidden;
             text-overflow: ellipsis;
@@ -87,7 +89,7 @@
                 &.item {
                     display: inline-block;
                     color: $input-color;
-                    background-color: $gray-100;
+                    background-color: $body-bg;
                     padding: 0 5px;
                     margin-right: 5px;
                     border-radius: $border-radius;
@@ -112,7 +114,8 @@
         }
     }
     .list {
-        background-color: #fff;
+        color: $input-color;
+        background-color: $input-bg;
         border-radius: $input-border-radius;
         box-shadow: $dropdown-box-shadow;
         box-sizing: border-box;
@@ -142,17 +145,15 @@
         &:hover,
         &.focus,
         &.selected.focus {
-            background-color: $dropdown-link-hover-bg;
-            color: $dropdown-link-hover-color;
-            
+            background-color: $body-bg;
+
         }
         &.selected {
-            color: $dropdown-link-active-color;
-            background-color: $dropdown-link-active-bg;
+            background-color: $body-bg;
         }
         &.disabled {
             background-color: transparent;
-            color: $gray-400;
+            color: $custom-select-disabled-color;
             cursor: default;
         }
     }

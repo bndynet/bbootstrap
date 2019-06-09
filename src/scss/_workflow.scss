@@ -9,14 +9,15 @@ $default-color: $gray-600 !default;
             margin: 0;
             padding: 0.25em 0.5em;
             border: solid 2px $default-color;
-            background-color: #ffffff;
+            color: $input-color;
+            background-color: $input-bg;
         }
         .arrow {
             flex: 1;
             font-size: 12px;
             line-height: 12px;
             text-align: center;
-            position: relative; 
+            position: relative;
             top: -0.35em;
             color: rgba($body-color, 0.7);
             &:before {
@@ -34,7 +35,7 @@ $default-color: $gray-600 !default;
                 position: absolute;
                 right: 0;
                 content: "\027A4";
-                color: $default-color; 
+                color: $default-color;
                 top: 1em;
             }
         }

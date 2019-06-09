@@ -1,0 +1,19 @@
+// variable overrides
+// more options can be found at https://getbootstrap.com/docs/4.3/getting-started/theming/#sass-options
+$body-bg: #fff;
+$body-color: #333;
+$font-size-base: 0.9rem;
+$enable-rounded: true;
+$enable-shadows: true;
+$enable-responsive-font-sizes: true;
+$theme-colors: (
+    "primary": #4285f4,
+    "secondary": #a6c,
+    "success": #00c851,
+    "info": #33b5e5,
+    "warning": #fb3,
+    "danger": #ff3547,
+    // "light": , "dark": ,
+);
+
+@import "shared";
