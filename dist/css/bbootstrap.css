@@ -1,5 +1,5 @@
 /*
- * @bndynet/bbootstrap v2.2.0-alpha
+ * @bndynet/bbootstrap v2.2.0
  * A set based on Bootstrap 4 with jQuery, popper.js, moment.js, font-awesome and so on.
  * https://github.com/bndynet/bbootstrap#readme
  *
@@ -10653,7 +10653,8 @@ i.bicon {
     .loading.loading-bounce > div {
       width: 1em;
       height: 1em;
-      background-color: #333;
+      margin: 0 2px;
+      background-color: #212529;
       border-radius: 100%;
       display: inline-block;
       -webkit-animation: kf-loading-bounce 1.4s infinite ease-in-out both;
@@ -10668,7 +10669,7 @@ i.bicon {
     height: 40px;
     font-size: 10px; }
     .loading.loading-bounce-rectangle > div {
-      background-color: #333;
+      background-color: #212529;
       height: 100%;
       width: 6px;
       margin-right: 0.5em;
@@ -10703,7 +10704,7 @@ i.bicon {
         margin: 0 auto;
         width: 15%;
         height: 15%;
-        background-color: #333;
+        background-color: #212529;
         border-radius: 100%;
         -webkit-animation: kf-loading-circle 1.2s infinite ease-in-out both;
         animation: kf-loading-circle 1.2s infinite ease-in-out both; }
@@ -10884,13 +10885,11 @@ body > .overlay {
       position: absolute;
       width: 1em;
       height: 1em;
-      left: 0.1em;
-      top: 0.175em;
-      margin-left: -1.875em;
-      padding-left: 0;
-      padding-top: 0;
-      font-size: 0.8em;
-      color: #495057; }
+      left: 0;
+      top: 0;
+      margin-left: -1.5em;
+      color: #495057;
+      text-align: center; }
   .checkbox input[type="checkbox"],
   .checkbox input[type="radio"] {
     position: absolute;
@@ -10905,8 +10904,7 @@ body > .overlay {
       outline-offset: -2px; }
     .checkbox input[type="checkbox"]:checked + label::after,
     .checkbox input[type="radio"]:checked + label::after {
-      font-family: "FontAwesome";
-      content: "";
+      content: "✓";
       animation-name: bounceIn;
       -webkit-animation-duration: 0.5s;
       animation-duration: 0.5s;
@@ -10916,12 +10914,12 @@ body > .overlay {
     .checkbox input[type="radio"]:indeterminate + label::after {
       display: block;
       content: "";
-      width: 0.8em;
-      height: 3px;
-      background-color: #555555;
-      border-radius: 2px;
-      margin-left: -1.7em;
-      margin-top: 0.3em; }
+      width: 0.6em;
+      height: 2px;
+      background-color: #212529;
+      border-radius: 1px;
+      margin-left: -1.3em;
+      margin-top: calc(0.5em - 1px); }
     .checkbox input[type="checkbox"]:disabled + label,
     .checkbox input[type="radio"]:disabled + label {
       opacity: 0.65; }

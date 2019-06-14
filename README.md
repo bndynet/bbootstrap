@@ -37,6 +37,11 @@ Note: You can use the above components in your project directly. So don't need i
 </script>
 ```
 
+Below are available themes, you can use one of them instead of **bbootstrap.min.css**.
+
+- bbootstrap-dark.min.css
+- bbootstrap-meterail.min.css
+
 ### Application Utils
 
 ```javascript
@@ -71,7 +76,7 @@ bb.setup({
 console.log(bb.langs.default); // print default and you can overwrite them using above code
 ```
 
-Below is available options, you can override them via `bb.setup({})`.
+Below are available options, you can override them via `bb.setup({})`.
 
 ```js
 {
@@ -96,6 +101,11 @@ Below is available options, you can override them via `bb.setup({})`.
 ```
 
 ## Changelog
+
+### v2.2.0
+
+- Refactor style code to support custom themes
+- Add dark theme
 
 ### v2.1.0
 
