@@ -1,6 +1,7 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/font-awesome/scss/font-awesome";
 @import "node_modules/jquery-datetimepicker/jquery.datetimepicker";
+@import "node_modules/@bndynet/pretty-check/src/pretty-check";
 
 @import "common";
 @import "keyframes";
@@ -16,7 +17,6 @@
 @import "status";
 @import "loading";
 @import "overlay";
-@import "checkbox";
 @import "tags";
 @import "workflow";
 
